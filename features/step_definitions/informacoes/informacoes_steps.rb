@@ -37,3 +37,32 @@ end
 Então("devo ver a mensagem de sucesso {string}") do |string|
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+Dado("escreva no campo {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("coloque o dia da semana") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("coloque as horas em que irá ocorrer o atendimento") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+Dado("digite um {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("digite uma {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("mude a {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("mude as {string}") do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
