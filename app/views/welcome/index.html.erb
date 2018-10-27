@@ -1,35 +1,168 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<div class="container-fluid">
+  <%= render "header" %>
+  <div class="header">
+      <div class="container" >
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <h1 class="pd-largex-t pd-medium-b mg-none text-white">
+                      <strong>
+                          ENCONTRE A VAGA IDEAL PARA VOCÊ, OU O PROFISSIONAL IDEAL PARA A SUA EMPRESA.
+                        
+                      </strong>
+                  </h1>
+                  <br>
+                  <a class="btn btn-danger" href="#" style="font-size:16px; word-wrap:break-word;">
+                        Encontrar Profissionais
+                        <span class="fa fa-search" style="font-size:1.5em;color:white;"></span>
+                  </a>
+                  <br><br><br>
+    
+              </div>
+              <div class="col-md-10 col-md-offset-1"  style="right: -70px;">
+                  <div class="search" style="align-content: center; ">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                  <input class="form-control" type="text" name="job" value="" placeholder="Buscar trabalhos">
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                  <input class="form-control" type="text" name="location" value="" placeholder="Localização">
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <button class="btn btn-primary btn-block">Encontrar Vagas</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="jobs">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 pd-largex-t pd-largex-b todas-vagas">
+                  <h4>Últimas vagas gerais</h4>
+                  <br>
+                  <a href="vaga.html" class="link-vaga">
+                      <div class="item col-md-12">
+                          <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                          </div>
+                          <div class="col-md-7">
+                              <h5><strong>Engenheiro</strong></h5>
+                              <h5 class="text-gray"><strong>Engesprop Engenharia LTDA</strong></h5>
+                          </div>
+                      </div>
+                  </a>
+                  <a href="vaga.html" class="link-vaga">
+                      <div class="item col-md-12">
+                          <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                          </div>
+                          <div class="col-md-7">
+                              <h5><strong>Engenheiro</strong></h5>
+                              <h5 class="text-gray"><strong>Engesprop Engenharia LTDA</strong></h5>
+                          </div>
+                      </div>
+                  </a>
+                  <a href="vaga.html" class="link-vaga">
+                      <div class="item col-md-12">
+                          <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                          </div>
+                          <div class="col-md-7">
+                              <h5><strong>Engenheiro</strong></h5>
+                              <h5 class="text-gray"><strong>Engesprop Engenharia LTDA</strong></h5>
+                          </div>
+                      </div>
+                  </a>
+                  <div class="mg-medium-v text-center loading loading-all">
+                      <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                  </div>
+                  <button class="btn btn-block btn-primary carregar-mais">Carregar mais vagas</button>
+              </div>
+              <div class="col-md-6 pd-largex-t vagas-ti">
+                  <h4>Últimas vagas</h4>
+                  <br>
+                  <a href="vaga.html" class="link-vaga">
+                      <div class="item col-md-12">
+                          <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                          </div>
+                          <div class="col-md-7">
+                              <h5><strong>Engenheiro</strong></h5>
+                              <h5 class="text-gray"><strong>Engesprop Engenharia LTDA</strong></h5>
+                          </div>
+                      </div>
+                  </a>
+                  <a href="vaga.html" class="link-vaga">
+                      <div class="item col-md-12">
+                          <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                          </div>
+                          <div class="col-md-7">
+                              <h5><strong>Engenheiro</strong></h5>
+                              <h5 class="text-gray"><strong>Engesprop Engenharia LTDA</strong></h5>
+                          </div>
+                      </div>
+                  </a>
+                  <a href="vaga.html" class="link-vaga">
+                      <div class="item col-md-12">
+                          <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                          </div>
+                          <div class="col-md-7">
+                              <h5><strong>Engenheiro</strong></h5>
+                              <h5 class="text-gray"><strong>Engesprop Engenharia LTDA</strong></h5>
+                          </div>
+                      </div>
+                  </a>
+                  <div class="mg-medium-v text-center loading loading-ti">
+                      <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                  </div>
+                  <button class="btn btn-block btn-success carregar-mais">Carregar mais vagas</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="info pd-largex-v overflow-fix ">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <h3 class="text-white light">ENCONTRE PROFISSIONAIS</h3>
+                  <h1 class="text-white extra">FANTÁSTICOS PARA A SUA EMPRESA</h1>
+                  <h3 class="text-white mg-large-b">Anuncie uma vaga e faça com que profissionais incrives façam parte da sua empresa</h3>
+                  <a href="cadastro-vaga.html" class="btn" style="padding:20px;background:rgb(10,200,30);font-size:16px;color:white;">
+            Anunciar Vaga</a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="footer pd-large">
+    </div>
+    <script type="text/javascript" src="js/move.js"></script>
+    <script type="text/javascript">
+      $('.carregar-mais').click(function() {
+          var item;
+          if ($(this).parent().hasClass('vagas-ti')) {
+              item = '.loading-ti';
+          } else {
+              item = '.loading';
+          }
+          move(item)
+              .set('opacity', '1')
+              .duration('3s')
+              .end(function() {
+                  move(item)
+                      .set('opacity', '0')
+                      .end();
+              });
+      });
+    </script>
+</div>
