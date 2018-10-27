@@ -9,8 +9,8 @@ Funcionalidade: criar_informacoes
   Cenario: Criar avisos
     Dado que eu seja um coordenador
     E esteja autenticado
-    E escreva no campo "Título"
-    E escreva no campo "Observação"
+    E escreva no campo (Título)
+    E escreva no campo (Observação)
     Quando eu clicar em "Criar aviso"
     Então devo ver a mensagem de sucesso "Aviso criado com sucesso"
 
@@ -27,7 +27,7 @@ Funcionalidade: criar_informacoes
   Cenario: Criar avisos
     Dado que eu seja um coordenador
     E esteja autenticado
-    E escreva no campo "Observação"
+    E escreva no campo (Observação)
     Quando eu clicar em "Criar aviso"
     Então devo ver a mensagem de sucesso "Erro ao criar aviso"
 
