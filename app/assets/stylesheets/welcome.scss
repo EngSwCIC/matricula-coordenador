@@ -217,9 +217,29 @@ label {
   font-size: 8px;
 }
 .header {
+  min-height: 30em;
   background: url('https://catracalivre.com.br/wp-content/uploads/2018/08/23176033380-f932ce6913-k.jpg');
   background-size: cover;
+  opacity: 0.9;
 }
+// .header:before {
+//   content: "";
+//   position: absolute;
+//   width : 100%;
+//   background: inherit;
+//   z-index: -1;
+
+//   filter        : blur(10px);
+//   -moz-filter   : blur(10px);
+//   -webkit-filter: blur(10px);
+//   -o-filter     : blur(10px);
+
+//   transition        : all 2s linear;
+//   -moz-transition   : all 2s linear;
+//   -webkit-transition: all 2s linear;
+//   -o-transition     : all 2s linear;
+
+// }
 .search {
   padding: 30px;
   background: #333;
@@ -493,3 +513,34 @@ btn,
 .overflow-fix {
   overflow-x: hidden;
 }
+
+
+// --------------------------------------------------- FOOTER
+
+footer {
+  top: 25%;
+   flex: 0 0 auto;
+   -webkit-flex: 0 0 auto;
+  color: white;
+  position: relative;
+  bottom: 0%;
+  width: 100%;
+}
+footer h3 {
+  margin-bottom: 0px;
+}
+footer .footer-above {
+  height: 100%;
+  background-color: #2C3E50;
+  padding-top: 50px;
+}
+footer .footer-col {
+  margin-bottom: 50px;
+}
+footer .footer-below {
+
+  padding: 25px 0;
+  background-color: #233140;
+}
+
+//-------------------------------------------------FIM FOOTER
