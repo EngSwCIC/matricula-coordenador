@@ -66,3 +66,27 @@ end
 Dado("mude as {string}") do |string|
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+Então("quero preencher um formulário de concessão de créditos") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("que eu esteja preenchendo um formulário") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então("quero anexar documentos ao formulário de concessão de créditos") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado("que o formulário não esteja autenticado") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então("quero editar um formulário de concessão de créditos não autenticado") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então("quero excluir um formulário de concessão de créditos não autenticado") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
