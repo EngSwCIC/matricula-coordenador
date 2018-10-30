@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if !Rails.env.production?
+  User.destroy_all
+  puts "Usuarios apagados"
+  u = User.create(email:"email@email.com", password:"aaa123")
+  u.add_role(:admin)
+  puts "Usuario email@email.com criado"
+end
