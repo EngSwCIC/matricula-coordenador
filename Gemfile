@@ -72,3 +72,6 @@ gem 'jquery-rails'
 
 # Devise
 gem 'devise'
+
+# Rolify
+gem "rolify"
