@@ -7,4 +7,11 @@ Rails.application.routes.draw do
   authenticated :user do
     get 'admins/backoffice' => 'admins#backoffice'
   end
+
+
+  authenticated :user do
+    namespace :admins do
+      resources :coordinators
+    end
+  end
 end
