@@ -18,6 +18,11 @@
       <% else %>
         <%= link_to  "Login", new_user_session_path, class: "nav-item nav-link" %>
       <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.has_role? :admin %>
+          <%= link_to  "Backoffice", admins_backoffice_path, class: "nav-item nav-link" %>
+        <% end %>
+      <% end %>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
     </div>
   </div>

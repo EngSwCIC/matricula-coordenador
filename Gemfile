@@ -75,3 +75,6 @@ gem 'devise'
 
 # Rolify
 gem "rolify"
+
+# Font-Awesome
+gem "font-awesome-rails"
