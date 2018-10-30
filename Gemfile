@@ -65,3 +65,7 @@ group :test do
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
 end
+
+# Bootstrap
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
