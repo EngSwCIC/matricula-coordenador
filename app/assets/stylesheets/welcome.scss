@@ -130,34 +130,6 @@ color: #363636;
 .text-primary {
   color: #06A !important;
 }
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../../../assets/fonts/montserrat/Montserrat-Regular.eot');
-  src: url('../../../assets/fonts/montserrat/Montserrat-Regular.eot?#iefix') format('embedded-opentype'), url('../../../assets/fonts/montserrat/Montserrat-Regular.woff') format('woff'), url('../../../assets/fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat Bold';
-  src: url('../../../assets/fonts/montserrat/Montserrat-Bold.eot');
-  src: url('../../../assets/fonts/montserrat/Montserrat-Bold.eot?#iefix') format('embedded-opentype'), url('../../../assets/fonts/montserrat/Montserrat-Bold.woff') format('woff'), url('../../../assets/fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat Semibold';
-  src: url('../../../assets/fonts/montserrat/Montserrat-SemiBold.eot');
-  src: url('../../../assets/fonts/montserrat/Montserrat-SemiBold.eot?#iefix') format('embedded-opentype'), url('../../../assets/fonts/montserrat/Montserrat-SemiBold.woff') format('woff'), url('../../../assets/fonts/montserrat/Montserrat-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat Light';
-  src: url('../../../assets/fonts/montserrat/Montserrat-Light.eot');
-  src: url('../../../assets/fonts/montserrat/Montserrat-Light.eot?#iefix') format('embedded-opentype'), url('../../../assets/fonts/montserrat/Montserrat-Light.woff') format('woff'), url('../../../assets/fonts/montserrat/Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
 body {
   font-family: 'Montserrat';
 }
@@ -290,7 +262,6 @@ label {
   border-radius: 50%;
 }
 .info {
-  background: url('../../../assets/images/info.jpg');
   background-size: cover;
 }
 .footer a {
@@ -544,3 +515,11 @@ footer .footer-below {
 }
 
 //-------------------------------------------------FIM FOOTER
+
+.header-texto-sobre{
+  font-size: 3em;
+  
+}
+.texto-sobre{
+  font-size: 1.5em;
+}

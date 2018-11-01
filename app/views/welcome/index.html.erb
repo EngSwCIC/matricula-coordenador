@@ -29,10 +29,10 @@
               <div class="col-md-6 pd-largex-t pd-largex-b todas-vagas">
                   <h4>Últimas Notícias</h4>
                   <br>
-                  <a href="vaga.html" class="link-vaga">
+                  <a href="#" class="link-vaga">
                       <div class="item col-md-12">
                           <div class="col-md-2 text-center">
-                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                              <img src="#" class="company-logo" alt="Nome da Empresa">
                           </div>
                           <div class="col-md-7">
                               <h5><strong>Bolsonaro</strong></h5>
@@ -40,10 +40,10 @@
                           </div>
                       </div>
                   </a>
-                  <a href="vaga.html" class="link-vaga">
+                  <a href="#" class="link-vaga">
                       <div class="item col-md-12">
                           <div class="col-md-2 text-center">
-                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                              <img src="#" class="company-logo" alt="Nome da Empresa">
                           </div>
                           <div class="col-md-7">
                               <h5><strong>Bolsonaro</strong></h5>
@@ -51,10 +51,10 @@
                           </div>
                       </div>
                   </a>
-                  <a href="vaga.html" class="link-vaga">
+                  <a href="#" class="link-vaga">
                       <div class="item col-md-12">
                           <div class="col-md-2 text-center">
-                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                              <img src="#" class="company-logo" alt="Nome da Empresa">
                           </div>
                           <div class="col-md-7">
                               <h5><strong>Bolsonaro</strong></h5>
@@ -70,10 +70,10 @@
               <div class="col-md-6 pd-largex-t vagas-ti">
                   <h4>Últimas Notícias</h4>
                   <br>
-                  <a href="vaga.html" class="link-vaga">
+                  <a href="#" class="link-vaga">
                       <div class="item col-md-12">
                           <div class="col-md-2 text-center">
-                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                              <img src="#" class="company-logo" alt="Nome da Empresa">
                           </div>
                           <div class="col-md-7">
                               <h5><strong>Haddad</strong></h5>
@@ -81,10 +81,10 @@
                           </div>
                       </div>
                   </a>
-                  <a href="vaga.html" class="link-vaga">
+                  <a href="#" class="link-vaga">
                       <div class="item col-md-12">
                           <div class="col-md-2 text-center">
-                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                              <img src="#" class="company-logo" alt="Nome da Empresa">
                           </div>
                           <div class="col-md-7">
                               <h5><strong>Haddad</strong></h5>
@@ -92,10 +92,10 @@
                           </div>
                       </div>
                   </a>
-                  <a href="vaga.html" class="link-vaga">
+                  <a href="#" class="link-vaga">
                       <div class="item col-md-12">
                           <div class="col-md-2 text-center">
-                              <img src="../../../assets/images/no-foto.png" class="company-logo" alt="Nome da Empresa">
+                              <img src="#" class="company-logo" alt="Nome da Empresa">
                           </div>
                           <div class="col-md-7">
                               <h5><strong>Haddad</strong></h5>
@@ -115,31 +115,12 @@
       <div class="container">
           <div class="row">
               <div class="col-md-12 text-center">
-                <h1>SOBRE</h1>
-                <p>O sistema se resume em faciltar tanta o aluno quanto o coordenador com relação ao atendimento durante o período de matrículas. Nele será possível que o aluno, ao se autenticar, possa entrar em uma fila para atendimento, em que essa será automatizada visando priorizar a ordem pedida pela universidade, como: Aluno em condição, Aluno com atendimento especial, entre outros.</p>
+                <h1 class="header-texto-sobre">SOBRE</h1>
+                <p class="texto-sobre">O sistema se resume em faciltar tanto o aluno quanto o coordenador com relação ao atendimento durante o período de matrículas. Nele será possível que o aluno, ao se autenticar, possa entrar em uma fila para atendimento, em que essa será automatizada visando priorizar a ordem pedida pela universidade, como: Aluno em condição, Aluno com atendimento especial, entre outros.</p>
                   
               </div>
           </div>
       </div>
     </div>
     <%=render "footer"%>
-    <script type="text/javascript" src="js/move.js"></script>
-    <script type="text/javascript">
-      $('.carregar-mais').click(function() {
-          var item;
-          if ($(this).parent().hasClass('vagas-ti')) {
-              item = '.loading-ti';
-          } else {
-              item = '.loading';
-          }
-          move(item)
-              .set('opacity', '1')
-              .duration('3s')
-              .end(function() {
-                  move(item)
-                      .set('opacity', '0')
-                      .end();
-              });
-      });
-    </script>
 </div>
