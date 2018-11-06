@@ -69,3 +69,12 @@ end
 # Bootstrap
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+
+# Devise
+gem 'devise'
+
+# Rolify
+gem "rolify"
+
+# Font-Awesome
+gem "font-awesome-rails"
