@@ -7,6 +7,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Nome</th>
             <th>Email</th>
             <th colspan="3"></th>
           </tr>
@@ -17,8 +18,13 @@
             <% @coordinators.each do |coordinator| %>
               <tr>
                 <td>
+                  <%= coordinator.name %>
+                </td>
+
+                <td>
                   <%= coordinator.email %>
                 </td>
+                
                 <td>
                   <%= link_to 'Editar', edit_admins_coordinator_path(coordinator), class: "btn btn-sm btn-primary" %>
                 </td>
