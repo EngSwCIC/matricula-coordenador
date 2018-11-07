@@ -7,7 +7,6 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Nome</th>
             <th>Email</th>
             <th colspan="3"></th>
           </tr>
@@ -17,9 +16,6 @@
           <% unless @coordinators.nil? %>
             <% @coordinators.each do |coordinator| %>
               <tr>
-                <td>
-                  <%= coordinator.name %>
-                </td>
                 <td>
                   <%= coordinator.email %>
                 </td>

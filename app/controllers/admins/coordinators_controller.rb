@@ -3,7 +3,7 @@ class Admins::CoordinatorsController < AdminsController
   # GET /coordinators
   # GET /coordinators.json
   def index
-    @coordinators = User.with_role(:coordinator) 
+    @coordinators = User.with_role(:coordinator)
   end
 
   def new
@@ -16,7 +16,7 @@ class Admins::CoordinatorsController < AdminsController
     respond_to do |format|
       if @coordinator.save
         @coordinator.add_role :coordinator
-        format.html { redirect_to admin_coordinators_path, notice: 'coordinator was successfully created.' }
+        format.html { redirect_to admins_coordinators_path, notice: 'coordinator was successfully created.' }
         format.json { render :show, status: :created, location: @coordinator }
       else
         format.html { render :new }
@@ -33,6 +33,6 @@ class Admins::CoordinatorsController < AdminsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coordinator_params
-      params.require(:coordinator).permit(:name, :email, :password)
+      params.require(:user).permit(:email, :password)
     end
 end
