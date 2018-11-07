@@ -3,7 +3,7 @@
 	<hr class="divider">
 
 	<div class="card-body">
-		<%= render 'form'%>
+		<%= render partial: "form", locals: { aux: admins_coordinator_path } %>
   </div>
 
 	<%# link_to 'Mostrar', @coordinator %>
