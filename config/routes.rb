@@ -14,4 +14,8 @@ Rails.application.routes.draw do
       resources :coordinators
     end
   end
+
+  # Credit forms routes
+  resources :credit_forms
+  #get 'credit_forms/new', to: 'credit_forms#new'
 end
