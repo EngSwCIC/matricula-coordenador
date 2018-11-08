@@ -1,4 +1,4 @@
-<%= form_for([:admins, @coordinator]) do |f| %>
+<%= form_for @coordinator, url: aux do |f| %>
   <% if @coordinator.errors.any? %>
     <div class="alert alert-warning">
       <h5>Opa, temos alguns problemas:</h5>
@@ -27,8 +27,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit class: "btn btn-success" %>
+    <%= f.submit 'Criar Coordenador', class: "btn btn-success" %>
     <span>&nbsp;|&nbsp;</span>
-    <%= link_to "Voltar", admins_coordinator_path, class: "btn btn-primary" %>
+    <%= link_to "Voltar", admins_coordinators_path, class: "btn btn-primary" %>
   </div>
 <% end %>
