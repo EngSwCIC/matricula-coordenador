@@ -1,0 +1,525 @@
+.pd-none {
+  padding: 0;
+}
+.pd-mini {
+  padding: 5px;
+}
+.pd-mini-h {
+  padding: 0 5px;
+}
+.pd-mini-v {
+  padding: 5px 0;
+}
+.pd-medium {
+  padding: 15px;
+}
+.pd-medium-h {
+  padding: 0 15px;
+}
+.pd-medium-v {
+  padding: 15px 0;
+}
+.pd-medium-b {
+  padding-bottom: 15px;
+}
+.pd-medium-t {
+  padding-top: 15px;
+}
+.pd-large {
+  padding: 0px;
+}
+.pd-large-h {
+  padding: 0 30px;
+}
+.pd-large-v {
+  padding: 30px 0;
+}
+.pd-large-b {
+  padding-bottom: 30px;
+}
+.pd-large-t {
+  padding-top: 30px;
+}
+.pd-largex {
+  padding: 60px;
+}
+.pd-largex-h {
+  padding: 0 60px;
+}
+.pd-largex-v {
+  padding: 60px 0;
+}
+.pd-largex-t {
+  padding-top: 60px;
+}
+.pd-largex-b {
+  padding-bottom: 60px;
+}
+.mg-none {
+  margin: 0;
+}
+.mg-mini {
+  margin: 5px;
+}
+.mg-mini-h {
+  margin: 0 5px;
+}
+.mg-mini-v {
+  margin: 5px 0;
+}
+.mg-medium {
+  margin: 15px;
+}
+.mg-medium-h {
+  margin: 0 15px;
+}
+.mg-medium-v {
+  margin: 15px 0;
+}
+.mg-medium-b {
+  margin-bottom: 15px;
+}
+.mg-large {
+  margin: 30px;
+}
+.mg-large-h {
+  margin: 0 30px;
+}
+.mg-large-v {
+  margin: 30px 0;
+}
+.mg-large-b {
+  margin-bottom: 30px;
+}
+.mg-large-t {
+  margin-top: 30px;
+}
+.mg-largex {
+  margin: 60px;
+}
+.mg-largex-h {
+  margin: 0 60px;
+}
+.mg-largex-v {
+  margin: 60px 0;
+}
+.mg-largex-t {
+  margin-top: 60px;
+}
+.light {
+  font-weight: 100 !important;
+}
+.extra {
+  font-size: 48px;
+}
+.text-white {
+  color: white;
+}
+.text-gray {
+  color: #6c797b;
+}
+.text-default {
+  color: #787878
+}
+.text-black {
+color: #363636;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-primary {
+  color: #06A !important;
+}
+body {
+  font-family: 'Montserrat';
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat' !important;
+}
+btn,
+.item h5 {
+  font-family: 'Montserrat Semibold' !important;
+}
+/*-- Repagination default bootstrap to this template --*/
+.btn {
+  border: 0;
+  padding: 15px 25px;
+  letter-spacing: 5px;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.form-control {
+  width: 100%;
+}
+label {
+  display: block;
+}
+.search .form-control {
+  background: transparent;
+  box-shadow: none;
+  padding: 20px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+}
+.search .input-group-addon {
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  color: white;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+}
+.glyphicon {
+  font-size: 16px;
+}
+.dropdown-menu li {
+  padding: 5px 0;
+}
+/*-- Styles Template --*/
+.topbar {
+  background: white;
+}
+.entrar i {
+  font-size: 8px;
+}
+.header {
+  min-height: 30em;
+  background: url('https://catracalivre.com.br/wp-content/uploads/2018/08/23176033380-f932ce6913-k.jpg');
+  background-size: cover;
+  opacity: 0.9;
+}
+// .header:before {
+//   content: "";
+//   position: absolute;
+//   width : 100%;
+//   background: inherit;
+//   z-index: -1;
+
+//   filter        : blur(10px);
+//   -moz-filter   : blur(10px);
+//   -webkit-filter: blur(10px);
+//   -o-filter     : blur(10px);
+
+//   transition        : all 2s linear;
+//   -moz-transition   : all 2s linear;
+//   -webkit-transition: all 2s linear;
+//   -o-transition     : all 2s linear;
+
+// }
+.search {
+  padding: 30px;
+  background: #333;
+  border-radius: 10px 10px 0 0;
+}
+.search input::placeholder {
+  color: white !important;
+}
+.btn-transparent {
+  background: transparent;
+}
+.all-last-jobs {
+  background: black;
+}
+.jobs {
+  position: relative;
+}
+@media screen and (min-width: 900px) {
+  .jobs:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #ecf5ff;
+      width: 50%;
+      height: 100%;
+      z-index: -1;
+  }
+}
+.link-vaga {
+  color: #444;
+}
+.item {
+  background: white;
+  padding: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+  margin-bottom: 15px;
+  transition: 300ms;
+}
+.item:hover {
+  box-shadow: 0 3px 15px rgba(0, 50, 200, .4);
+  transition: 300ms;
+}
+.item .company-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.info {
+  background-size: cover;
+}
+.footer a {
+  color: black;
+}
+.footer {
+  font-family: 'Montserrat Light' !important;
+}
+.social {
+  margin: 0 10px;
+}
+.social img {
+  width: 40px;
+}
+.cadastro-vaga {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, .1);
+}
+label.type-radio {
+  font-size: 9px;
+}
+.titulo-vaga {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.nome-empresa {
+  text-transform: uppercase;
+}
+.localizacao-empresa {
+  color: black;
+}
+.tipo-contrato {
+  font-weight: bold;
+}
+.indicador-vaga {
+  color: #3a75ff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.btn-dark {
+  background: #444;
+  color: white;
+}
+.btn-dark:hover {
+  color: white;
+  background: #333;
+}
+.modal-header {
+  border-bottom: 0;
+}
+.esqueceu-senha {
+  font-size: 9px;
+  color: #0066aa !important;
+  padding: 0 !important;
+  margin: 0;
+  margin-top: -18px;
+}
+.dropdown-menu input {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 0;
+  box-shadow: none;
+}
+.esqueceu-senha:hover {
+  background: transparent !important;
+  color: #0066aa !important;
+}
+.cadastro-cv .form-control {
+  border-radius: 0;
+  border: 1px solid #0ae;
+  box-shadow: none;
+  color: #0ac !important;
+  font-weight: 200;
+  height: 45px;
+}
+.cadastro-cv .form-control::placeholder {
+  color: #0ac !important;
+}
+.loading {
+  width: 100%;
+  display: table;
+  opacity: 0;
+}
+.blue-alpha {
+  background: #ecf5ff;
+}
+.btn-add {
+  padding: 10px;
+  color: #0ac;
+  border: 1px solid #0ac;
+  border-radius: 0;
+  box-shadow: none;
+  background: white;
+  transition: 300ms;
+}
+.btn-add:hover {
+  background: rgba(0, 100, 180, .2);
+}
+.nova-experiencia {
+  display: table;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+.search-bar input {
+  padding: 20px;
+}
+.search-bar button {
+  font-size: 9px !important;
+  padding: 12px;
+}
+.nav-menu {
+  margin: 0;
+  padding: 0;
+}
+.nav-menu li {
+  display: inline-block;
+  text-align: center;
+  padding: 0 13px;
+}
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+  position: relative;
+  width: 100%;
+  float: left;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+btn,
+.item h5 {
+  font-family: 'Montserrat Semibold' !important;
+  font-size: 14px;
+}
+.h4 {
+  font-family: 'Montserrat' !important;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+.h1 {
+  font-family: 'Montserrat' !important;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1 !important;
+}
+.overflow-fix {
+  overflow-x: hidden;
+}
+
+
+// --------------------------------------------------- FOOTER
+
+footer {
+  top: 25%;
+   flex: 0 0 auto;
+   -webkit-flex: 0 0 auto;
+  color: white;
+  position: relative;
+  bottom: 0%;
+  width: 100%;
+}
+footer h3 {
+  margin-bottom: 0px;
+}
+footer .footer-above {
+  height: 100%;
+  background-color: #2C3E50;
+  padding-top: 50px;
+}
+footer .footer-col {
+  margin-bottom: 50px;
+}
+footer .footer-below {
+
+  padding: 25px 0;
+  background-color: #233140;
+}
+
+//-------------------------------------------------FIM FOOTER
+
+.header-texto-sobre{
+  font-size: 3em;
+  
+}
+.texto-sobre{
+  font-size: 1.5em;
+}
