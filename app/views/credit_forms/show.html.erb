@@ -1,0 +1,19 @@
+<h1> Show Credit Form  </h1>
+
+<ol>
+<% @credit_form.credit_items.each do |item| %>
+  
+  <li><%= item.description %></li>
+  <li><%= item.group %></li>
+  <li><%= item.workload %></li>
+  <li><%= item.requested_credits_amount %></li>
+  <% if item.document.previewable? %>
+    <%= link_to(image_tag(item.document.preview(resize: "400x400>")), rails_blob_path(item.document, disposition: "attachment"))%>
+  <% else %>
+    <%= link_to "Download Documentação", rails_blob_path(item.document, disposition: "attachment") %>
+  <% end %>
+<% end %>
+</ol>
+
+<%= link_to 'Edit', edit_credit_form_path(@credit_form) %> |
+<%= link_to 'Back to Credit Forms', credit_forms_path %>
