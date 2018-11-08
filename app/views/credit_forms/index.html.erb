@@ -1,0 +1,15 @@
+<h1>Credit Forms</h1>
+
+<% for credit_form in @credit_forms %>
+  <%= link_to 'Clique aqui para ver este questionário', credit_form %><br/>
+  <%= link_to "delete", credit_form, method: :delete, data: { confirm: "You sure?" } %><br/>
+
+  <%= credit_form.name %>
+  <ol>
+  <% for item in credit_form.credit_items %>
+    <li><%= item.description %></li>
+  <% end %>
+  </ol>
+<% end %>
+
+<p><%= link_to 'New Credit Form', new_credit_form_path %></p>
