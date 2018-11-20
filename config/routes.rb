@@ -1,5 +1,5 @@
-Rails.application.routes.draw do
-  devise_for :users
+Rails.application.routes.draw do  
+  devise_for :users, :controllers => {:registrations => "registrations"}
   root 'welcome#index'
   get 'welcome/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   authenticated :user do
     namespace :admins do
       resources :coordinators
+    end
+  end
+
+  authenticated :user do
+    namespace :admins do
+      resources :students
     end
   end
 
