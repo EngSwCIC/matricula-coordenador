@@ -1,4 +1,4 @@
-class Admins::StudentsController < AdminsController
+class StudentsController < ApplicationController
   before_action :set_student, only: [:destroy, :edit, :update]
   # GET /coordinators
   # GET /coordinators.json 
