@@ -12,6 +12,9 @@
           <li class="nav-item <%= "active" if coordinators_page? %>">
             <%= link_to "Coordenadores", admins_coordinators_path, class: "nav-link" %>
           </li>
+          <li class="nav-item <%= "active" if students_page? %>">
+            <%= link_to "Estudantes", admins_students_path, class: "nav-link" %>
+          </li>
           <li class="nav-item active">
             <%= link_to "Voltar ao site", root_path, class: "nav-link" %>
           </li>
