@@ -1,4 +1,5 @@
 class CreditFormsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @credit_forms = CreditForm.all
   end

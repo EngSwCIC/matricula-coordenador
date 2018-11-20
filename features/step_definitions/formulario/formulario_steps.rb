@@ -3,7 +3,9 @@ Dado("que eu seja coordenador") do
 end
 
 Dado("que eu esteja autenticado no sistema") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
+  @usr = User.create(email:"artur@email.com", password:"123456")
+  visit("/credit_forms") 
 end
 
 Então("quero visualizar todos os formulários") do
