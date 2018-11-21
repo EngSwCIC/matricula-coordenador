@@ -23,7 +23,6 @@ RSpec.describe RegistrationsController, type: :controller do
       												 } }
 
       	user = User.find_by(email: "teste@teste.com")
-      	byebug
         expect(user.has_role? :student).to be(true)
     	end
     end
