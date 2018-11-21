@@ -6,17 +6,13 @@ Rails.application.routes.draw do
 
   authenticated :user do
     get 'admins/backoffice' => 'admins#backoffice'
+    get 'coordinators/backoffice' => 'coordinators#coordinators_backoffice'
   end
 
 
   authenticated :user do
     namespace :admins do
       resources :coordinators
-    end
-  end
-
-  authenticated :user do
-    namespace :admins do
       resources :students
     end
   end

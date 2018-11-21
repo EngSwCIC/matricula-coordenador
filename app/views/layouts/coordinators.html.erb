@@ -11,11 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
-  <body class="admin">
-    <%= render "layouts/admins/navbar" %>
-    <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+  <body class="coordinator">
+    <%= render "layouts/coordinators/navbar" %>
     <%= yield %>
   </body>
 
