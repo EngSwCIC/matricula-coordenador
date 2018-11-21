@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_073652) do
+ActiveRecord::Schema.define(version: 2018_11_21_190229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,17 +42,29 @@ ActiveRecord::Schema.define(version: 2018_11_21_073652) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "credit_forms", force: :cascade do |t|
+  create_table "course_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_course_users_on_course_id"
+    t.index ["user_id"], name: "index_course_users_on_user_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.string "matricula"
-    t.string "email"
-    t.string "cellphone"
-    t.integer "curso"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_forms", force: :cascade do |t|
+    t.bigint "user_id"
     t.integer "requisition_number"
     t.string "sei"
     t.date "received_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_forms_on_user_id"
   end
 
   create_table "credit_items", force: :cascade do |t|
@@ -97,4 +109,6 @@ ActiveRecord::Schema.define(version: 2018_11_21_073652) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "course_users", "courses"
+  add_foreign_key "course_users", "users"
 end

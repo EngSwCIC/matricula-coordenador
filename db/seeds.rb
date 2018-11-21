@@ -34,7 +34,9 @@ if !Rails.env.production?
   Course.create(name:"Administração")
   puts "Cursos criados"
 
-  u = User.create(email:"email@email.com", password:"aaa123", course:Couse.find_by(name:"Ciência da Computação (Bacharel)"))
+  c = Course.find_by(name:"Ciência da Computação (Bacharel)")
+  u = User.create(email:"email@email.com", password:"aaa123")
+  u.courses << c
   u.add_role(:admin)
   puts "Usuario email@email.com criado"
 
