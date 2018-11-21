@@ -1,7 +1,3 @@
-Quando("eu clicar em {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Dado("que eu seja um usuario") do
   pending # Write code here that turns the phrase above into concrete actions
 end
@@ -64,10 +60,6 @@ Dado("mude a {string}") do |string|
 end
 
 Dado("mude as {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Então("quero preencher um formulário de concessão de créditos") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

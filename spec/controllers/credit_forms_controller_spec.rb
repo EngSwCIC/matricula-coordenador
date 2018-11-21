@@ -25,7 +25,7 @@ RSpec.describe CreditFormsController, type: :controller do
       sign_in user
 
       file = fixture_file_upload(Rails.root.join('public', '224298.png'), 'image/png')
-      post :create, params:{ credit_form: {name: 'joao silva', email: 'joaosilva@unb.br',
+      post :create, params:{ credit_form: { 
         credit_items_attributes: [{ description: 'oi', group: 1, workload: 30,
                                     requested_credits_amount: 2,
                                     document: file }] }}

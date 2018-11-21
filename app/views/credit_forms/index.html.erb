@@ -1,15 +1,50 @@
-<h1>Credit Forms</h1>
+<div class="container pb-4">
+  <h2 class="mt-4">Formulários de Concessão de Crédito</h2>
+  <hr class="divider">
 
-<% for credit_form in @credit_forms %>
-  <%= link_to 'Clique aqui para ver este questionário', credit_form %><br/>
-  <%= link_to "delete", credit_form, method: :delete, data: { confirm: "You sure?" } %><br/>
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Aluno</th>
+            <th>Email</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <%= credit_form.name %>
-  <ol>
-  <% for item in credit_form.credit_items %>
-    <li><%= item.description %></li>
-  <% end %>
-  </ol>
-<% end %>
+        <tbody>
+          <% unless @credit_forms.nil? %>
+            <% @credit_forms.each do |credit_form| %>
+              <tr>
+                <td>
+                  <%= User.find(credit_form.user_id).name %>
+                </td>
 
-<p><%= link_to 'New Credit Form', new_credit_form_path %></p>
+                <td>
+                  <%= User.find(credit_form.user_id).email %>
+                </td>
+                
+                <td>
+                  <%= link_to 'Ver Mais', credit_form, class: "btn btn-sm btn-success" %>
+                </td>
+                
+                <td>
+                  <%= link_to 'Editar', edit_credit_form_path(credit_form), class: "btn btn-sm btn-primary" %>
+                </td>
+
+                <td>
+                  <%= link_to 'Excluir', credit_form_path(credit_form), method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-danger", id:"EXCLUIR" %>
+                </td>
+              </tr>
+              <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <br>
+  
+  <%= link_to 'Novo Formulário', new_credit_form_path, class: "btn btn-success", id: 'NOVOFORMULARIO' %>
+</div>

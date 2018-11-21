@@ -15,7 +15,7 @@ private
     return if document.attached?
 
     # Unless add error
-    errors.add(:base, 'Please upload your company logo.')
+    errors.add(:base, 'Faltou anexar um documento')
 
     # Purge the blob
     #document.record.document_attachment.blob.purge
