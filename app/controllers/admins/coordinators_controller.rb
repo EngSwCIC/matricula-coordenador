@@ -8,6 +8,7 @@ class Admins::CoordinatorsController < AdminsController
 
   def new
     @coordinator = User.new
+    @courses = Course.all
   end
 
   def create
@@ -58,6 +59,6 @@ class Admins::CoordinatorsController < AdminsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coordinator_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :course)
     end
 end

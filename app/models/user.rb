@@ -5,7 +5,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # validates :courses, presence: true
-  has_many :course_users, dependent: :destroy
-  has_many :courses, through: :course_users
+  belongs_to :course
 end
