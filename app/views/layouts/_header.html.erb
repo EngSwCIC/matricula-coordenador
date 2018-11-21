@@ -47,6 +47,26 @@
         </li>
         <% end %>
 
+        <!-- account info and link to login -->
+        <% if user_signed_in? %>
+          <div class="nav-link">
+            <div class="dropdown">
+              <div  data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown-toggle">Olá, <%= current_user.name.partition(" ").first %> </li>
+              </a>
+              <div class="dropdown-menu" id="dropdownMenuButton" aria-labelledby="dropdownMenuButton" style="margin-top: 15px;">
+                <a class="dropdown-item" href="#"><i class="fa fas fa-cog fa-xs"></i> Preferências</a>
+                <a class="dropdown-item" href="#"><i class="fa fas fa-user fa-xs"></i> <%= current_user.roles_name[0] %></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fa fas fa-power-off fa-xs"></i> Logout</a>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to  "Login", new_user_session_path, class: "nav-item nav-link" %>
+          </li>
+        <% end %>
 
       </ul>
     </div>

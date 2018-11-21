@@ -7,15 +7,17 @@ Rails.application.routes.draw do
   authenticated :user do
     get 'admins/backoffice' => 'admins#backoffice'
     get 'coordinators/backoffice' => 'coordinators#coordinators_backoffice'
+    #get 'students/backoffice' => 'students#students_backoffice'
   end
 
 
   authenticated :user do
     namespace :admins do
       resources :coordinators
-      resources :students
     end
   end
+
+  resources :students
 
   # Credit forms routes
   resources :credit_forms
