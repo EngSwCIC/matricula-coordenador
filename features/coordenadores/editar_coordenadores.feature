@@ -6,9 +6,17 @@ Funcionalidade: editar_coordenadores
   Quero excluir um coordenador do sistema
 
   Cenario: Editar coordenadores com sucesso
-    Dado que eu seja um coordenador
+    Dado que eu seja um administrador
     E esteja autenticado
-    Quando eu clicar em "Editar perfil"
-    Então devo poder modificar as informações do meu perfil
-    Quando eu clicar em "Salvar edição"
-    Então devo ver a mensagem de sucesso "Coordenador atualizado com sucesso"
+    E exista um coordenador com email "mout@mout.com"
+    E tenha o curso "Design"
+    E esteja na pagina para criar coordenadores
+    Quando eu clicar para editar no botao "Editar"
+    E preencher os dados do formulário:
+    	| user_name       | Rafael                           |
+    	| user_email      | rafa@rafa.com                    |
+    	| user_password   | aaa123                           |
+    E selecionar "Design" do campo de id "user_course_id"
+    Quando eu clicar no botão "Enviar"
+    Então devo ver a mensagem de sucesso "Coordenador editado com sucesso"
+    E sou redirecionado para página de coordenadores
