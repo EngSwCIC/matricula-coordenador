@@ -1,7 +1,11 @@
 Rails.application.routes.draw do  
   devise_for :users, :controllers => {:registrations => "registrations"}
   root 'welcome#index'
-  get 'welcome/index'
+  get '/index', to: 'welcome#index', as:'index'
+  get '/about', to: 'welcome#about', as:'about'
+  get '/services', to: 'welcome#services', as:'services'
+  get '/contact', to: 'welcome#contact', as:'contact'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   authenticated :user do
