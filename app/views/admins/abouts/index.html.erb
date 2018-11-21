@@ -1,0 +1,38 @@
+<div class="container pb-4">
+  <h2 class="mt-4">Descrição do Sistema</h2>
+  <hr class="divider">
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% unless @abouts.nil? %>
+            <% @abouts.each do |about| %>
+              <tr>
+                <td>
+                  <%= truncate( about.description, :length => 80 ) %>
+                </td>
+                <td>
+                  <%= link_to 'Editar', edit_admins_about_path(about), class: "btn btn-sm btn-primary" %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <%= link_to 'voltar', admins_backoffice_path, class: "btn btn-sm btn-primary" %>
+  
+</div>
