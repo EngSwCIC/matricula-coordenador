@@ -1,0 +1,24 @@
+<%= form_for [:admins, @about] do |f| %>
+  <% if @about.errors.any? %>
+    <div class="alert alert-warning">
+      <h5>Opa, temos alguns problemas:</h5>
+
+      <ul class="mb-0">
+        <% @about.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows:"15" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Editar Coordenador', class: "btn btn-success" %>
+    <span>&nbsp;|&nbsp;</span>
+    <%= link_to "Voltar", admins_abouts_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
