@@ -5,8 +5,8 @@ module ApplicationHelper
     controller_name == "coordinators"
   end
 
-  def students_page?
-    controller_name == "students"
+  def abouts_page?
+    controller_name == "abouts"
   end
 
 end
