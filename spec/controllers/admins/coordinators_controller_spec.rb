@@ -52,7 +52,7 @@ RSpec.describe Admins::CoordinatorsController, type: :controller do
                                     password: "123456"} }
         end
         it "saves the new coodinator in the database" do
-          expect(flash[:notice]).to eq('coordinator was successfully created.')
+          expect(flash[:notice]).to eq('Coordenador criado com sucesso')
           expect(User.with_role(:coordinator).count).to be(1)
         end
         
@@ -91,7 +91,7 @@ RSpec.describe Admins::CoordinatorsController, type: :controller do
 
         it "updates the coodinator in the database" do
           @coordinator = User.find(@coordinator.id)
-          expect(flash[:notice]).to eq('Coordinator was successfully updated.')
+          expect(flash[:notice]).to eq('Coordenador editado com sucesso')
           expect(@coordinator.name).to eql('novo coordenador2')
         end
         
@@ -143,5 +143,21 @@ RSpec.describe Admins::CoordinatorsController, type: :controller do
       end
     end
 
+    describe "DELETE #delete" do
+      before(:each) do 
+          sign_in @admin
+          @coordinator = User.create(name: "novo coordenador",
+                                     email: "email@email.com",
+                                     password: "123456")
+          
+          delete :destroy, params: {id: @coordinator.id}
+
+      end
+
+      it "delete coordinator" do
+        expect(flash[:notice]).to eq('Coordenador excluído com sucesso')
+        expect(User.with_role(:coordinator).count).to be(0)
+      end
+    end
   end
 end
