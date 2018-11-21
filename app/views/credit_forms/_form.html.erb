@@ -1,16 +1,26 @@
 <%= form_for @credit_form do |f| %>
-  <p>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </p>
+  <% if @credit_form.errors.any? %>
+    <div class="alert alert-warning">
+      <h5>Opa, temos alguns problemas:</h5>
 
-  <%= f.fields_for :credit_items do |builder| %>
-    <%= render 'credit_item_fields', f: builder %>
+      <ul class="mb-0">
+        <% @credit_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <p><%= link_to_add_fields "Add Item", f, :credit_items %></p>
+  <div>
+    <%= link_to_add_fields "Adicionar Item", f, :credit_items %>
+    <%= f.fields_for :credit_items do |builder| %>
+      <%= render 'credit_item_fields', f: builder %>
+    <% end %>
+  </div>
 
-  <p>
-    <%= f.submit "Submit" %>
-  </p>
+  <div class="actions">
+    <%= f.submit 'Criar Formulário de concessão de crédito', class: "btn btn-success" %>
+    <span>&nbsp;|&nbsp;</span>
+    <%= link_to "Voltar", credit_forms_path, class: "btn btn-primary" %>
+  </div>
 <% end %>

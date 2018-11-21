@@ -9,21 +9,21 @@ Funcionalidade: visualizar_formulario_de_concessao_de_credito
     Dado que eu seja coordenador
     E que eu esteja autenticado no sistema
     E que eu esteja na página de visualizar formulários
-    Quando eu clicar em "Formulários"
     Então quero visualizar todos os formulários
 
   Cenario: Excluir formulário de concessão de crédito como coordenador
     Dado que eu seja coordenador
     E que eu esteja autenticado no sistema
-    E que eu esteja na página de excluir formulários
-    Quando eu clicar em "Excluir"
+    Quando que eu estiver na página de visualizar formulários 
+    E eu clicar em "EXCLUIR"
+    E clicar em "OK"
     Então quero excluir um formulário
 
   Cenario: Visualizar formulário de concessão de crédito como aluno
     Dado que eu seja aluno
     E que eu esteja autenticado no sistema
-    E que eu esteja na página de visualização formulários
-    Quando eu clicar em "Formulários"
+    E que eu esteja na página inicial
+    Quando eu clicar em "Concessão de crédito"
     Então quero visualizar apenas meus formulários
 
     # Dado que exista o curso com os campos:
@@ -41,15 +41,15 @@ Funcionalidade: visualizar_formulario_de_concessao_de_credito
   Cenario: Preencher formulário de concessão de créditos como aluno
     Dado que eu seja aluno 
     E que eu esteja autenticado no sistema
-    E que eu esteja na página de adicionar formulários
-    Quando eu clicar em "Preencher"
+    Quando que eu estiver na página de visualizar formulários 
+    E eu clicar em "NOVO FORMULÁRIO"
     Então quero preencher um formulário de concessão de créditos
 
   Cenario: Anexar documentos ao formulário de concessão de créditos como aluno
     Dado que eu seja aluno 
     E que eu esteja autenticado no sistema
-    #E que eu esteja preenchendo um formulário
-    Quando eu clicar em "Anexar"
+    Quando eu estiver preenchendo um formulário
+    E eu clicar em "Anexar"
     Então quero anexar documentos ao formulário de concessão de créditos
 
   #Deve ser dentro da visualização de Formulários?

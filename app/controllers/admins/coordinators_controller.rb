@@ -16,7 +16,7 @@ class Admins::CoordinatorsController < AdminsController
     respond_to do |format|
       if @coordinator.save
         @coordinator.add_role :coordinator
-        format.html { redirect_to admins_coordinators_path, notice: 'coordinator was successfully created.' }
+        format.html { redirect_to admins_coordinators_path, notice: 'Coordenador criado com sucesso' }
         format.json { render :show, status: :created, location: @coordinator }
       else
         format.html { render :new }

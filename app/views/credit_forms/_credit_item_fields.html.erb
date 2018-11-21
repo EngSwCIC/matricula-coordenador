@@ -1,25 +1,30 @@
-<div class="fields">
-  <p>
-    <%= f.label :description, "Descrição" %><br/>
-    <%= f.text_area :description, :rows => 3 %>
-  </p>
-  <p>
-    <%= f.label :group, "Grupo" %><br/>
-    <%= f.number_field :group %>
-  </p>
-  <p>
-    <%= f.label :workload, "Carga horária" %><br/>
-    <%= f.number_field :workload %>
-  </p>
-  <p>
-    <%= f.label :requested_credits_amount, "Quantidade de créditos solicitados" %><br/>
-    <%= f.number_field :requested_credits_amount %>
-  </p>
-  <p>
-    <%= f.label :document, 'Documentação' %><br/>
-    <%= f.file_field :document %>
-  </p>
+<div class="container fields">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <%= f.label :description, "Descrição" %><br/>
+        <%= f.text_area :description, :rows => 3, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :group, "Grupo" %><br/>
+        <%= f.number_field :group, class: "form-control", min: 0 , max:100, step: 1 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :workload, "Carga horária" %><br/>
+        <%= f.number_field :workload, class: "form-control", min: 0 , max:1000, step: 1 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :requested_credits_amount, "Quantidade de créditos solicitados" %><br/>
+        <%= f.number_field :requested_credits_amount, class: "form-control", min:0, max: 100, step: 1 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :document, 'Documentação' %><br/>
+        <%= f.file_field :document, class: "form-control" %>
+      </div>
 
-  <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields 'remove', f %>
+      <%= f.hidden_field :_destroy %>
+      <p class="text-right"><%= link_to_remove_fields 'Remover Item', f %></p>
+    </div>
+  </div>
+  <hr class="divider">  
 </div>
