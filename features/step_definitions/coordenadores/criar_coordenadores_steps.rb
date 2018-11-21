@@ -32,6 +32,6 @@ Então("devo ver a mensagem de sucesso {string}") do |string|
 	expect(page).to have_content(string)
 end
 
-Então("sou redirecionado para página de coordenadores com o novo coordenador") do
+Então("sou redirecionado para página de coordenadores") do
 	expect(current_path).to eql(admins_coordinators_path)
 end

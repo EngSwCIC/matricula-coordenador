@@ -31,7 +31,7 @@ class Admins::CoordinatorsController < AdminsController
   def update
     respond_to do |format|
       if @coordinator.update_without_password(coordinator_params)
-        format.html { redirect_to admins_coordinators_path, notice: 'Coordinator was successfully updated.' }
+        format.html { redirect_to admins_coordinators_path, notice: 'Coordenador editado com sucesso' }
         format.json { render :show, status: :ok, location: @coordinator }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class Admins::CoordinatorsController < AdminsController
   def destroy
     @coordinator.destroy
     respond_to do |format|
-      format.html { redirect_to admins_coordinators_url, notice: 'Coordinator was successfully destroyed.' }
+      format.html { redirect_to admins_coordinators_url, notice: 'Coordenador excluído com sucesso' }
       format.json { head :no_content }
     end
   end

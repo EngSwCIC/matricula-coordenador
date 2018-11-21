@@ -8,5 +8,8 @@ Funcionalidade: excluir_coordenadores
   Cenario: Excluir coordenadores com sucesso
     Dado que eu seja um administrador
     E esteja autenticado
-    Quando eu clicar em "Excluir coordenador"
+    E exista um coordenador com email "mout@mout.com"
+    E esteja na pagina para criar coordenadores
+    Quando eu clicar para deletar no botao "Excluir"
     Então devo ver a mensagem de sucesso "Coordenador excluído com sucesso"
+    E sou redirecionado para página de coordenadores

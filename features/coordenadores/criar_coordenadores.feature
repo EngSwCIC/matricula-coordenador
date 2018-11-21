@@ -16,4 +16,4 @@ Funcionalidade: criar_coordenadores
     	| user_password | 123456        |
     Quando eu clicar no botão "Criar Coordenador"
     Então devo ver a mensagem de sucesso "Coordenador criado com sucesso"
-    E sou redirecionado para página de coordenadores com o novo coordenador
+    E sou redirecionado para página de coordenadores
