@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   authenticated :user do
     namespace :admins do
-      resources :coordinators
-      resources :students
+      resources :coordinators, except: :show
+      resources :abouts, only: [:index, :edit, :update]
     end
+
   end
 
   # Credit forms routes
