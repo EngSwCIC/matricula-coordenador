@@ -54,11 +54,11 @@ Quando("eu estiver preenchendo um formulário") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Quando("eu clicar em {string}") do |string|
-  if string == 'EXCLUIR'
-    find('#EXCLUIR').click
-  end
-end
+# Quando("eu clicar em {string}") do |string|
+#   if string == 'EXCLUIR'
+#     find('#EXCLUIR').click
+#   end
+# end
 
 Então("quero preencher um formulário de concessão de créditos") do
   

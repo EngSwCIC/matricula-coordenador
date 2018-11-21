@@ -45,7 +45,7 @@ class Admins::CoordinatorsController < AdminsController
   def destroy
     @coordinator.destroy
     respond_to do |format|
-      format.html { redirect_to admins_coordinators_url, notice: 'Coordinator was successfully destroyed.' }
+      format.html { redirect_to admins_coordinators_url, notice: 'Coordenador excluído com sucesso' }
       format.json { head :no_content }
     end
   end
