@@ -1,5 +1,6 @@
 Dado("exista um coordenador com email {string}") do |string|
-	@user = User.create(name: "moutinho", email: "mout@mout.com", password: "123456")
+  @course = Course.create(name:"Estatística")
+	@user = User.create(name: "moutinho", email: "mout@mout.com", password: "aaa123", course: @course)
 	@user.add_role(:coordinator)
 end
 

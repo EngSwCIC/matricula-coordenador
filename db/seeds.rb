@@ -11,11 +11,8 @@ if !Rails.env.production?
   puts "Usuarios apagados"
   About.destroy_all
   puts "Descrição apagada"
-
-
-  u = User.create(email:"email@email.com", password:"aaa123")
-  u.add_role(:admin)
-  puts "Usuario email@email.com criado"
+  Course.destroy_all
+  puts "Cursos apagados"
 
   About.create(
     description:"
@@ -28,5 +25,18 @@ if !Rails.env.production?
     "
   )
   puts "Descrição Criada"
+
+  Course.create(name:"Ciência da Computação (Bacharel)")
+  Course.create(name:"Computação (Licenciatura)")
+  Course.create(name:"Engenharia da Computação")
+  Course.create(name:"Estatística")
+  Course.create(name:"Design")
+  Course.create(name:"Administração")
+  puts "Cursos criados"
+
+  c = Course.find_by(name:"Ciência da Computação (Bacharel)")
+  u = User.create(email:"email@email.com", password:"aaa123", course:c)
+  u.add_role(:admin)
+  puts "Usuario email@email.com criado"
 
 end

@@ -1,6 +1,6 @@
 Dado("que eu seja um administrador") do
-  @user = User.create(name: "admin", email: "email@email.com", password: "aaa123")
-  @user.add_role(:admin)
+  user = User.create(name: "admin", email: "email@email.com", password: "aaa123")
+  user.add_role(:admin)
 end
 
 Dado("esteja autenticado") do
@@ -14,6 +14,10 @@ Dado("esteja na pagina para criar coordenadores") do
 	visit admins_coordinators_path
 end
 
+Dado("tenha o curso {string}") do |string|
+  Course.create(name:string)
+end
+
 Quando("eu clicar em {string}") do |botao|
   click_link botao
 end
@@ -22,6 +26,10 @@ Quando("preencher os dados do formulário:") do |table|
   table.rows_hash.each do |key, value|
   	fill_in key, with: value
   end
+end
+
+Quando("selecionar {string} do campo de id {string}") do |string, string2|
+  select string, :from => string2
 end
 
 Quando("eu clicar no botão {string}") do |string|

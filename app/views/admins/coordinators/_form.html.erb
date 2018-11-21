@@ -26,8 +26,13 @@
     <%= f.password_field :password, class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :course %>
+    <%= f.select( :course_id, @courses.collect { |course| [course.name, course.id] }, {}, { :class => 'form-control' }) %>
+  </div>
+
   <div class="actions">
-    <%= f.submit 'Criar Coordenador', class: "btn btn-success" %>
+    <%= f.submit 'Enviar', class: "btn btn-success" %>
     <span>&nbsp;|&nbsp;</span>
     <%= link_to "Voltar", admins_coordinators_path, class: "btn btn-primary" %>
   </div>
