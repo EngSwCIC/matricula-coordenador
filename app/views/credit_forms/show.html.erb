@@ -1,19 +1,37 @@
-<h1> Show Credit Form  </h1>
+<h1 class="text-center">Formulário #<%= @credit_form.id %></h1>
 
-<ol>
-<% @credit_form.credit_items.each do |item| %>
-  
-  <li><%= item.description %></li>
-  <li><%= item.group %></li>
-  <li><%= item.workload %></li>
-  <li><%= item.requested_credits_amount %></li>
-  <% if item.document.previewable? %>
-    <%= link_to(image_tag(item.document.preview(resize: "400x400>")), rails_blob_path(item.document, disposition: "attachment"))%>
-  <% else %>
-    <%= link_to "Download Documentação", rails_blob_path(item.document, disposition: "attachment") %>
+<div class="card">
+  <div class="card-body">
+    <h2>
+      <%= User.find(@credit_form.user_id).name %>
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <% @items.each_with_index do | item, i | %>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Item #<%= i %>
+          </h5>
+          <p class="card-text">
+            <%= item.description %>
+          </p>
+          <ul>
+            <li>Grupo: <%= item.group %></li>
+            <li>Carga Horária: <%= item.workload %></li>
+            <li>Qtd de Créditos solicitados: <%= item.requested_credits_amount %></li>  
+          </ul>        
+          <%= link_to "Download Anexo", rails_blob_path(item.document, disposition: "attachment"), class: 'btn btn-primary view-pdf' %>
+        </div>
+      </div>
+    </div>
   <% end %>
-<% end %>
-</ol>
+</div>
 
-<%= link_to 'Edit', edit_credit_form_path(@credit_form) %> |
-<%= link_to 'Back to Credit Forms', credit_forms_path %>
+<div class="text-center">
+  <%= link_to 'Editar', edit_credit_form_path(@credit_form), class: "btn btn-success" %> |
+  <%= link_to 'Voltar', credit_forms_path, class: "btn btn-primary" %>
+</div>

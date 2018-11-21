@@ -2,30 +2,60 @@ require 'rails_helper'
 
 RSpec.describe CreditFormsController, type: :controller do
 
+  before(:each) do
+    @user = User.create!(email:"artur123@email.com", password:"aaa123")
+    sign_in @user
+  end
 
-  describe "GET #index" do
+  context "GET #index" do
     it "returns http success" do
-      user = User.create!(email:"artur123@email.com", password:"aaa123")
-      sign_in user
       get :index
       expect(response).to have_http_status(:success)
+    end
+
+    it "should redirect if not logged in" do
+      sign_out @user
+      get :index
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+
+  context "GET #show" do
+    it "returns http success" do
+      item = CreditItem.new(description: 'descricao', group: 1, workload: 30, requested_credits_amount: 2)
+      item.document.attach(io: File.open(Rails.root.join('public', '224298.png')), filename: '224298.png')
+      form = CreditForm.new(user_id: @user.id, credit_items: [item])
+      form.save
+
+      get :show, params: { id: form.id}
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should redirect if not logged in" do
+      sign_out @user
+      
+      item = CreditItem.new(description: 'descricao', group: 1, workload: 30, requested_credits_amount: 2)
+      item.document.attach(io: File.open(Rails.root.join('public', '224298.png')), filename: '224298.png')
+      form = CreditForm.new(user_id: @user.id, credit_items: [item])
+      form.save
+
+      get :show, params: { id: form.id}
+      expect(response).to have_http_status(:redirect)
     end
   end
   
   describe 'Credit forms new and create methods' do
     it 'should return new view' do
-      user = User.create!(email:"artur123@email.com", password:"aaa123")
-      sign_in user
       get :new
       expect(response).to have_http_status(200)
     end
     
     it 'should create a new credit form' do
-      user = User.create!(email:"artur123@email.com", password:"aaa123")
-      sign_in user
-
-      post :create, params:{ credit_form: {name: 'joao silva', email: 'joaosilva@unb.br',
-        credit_items: [{ description: 'oi' }] }}
+      file = fixture_file_upload(Rails.root.join('public', '224298.png'), 'image/png')
+      post :create, params:{ credit_form: { 
+            credit_items_attributes: [{ description: 'oi', group: 1, workload: 30,
+                                        requested_credits_amount: 2,
+                                        document: file }] }}
       expect(flash[:success]).to eq('Seu formulário de aproveitamento de créditos foi criado com sucesso')
       expect(CreditForm.count).to be(1)
     end

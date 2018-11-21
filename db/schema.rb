@@ -37,16 +37,13 @@ ActiveRecord::Schema.define(version: 2018_11_07_124718) do
   end
 
   create_table "credit_forms", force: :cascade do |t|
-    t.string "name"
-    t.string "matricula"
-    t.string "email"
-    t.string "cellphone"
-    t.integer "curso"
+    t.bigint "user_id"
     t.integer "requisition_number"
     t.string "sei"
     t.date "received_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_forms_on_user_id"
   end
 
   create_table "credit_items", force: :cascade do |t|
