@@ -1,7 +1,12 @@
 class CreditFormsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
-    @credit_forms = CreditForm.all
+    if current_user.has_role? :coordinator or current_user.has_role? :admin
+      @credit_forms = CreditForm.all
+    elsif current_user.has_role? :student
+      @credit_forms = CreditForm.where(user_id: current_user)
+    end
   end
 
   def new

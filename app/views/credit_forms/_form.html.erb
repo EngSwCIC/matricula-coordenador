@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
-  <p> Itens </p>
-  <p><%= link_to_add_fields "Adicionar Item", f, :credit_items %></p>
-  <%= f.fields_for :credit_items do |builder| %>
-    <%= render 'credit_item_fields', f: builder %>
-  <% end %>
+  <div>
+    <%= link_to_add_fields "Adicionar Item", f, :credit_items %>
+    <%= f.fields_for :credit_items do |builder| %>
+      <%= render 'credit_item_fields', f: builder %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit 'Criar Formulário de concessão de crédito', class: "btn btn-success" %>

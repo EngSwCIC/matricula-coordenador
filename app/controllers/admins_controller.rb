@@ -7,4 +7,8 @@ class AdminsController < ApplicationController
   def check_admin
     redirect_to root_path unless current_user.has_role? :admin
   end
+
+  def check_student
+    redirect_to root_path unless current_user.has_role? :student
+  end
 end
