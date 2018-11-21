@@ -115,6 +115,7 @@ GEM
     ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    gemaina (1.0)
     gherkin (5.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -275,6 +276,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   font-awesome-rails
+  gemaina
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
