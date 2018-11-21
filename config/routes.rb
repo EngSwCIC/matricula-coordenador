@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
+  authenticated :user do
+    namespace :coordinators do
+      resources :infos
+    end
+  end
+
   # Credit forms routes
   resources :credit_forms
   #get 'credit_forms/new', to: 'credit_forms#new'

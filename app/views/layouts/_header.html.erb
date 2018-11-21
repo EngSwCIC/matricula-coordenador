@@ -32,7 +32,7 @@
         <li class="nav-item">
           <% if user_signed_in? %>
             <% if current_user.has_role? :coordinator %>
-              <%= link_to  "Backoffice do Coordenador", coordinators_backoffice_path, class: "nav-item nav-link" %>
+              <%= link_to  "Backoffice", coordinators_backoffice_path, class: "nav-item nav-link" %>
             <% end %>
           <% end %>
         </li>
