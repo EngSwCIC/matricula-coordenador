@@ -16,7 +16,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @student.save
         @student.add_role :student
-        format.html { redirect_to admins_students_path, notice: 'student was successfully created.' }
+        format.html { redirect_to students_path, notice: 'student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update_without_password(student_params)
-        format.html { redirect_to admins_students_path, notice: 'student was successfully updated.' }
+        format.html { redirect_to students_path, notice: 'student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -45,9 +45,13 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to admins_students_url, notice: 'student was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: 'student was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def show
+    @student = User.find(params[:id])
   end
 
   private
