@@ -20,7 +20,7 @@ RSpec.describe Coordinators::InfosController, type: :controller do
   describe "GET #edit" do
     it "should returns a success response" do
       get :edit, params: {id: @coordinator.to_param}
-      expect(response).to be_success
+      expect(response).to be_successful
     end
     
   end
