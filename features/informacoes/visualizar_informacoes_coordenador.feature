@@ -5,6 +5,7 @@ Funcionalidade: visualizar_informacoes_coordenador
   Como aluno
   Quero procurar as informações de um coordenador
 
+  # cenários felizes
   Cenario: Visualizar todos os coordenadores com sucesso
     Dado que eu seja um aluno
     E exista um coordenador do curso "Estatística" com email "maria@maria.com"
@@ -21,4 +22,6 @@ Funcionalidade: visualizar_informacoes_coordenador
     Então sou redirecionado para página daquele coordenador
     E eu devo ver o horário de atendimento daquele coordenador
     E eu devo ver os avisos daquele coordenador
+
+  # cenários tristes
 

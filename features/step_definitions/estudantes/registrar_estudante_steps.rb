@@ -1,4 +1,4 @@
-Dado("que eu seja um aluno não utenticado") do
+Dado("que eu seja um aluno não autenticado") do
 
 end
 

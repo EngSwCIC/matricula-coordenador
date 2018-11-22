@@ -13,7 +13,7 @@ class Admins::CoordinatorsController < AdminsController
 
   def create
     @coordinator = User.new(coordinator_params)
-
+    @courses = Course.all
     respond_to do |format|
       if @coordinator.save
         @coordinator.add_role :coordinator
@@ -31,6 +31,7 @@ class Admins::CoordinatorsController < AdminsController
   end
 
   def update
+    @courses = Course.all
     respond_to do |format|
       if @coordinator.update_without_password(coordinator_params)
         format.html { redirect_to admins_coordinators_path, notice: 'Coordenador editado com sucesso' }
