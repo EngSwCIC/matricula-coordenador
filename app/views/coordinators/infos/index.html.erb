@@ -27,7 +27,7 @@
               </td>
 
               <td>
-                <%= @coordinator.notices %>
+                <%= truncate( @coordinator.notices, :length => 80 ) %>
               </td>
 
               <td>
