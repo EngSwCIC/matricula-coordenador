@@ -35,8 +35,34 @@ if !Rails.env.production?
   puts "Cursos criados"
 
   c = Course.find_by(name:"Ciência da Computação (Bacharel)")
-  u = User.create(email:"email@email.com", password:"aaa123", course:c)
+  u = User.create(name:"Admin", email:"email@email.com", password:"aaa123", course:c)
   u.add_role(:admin)
   puts "Usuario email@email.com criado"
+
+  c = Course.find_by(name:"Ciência da Computação (Bacharel)")
+  u = User.create(name:"Genaina", office_hours:"12hr - 14hr", notices:"Estou ocupado hoje", email:"genaina@genaina.com", password:"aaa123", course:c)
+  u.add_role(:coordinator)
+
+  c = Course.find_by(name:"Computação (Licenciatura)")
+  u = User.create(name:"Bonifacio", office_hours:"12hr - 14hr", notices:"Estou ocupado hoje", email:"bonifacio@bonifacio.com", password:"aaa123", course:c)
+  u.add_role(:coordinator)
+
+  c = Course.find_by(name:"Engenharia da Computação")
+  u = User.create(name:"Ishikawa", office_hours:"12hr - 14hr", notices:"Estou ocupado hoje", email:"ishikawa@ishikawa.com", password:"aaa123", course:c)
+  u.add_role(:coordinator)
+
+  c = Course.find_by(name:"Estatística")
+  u = User.create(name:"Roldolfo", office_hours:"12hr - 14hr", notices:"Estou ocupado hoje", email:"rodolfo@rodolfo.com", password:"aaa123", course:c)
+  u.add_role(:coordinator)
+
+  c = Course.find_by(name:"Design")
+  u = User.create(name:"Maria", office_hours:"12hr - 14hr", notices:"Estou ocupado hoje", email:"maria@maria.com", password:"aaa123", course:c)
+  u.add_role(:coordinator)
+
+  c = Course.find_by(name:"Administração")
+  u = User.create(name:"Creusa", office_hours:"12hr - 14hr", notices:"Estou ocupado hoje", email:"creusa@creusa.com", password:"aaa123", course:c)
+  u.add_role(:coordinator)
+
+  puts "Coordenadores criados"
 
 end

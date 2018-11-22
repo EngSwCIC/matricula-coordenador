@@ -4,9 +4,15 @@ class WelcomeController < ApplicationController
   end
 
   def about
+    @about = About.first
   end
 
-  def services
+  def coordinators
+    @coordinators = User.with_role(:coordinator).order(:name)
+  end
+
+  def show
+    @coordinator = User.find(params[:id])
   end
 
   def contact

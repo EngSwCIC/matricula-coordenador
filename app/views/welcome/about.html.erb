@@ -1,7 +1,25 @@
 <h1>Descrição</h1>
 
-<p>O sistema visa automatizar o processo de comunicação entre o aluno e o coordenador reduzindo o dispêndio de ambos em prol da aceleração no atendimento e, consequentemente, aumentar a eficácia do mesmo. Isso ocorre devido uma das maiores dores enfretadas atualmente pelo coordenador é a de atender uma grande quantidade de alunos em época de matrícula.</p>
+<% unless @about.nil? %>
+  <p> <%= @about.description %> </p>
+<% end %>
 
-<p>Esse servirá para facilitar o coordenador ter um controle maior da fila de espera em período de matriculas abertas para adesão em matérias. Esse controle será voltado para colocar em ordem através das prioridades como: aluno em condição; calouros; entre outros. Além disso, haverá uma forma mais rápida e eficiente de atendimento de duvidas, evitando que ambos tenham que realizar um encontro presencial.</p>
+<br>
 
-<p>Para o aluno, este sistema irá facilitar a entrada na lista sem precisar ter que madrugar no departamento um dia antes para ser um dos primeiros na lista. Além disso, facilita que este tire duvidas relacionadas ao curso sem a necessidade de um encontro presencial e de ajeitar o horário para o atendimento com o coordenador.</p>
+<h1>Serviços</h1>
+
+<h5> Serviços fornecedios para alunos:</h5>
+<ul>
+	<li>Preenchimento Formulário de Concessão de Créditos</li>
+	<li>Ver disciplinas</li>
+	<li>Ver informações de antedimento do coordenador</li>
+	<li>Criar solicitação de atendimento para o coordenador</li>
+</ul>
+
+<h5> Serviços fornececidos para coordenadores:</h5>
+<ul>
+	<li>Visualizar requisições de atendimento porprioridades</li>
+	<li>Responder requisições de atendimento</li>
+	<li>Divulgar horários de atendimentos</li>
+	<li>Criar avisos gerais</li>
+</ul>

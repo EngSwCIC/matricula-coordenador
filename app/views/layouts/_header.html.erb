@@ -14,11 +14,17 @@
           <a class="nav-link" href="/about">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/services">Serviços</a>
+          <a class="nav-link" href="/coordinators">Coordenadores</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contato</a>
         </li>        
+
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to  "Concessão de Crédito", credit_forms_path, class: "nav-item nav-link" %>
+          <% end %>
+        </li>
 
         <!-- link to backoffice if logged -->
         <li class="nav-item">
@@ -31,14 +37,8 @@
 
         <li class="nav-item">
           <% if user_signed_in? %>
-            <%= link_to  "Concessão de Crédito", credit_forms_path, class: "nav-item nav-link" %>
-          <% end %>
-        </li>
-
-        <li class="nav-item">
-          <% if user_signed_in? %>
             <% if current_user.has_role? :coordinator %>
-              <%= link_to  "Backoffice do Coordenador", coordinators_backoffice_path, class: "nav-item nav-link" %>
+              <%= link_to  "Backoffice", coordinators_backoffice_path, class: "nav-item nav-link" %>
             <% end %>
           <% end %>
         </li>

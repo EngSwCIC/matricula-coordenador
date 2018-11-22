@@ -1,0 +1,25 @@
+<% unless @coordinator.name.nil? %>
+  <h1><%=@coordinator.name%></h1>
+  <%= image_tag("gena.jpeg", :alt => "Card image cap", :class => "img-thumbnail", :style => "width: 16rem;") %>
+<% end %>
+
+<% unless @coordinator.course.nil? %>
+  <br>
+  <br>
+  <h3><%=@coordinator.course.name %></h3>
+<% end %>
+
+<br>
+<br>
+
+<% unless @coordinator.office_hours.nil? %>
+  <h4>Horário de Atendimento</h4>
+  <p><%=@coordinator.office_hours %></p>
+<% end %>
+
+<% unless @coordinator.notices.nil? %>
+  <h4>Avisos Gerais do Coordenador</h4>
+  <p><%=@coordinator.notices %></p>
+<% end %>
+
+<%= link_to "Voltar", coordinators_path, class: "btn btn-primary" %>

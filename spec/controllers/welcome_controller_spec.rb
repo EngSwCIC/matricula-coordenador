@@ -17,14 +17,14 @@ RSpec.describe WelcomeController, type: :controller do
 	      expect(response).to have_http_status(200)
 	    end
 
-	    it 'should render services page' do
-	      get :index
+	    it 'should render coordinators page' do
+	      get :coordinators
 	      expect(response).to be_successful
 	      expect(response).to have_http_status(200)
 	    end
 
 	    it 'should render contact page' do
-	      get :index
+	      get :contact
 	      expect(response).to be_successful
 	      expect(response).to have_http_status(200)
 	    end

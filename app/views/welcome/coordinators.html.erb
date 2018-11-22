@@ -1,0 +1,20 @@
+<h1>Coordenadores</h1>
+
+<p> Procure pelo coordenador de seu curso para obter informações! </p>
+
+<% unless @coordinators.nil? %>
+  <% @coordinators.each_slice(4) do |coordinators|%>
+    <div class="row top-buffer">
+      <% coordinators.each do |coord| %>
+        <div class="card m-2" style="width: 16rem;">
+          <%= image_tag("gena.jpeg", :alt => "Card image cap", :class => "card-img-top") %>
+          <div class="card-body">
+            <h5 class="card-title"><%= coord.course.name %></h5>
+            <p class="card-text"><%= coord.name %></p>
+            <a href="coordinator/<%= coord.id %>" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
