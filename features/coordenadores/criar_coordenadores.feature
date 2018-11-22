@@ -9,11 +9,13 @@ Funcionalidade: criar_coordenadores
     Dado que eu seja um administrador
     E esteja autenticado
     E esteja na pagina para criar coordenadores
+    E tenha o curso "Engenharia de Computação"
     Quando eu clicar em "Novo Coordenador"
     E preencher os dados do formulário:
-    	| user_name     | Moutinho      |
-    	| user_email    | mout@mout.com |
-    	| user_password | 123456        |
-    Quando eu clicar no botão "Criar Coordenador"
+    	| user_name       | Moutinho                         |
+    	| user_email      | mout@mout.com                    |
+    	| user_password   | 123456                           |
+    E selecionar "Engenharia de Computação" do campo de id "user_course_id"
+    Quando eu clicar no botão "Enviar"
     Então devo ver a mensagem de sucesso "Coordenador criado com sucesso"
     E sou redirecionado para página de coordenadores
