@@ -5,7 +5,7 @@ require 'capybara/rails'
 RSpec.describe WelcomeController, type: :controller do
 
 	describe "Sucesfulll navigation static_pages" do
-		it 'should render index page' do
+			it 'should render index page' do
 	      get :index
 	      expect(response).to be_successful
 	      expect(response).to have_http_status(200)
