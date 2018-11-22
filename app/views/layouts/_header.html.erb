@@ -32,6 +32,9 @@
         <li class="nav-item">
           <% if user_signed_in? %>
             <%= link_to  "Concessão de Crédito", credit_forms_path, class: "nav-item nav-link" %>
+            <% if current_user.has_role? :coordinator %>
+              <%= link_to  "Backoffice", coordinators_backoffice_path, class: "nav-item nav-link" %>
+            <% end %>
           <% end %>
         </li>
 
