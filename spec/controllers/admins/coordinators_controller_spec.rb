@@ -112,7 +112,7 @@ RSpec.describe Admins::CoordinatorsController, type: :controller do
                                    email: 'dasdasd.com' } }
         end
 
-        it "updates the coodinator in the database" do
+        it "does not updates the coodinator in the database" do
           @coordinator = User.find(@coordinator.id)
           expect(@coordinator.email).to eql('email@email.com')
         end

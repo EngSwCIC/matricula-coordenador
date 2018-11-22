@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Course, type: :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
+  it 'ensures name presence' do
+      course = Course.new(name: nil)
+      form = course.save
+
+      expect(form).to eq(false)
+    end
 end

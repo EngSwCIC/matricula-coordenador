@@ -5,6 +5,7 @@ Funcionalidade: editar_descricao
   Como administrador autenticado
   Quero editar a descrição do sistema
 
+  # caso feliz
   Cenario: Editar descrição com sucesso
     Dado que eu seja um administrador
     E esteja autenticado
