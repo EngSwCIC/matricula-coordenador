@@ -24,4 +24,11 @@ Funcionalidade: visualizar_informacoes_coordenador
     E eu devo ver os avisos daquele coordenador
 
   # cenários tristes
+  Cenario: Não encontrar o horário de atendimento do coordenador
+    Dado que eu seja um aluno
+    E exista um coordenador do curso "Estatística" com email "maria@maria.com" sem ter declarado o horário de atendimento
+    Quando eu for para a pagina de coordenadores
+    E eu clicar no botão "Informações" daquele coordenador
+    Então sou redirecionado para página daquele coordenador
+    E eu não devo encontrar o horário de atendimento daquele coordenador
 

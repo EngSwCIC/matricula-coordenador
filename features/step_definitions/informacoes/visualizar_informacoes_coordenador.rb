@@ -33,3 +33,13 @@ end
 Então("eu devo ver os avisos daquele coordenador") do
   expect(page).to have_content(@user.notices)
 end
+
+Dado("exista um coordenador do curso {string} com email {string} sem ter declarado o horário de atendimento") do |string, string2|
+  c = Course.create(name:string)
+  @user = User.create(name: string2, email: string2, password: "aaa123", course:c, notices:"Oi, tudo bem?")
+  @user.add_role(:coordinator)
+end
+
+Então("eu não devo encontrar o horário de atendimento daquele coordenador") do
+  expect(page).to have_no_content("Horário de Atendimento")
+end
