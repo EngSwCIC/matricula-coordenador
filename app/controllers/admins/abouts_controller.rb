@@ -13,7 +13,7 @@ class Admins::AboutsController < AdminsController
       flash[:success] = 'Descrição editado com sucesso'
       redirect_to admins_abouts_path
     else
-      flash[:error] = 'Erro na edição da descrição'
+      flash[:danger] = 'Erro na edição da descrição'
       redirect_to edit_admins_about_path(@about)
     end
   end
