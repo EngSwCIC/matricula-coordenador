@@ -70,11 +70,12 @@ RSpec.describe Admins::AboutsController, type: :controller do
           @about = About.create(description:"Olá Mundo!")
 
           put :update, params: { id: @about.id, 
-                                 about: {name:'' } }
+                                 about: {description:'' } }
         end
 
         it "does not updates the about in the database" do
           @about = About.find(@about.id)
+          expect(flash[:danger]).to eq('Erro na edição da descrição')
           expect(@about.description).to eql('Olá Mundo!')
         end
 

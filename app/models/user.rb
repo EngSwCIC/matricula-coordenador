@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :credit_forms 
 
   belongs_to :course, optional: true
+
+  validates :email, presence: true
 end
