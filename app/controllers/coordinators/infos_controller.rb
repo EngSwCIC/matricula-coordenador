@@ -10,11 +10,13 @@ class Coordinators::InfosController < CoordinatorsController
   def update
     respond_to do |format|
       if @coordinator.update_without_password(coordinator_params)
+        flash[:success] = 'Sucesso na edição dos dados do coordenador'
         format.html { redirect_to coordinators_infos_path, notice: 'Informações atualizadas com sucesso.' }
         format.json { render :show, status: :ok, location: @coordinator }
       else
+        flash[:danger] = 'Erro na edição dos dados do coordenador'
         format.html { render :edit }
-      format.json { render json: @coordinator.errors, status: :unprocessable_entity }
+        format.json { render json: @coordinator.errors, status: :unprocessable_entity }
       end
     end
   end

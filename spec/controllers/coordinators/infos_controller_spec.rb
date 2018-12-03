@@ -26,22 +26,47 @@ RSpec.describe Coordinators::InfosController, type: :controller do
   end
 
   describe "PUT #update" do
-    let(:new_attributes) {
-      { 
-        name: "Matheus Rodrigues",
+
+    context "with valid attributes" do
+      let(:new_attributes) {
+        { 
+          name: "Matheus Rodrigues",
+        }
       }
-    }
-    it "should updates the requested coordinator" do
-      put :update, params: {id: @coordinator.to_param, user: new_attributes}
-      @coordinator.reload
-      expect(@coordinator).to be_valid
+      it "should updates the requested coordinator" do
+        put :update, params: {id: @coordinator.to_param, user: new_attributes}
+        @coordinator.reload
+        expect(@coordinator).to be_valid
+      end
+
+      it "should redirects to the coordinator's info" do
+        put :update, params: {id: @coordinator.to_param, user: new_attributes}
+        @coordinator.reload
+        expect(response).to redirect_to(coordinators_infos_path)
+      end
+
+      it "should flash success" do
+        put :update, params: {id: @coordinator.to_param, user: new_attributes}
+        @coordinator.reload
+        expect(flash[:success]).to eq('Sucesso na edição dos dados do coordenador')
+      end
     end
 
-    it "should redirects to the coordinator's info" do
-      put :update, params: {id: @coordinator.to_param, user: new_attributes}
-      @coordinator.reload
-      expect(response).to redirect_to(coordinators_infos_path)
+    context "with invalid attributes" do
+      let(:new_attributes) {
+        { 
+          name: "Matheus Rodrigues",
+          email: ''
+        }
+      }
+      
+      it "does not updates the coordinator infos in the database" do
+        put :update, params: {id: @coordinator.to_param, user: new_attributes}
+        expect(flash[:danger]).to eq('Erro na edição dos dados do coordenador')
+      end
+
     end
+
   end
 
 end
