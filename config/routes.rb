@@ -1,12 +1,18 @@
 Rails.application.routes.draw do  
   devise_for :users, :controllers => {:registrations => "registrations"}
   root 'welcome#index'
-  get 'welcome/index'
+  get '/index', to: 'welcome#index', as:'index'
+  get '/about', to: 'welcome#about', as:'about'
+  get '/contact', to: 'welcome#contact', as:'contact'
+  get '/coordinator/:id', to: 'welcome#show'
+  get '/coordinators', to: 'welcome#coordinators'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   authenticated :user do
     get 'admins/backoffice' => 'admins#backoffice'
     get 'coordinators/backoffice' => 'coordinators#coordinators_backoffice'
+    #get 'students/backoffice' => 'students#students_backoffice'
   end
 
 
@@ -16,6 +22,13 @@ Rails.application.routes.draw do
       resources :abouts, only: [:index, :edit, :update]
     end
 
+  end
+
+  resources :students
+  authenticated :user do
+    namespace :coordinators do
+      resources :infos
+    end
   end
 
   # Credit forms routes

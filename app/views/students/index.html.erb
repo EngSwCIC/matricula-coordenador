@@ -26,10 +26,10 @@
                 </td>
                 
                 <td>
-                  <%= link_to 'Editar', edit_admins_student_path(student), class: "btn btn-sm btn-primary" %>
+                  <%= link_to 'Editar', edit_student_path(student), class: "btn btn-sm btn-primary" %>
                 </td>
                 <td>
-                  <%= link_to 'Excluir', admins_student_path(student), method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-danger" %>
+                  <%= link_to 'Excluir', student_path(student), method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-danger" %>
                 </td>
               </tr>
               <% end %>
@@ -41,5 +41,5 @@
   
   <br>
   
-  <%= link_to 'Novo Estudante', new_admins_student_path, class: "btn btn-success" %>
+  <%= link_to 'Novo Estudante', new_student_path, class: "btn btn-success" %>
 </div>

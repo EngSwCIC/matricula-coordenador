@@ -5,6 +5,7 @@ Funcionalidade: excluir_coordenadores
   Como administrador autenticado
   Quero excluir um coordenador do sistema
 
+  #caso feliz
   Cenario: Excluir coordenadores com sucesso
     Dado que eu seja um administrador
     E esteja autenticado
