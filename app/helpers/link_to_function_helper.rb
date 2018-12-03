@@ -1,3 +1,4 @@
+# :nocov:
 module LinkToFunctionHelper
   def link_to_function(name, *args, &block)
      html_options = args.extract_options!.symbolize_keys
@@ -9,3 +10,4 @@ module LinkToFunctionHelper
      content_tag(:a, name, html_options.merge(:href => href, :onclick => onclick))
   end
 end
+# :nocov:
