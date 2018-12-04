@@ -24,7 +24,10 @@ Rails.application.routes.draw do
 
   end
 
-  resources :students
+  authenticated :user do
+    resources :students
+  end
+
   authenticated :user do
     namespace :coordinators do
       resources :infos

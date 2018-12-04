@@ -31,6 +31,9 @@
                 <td>
                   <%= link_to 'Excluir', student_path(student), method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-danger" %>
                 </td>
+                <td>
+                  <%= link_to 'Visualizar', student_path(student), class: "btn btn-sm btn-light" %>
+                </td>
               </tr>
               <% end %>
           <% end %>
