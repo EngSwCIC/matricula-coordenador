@@ -1,160 +1,162 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Admins::CoordinatorsController, type: :controller do
-
   describe Admins::CoordinatorsController do
     before(:each) do
-      @admin = User.new(email: "admin@admin.com", password: "123456")
+      @admin = User.new(email: 'admin@admin.com', password: '123456')
       @admin.add_role(:admin)
       @admin.save!
     end
-    
-    describe "GET #index" do
-      it "return all coodinators" do
+
+    describe 'GET #index' do
+      it 'return all coodinators' do
         sign_in @admin
-        coor1 = User.create!(email: "coor1@coor1.com", password: "123456")
+        coor1 = User.create!(email: 'coor1@coor1.com', password: '123456')
         coor1.add_role(:coordinator)
-        coor2 = User.create!(email: "coor2@coor2.com", password: "123456")
+        coor2 = User.create!(email: 'coor2@coor2.com', password: '123456')
         coor2.add_role(:coordinator)
         get :index
         expect(assigns(:coordinators)).to match_array([coor1, coor2])
       end
-      
-      it "renders the :index view" do
+
+      it 'renders the :index view' do
         sign_in @admin
         get :index
-        expect(response).to render_template("index")
+        expect(response).to render_template('index')
       end
     end
-    
-    describe "GET #new" do
-      it "assigns a new Coodinator to @coordinator" do
+
+    describe 'GET #new' do
+      it 'assigns a new Coodinator to @coordinator' do
         sign_in @admin
         get :new
         expect(assigns(:coordinator)).to_not be_nil
       end
-      
-      it "renders the :new template" do
+
+      it 'renders the :new template' do
         sign_in @admin
         get :new
         expect(response).to render_template(:new)
       end
-
     end
-    
-    describe "POST #create" do
-      context "with valid attributes" do
-        before(:each) do 
+
+    describe 'POST #create' do
+      context 'with valid attributes' do
+        before(:each) do
           sign_in @admin
           post :create, params: { user: {
-                                    name: "novo coordenador",
-                                    email: "coord@coord.com",
-                                    password: "123456"} }
+            name: 'novo coordenador',
+            email: 'coord@coord.com',
+            password: '123456'
+          } }
         end
-        it "saves the new coodinator in the database" do
+        it 'saves the new coodinator in the database' do
           expect(flash[:notice]).to eq('Coordenador criado com sucesso')
           expect(User.with_role(:coordinator).count).to be(1)
         end
-        
-        it "redirects to backoffice coordinators" do
+
+        it 'redirects to backoffice coordinators' do
           expect(response).to redirect_to(admins_coordinators_path)
         end
       end
-      
-      context "with invalid attributes" do
-        before(:each) do 
+
+      context 'with invalid attributes' do
+        before(:each) do
           sign_in @admin
           post :create, params: { user: {
-                                    name: "novo coordenador",
-                                    email: "coord@coord.com",
-                                    password: ""} }
+            name: 'novo coordenador',
+            email: 'coord@coord.com',
+            password: ''
+          } }
         end
 
-        it "does not save the new coordinator in the database" do
+        it 'does not save the new coordinator in the database' do
           expect(User.with_role(:coordinator).count).to be(0)
         end
       end
     end
 
-    describe "PUT #update" do
-      context "with valid attributes" do
-        before(:each) do 
+    describe 'PUT #update' do
+      context 'with valid attributes' do
+        before(:each) do
           sign_in @admin
-          @coordinator = User.create(name: "novo coordenador",
-                                     email: "email@email.com",
-                                     password: "123456")
+          @coordinator = User.create(name: 'novo coordenador',
+                                     email: 'email@email.com',
+                                     password: '123456')
 
-          put :update, params: { id: @coordinator.id, 
+          put :update, params: { id: @coordinator.id,
                                  user: {
-                                    name: 'novo coordenador2' } }
+                                   name: 'novo coordenador2'
+                                 } }
         end
 
-        it "updates the coodinator in the database" do
+        it 'updates the coodinator in the database' do
           @coordinator = User.find(@coordinator.id)
           expect(flash[:notice]).to eq('Coordenador editado com sucesso')
           expect(@coordinator.name).to eql('novo coordenador2')
         end
-        
-        it "redirects to backoffice coordinators" do
+
+        it 'redirects to backoffice coordinators' do
           expect(response).to redirect_to(admins_coordinators_path)
         end
       end
-      
-      context "with invalid attributes" do
-        before(:each) do 
-          sign_in @admin
-          @coordinator = User.create(name: "novo coordenador",
-                                     email: "email@email.com",
-                                     password: "123456")
 
-          put :update, params: { id: @coordinator.id, 
+      context 'with invalid attributes' do
+        before(:each) do
+          sign_in @admin
+          @coordinator = User.create(name: 'novo coordenador',
+                                     email: 'email@email.com',
+                                     password: '123456')
+
+          put :update, params: { id: @coordinator.id,
                                  user: {
-                                   email: 'dasdasd.com' } }
+                                   email: 'dasdasd.com'
+                                 } }
         end
 
-        it "does not updates the coodinator in the database" do
+        it 'does not updates the coodinator in the database' do
           @coordinator = User.find(@coordinator.id)
           expect(@coordinator.email).to eql('email@email.com')
         end
 
-        it "does not save the new coordinator in the database" do
+        it 'does not save the new coordinator in the database' do
           expect(User.with_role(:coordinator).count).to be(0)
         end
       end
     end
 
-    describe "GET #edit" do
-      before(:each) do 
-          sign_in @admin
-          @coordinator = User.create(name: "novo coordenador",
-                                     email: "email@email.com",
-                                     password: "123456")
-          
-          get :edit, params: {id: @coordinator.id}
+    describe 'GET #edit' do
+      before(:each) do
+        sign_in @admin
+        @coordinator = User.create(name: 'novo coordenador',
+                                   email: 'email@email.com',
+                                   password: '123456')
 
+        get :edit, params: { id: @coordinator.id }
       end
 
-      it "assigns a new Coodinator to @coordinator" do
+      it 'assigns a new Coodinator to @coordinator' do
         expect(assigns(:coordinator)).to_not be_nil
       end
-      
-      it "renders the :edit template" do
+
+      it 'renders the :edit template' do
         expect(response).to render_template(:edit)
       end
     end
 
-    describe "DELETE #delete" do
-      before(:each) do 
-          sign_in @admin
-          @coordinator = User.create(name: "novo coordenador",
-                                     email: "email@email.com",
-                                     password: "123456")
-          
-          delete :destroy, params: {id: @coordinator.id}
+    describe 'DELETE #delete' do
+      before(:each) do
+        sign_in @admin
+        @coordinator = User.create(name: 'novo coordenador',
+                                   email: 'email@email.com',
+                                   password: '123456')
 
+        delete :destroy, params: { id: @coordinator.id }
       end
 
-      it "delete coordinator" do
+      it 'delete coordinator' do
         expect(flash[:notice]).to eq('Coordenador excluído com sucesso')
         expect(User.with_role(:coordinator).count).to be(0)
       end

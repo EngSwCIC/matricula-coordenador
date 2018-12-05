@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Coordinators::InfosController < CoordinatorsController
   before_action :authenticate_user!
-  before_action :set_coordinator, only: [:edit, :update]
+  before_action :set_coordinator, only: %i[edit update]
   # GET /coordinators
-  # GET /coordinators.json 
+  # GET /coordinators.json
   def index
     @coordinator = current_user
   end
@@ -22,13 +24,14 @@ class Coordinators::InfosController < CoordinatorsController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coordinator
-      @coordinator = current_user
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def coordinator_params
-      params.require(:user).permit(:name, :notices, :office_hours, :email, :password)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_coordinator
+    @coordinator = current_user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def coordinator_params
+    params.require(:user).permit(:name, :notices, :office_hours, :email, :password)
+  end
 end

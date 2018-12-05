@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Admins::CoordinatorsController < AdminsController
-  before_action :set_coordinator, only: [:destroy, :edit, :update]
+  before_action :set_coordinator, only: %i[destroy edit update]
   # GET /coordinators
   # GET /coordinators.json
   def index
@@ -54,13 +56,14 @@ class Admins::CoordinatorsController < AdminsController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coordinator
-      @coordinator = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def coordinator_params
-      params.require(:user).permit(:name, :email, :password, :course_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_coordinator
+    @coordinator = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def coordinator_params
+    params.require(:user).permit(:name, :email, :password, :course_id)
+  end
 end

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:destroy, :edit, :update]
+  before_action :set_student, only: %i[destroy edit update]
   # GET /coordinators
-  # GET /coordinators.json 
+  # GET /coordinators.json
   def index
     @students = User.with_role(:student)
   end
@@ -25,8 +27,7 @@ class StudentsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -55,13 +56,14 @@ class StudentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_student
-      @student = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def student_params
-      params.require(:user).permit(:name, :email, :password)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_student
+    @student = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def student_params
+    params.require(:user).permit(:name, :email, :password)
+  end
 end
