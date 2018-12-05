@@ -5,7 +5,7 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.where(student.course == coordenator.course)
+    @attendances = Attendance.all.order(priority_student: :asc)
   end
 
   # GET /attendances/1
