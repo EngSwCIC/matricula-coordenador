@@ -9,10 +9,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Name student</th>
-            <th>Course student</th>
-            <th>Comment</th>
-            <th>Priority student</th>
+            <th>Nome estudante</th>
+            <th>Curso estudante</th>
+            <th>Comentário</th>
+            <th>Prioridade</th>
+            <th>Realizado</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -24,6 +25,7 @@
               <td><%= attendance.course_student %></td>
               <td><%= attendance.comment %></td>
               <td><%= attendance.priority_student %></td>
+              <td><%= link_to 'Realizado',attendance, method: :delete, data: { confirm: 'Deseja marcar como realizado?' }  %></td>
               <td><%= link_to 'Show', attendance %></td>
               <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
               <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>

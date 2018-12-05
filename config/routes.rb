@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   authenticated :user do
     namespace :coordinators do
       resources :infos
+      # put '/attempt', to: 'attendances#attempt'
     end
   end
 
