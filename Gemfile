@@ -96,3 +96,6 @@ gem 'rdoc'
 
 # Flog
 gem 'flog'
+
+# Flog
+gem 'metric_fu-Saikuro'
