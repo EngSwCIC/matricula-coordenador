@@ -93,3 +93,6 @@ gem 'font-awesome-rails'
 
 # Rdoc
 gem 'rdoc'
+
+# Flog
+gem 'flog'

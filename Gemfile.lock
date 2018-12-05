@@ -335,6 +335,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_bot_rails
+  flog
   font-awesome-rails
   gemaina
   jbuilder (~> 2.5)
