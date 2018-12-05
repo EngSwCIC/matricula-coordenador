@@ -42,16 +42,34 @@
             <% end %>
           <% end %>
         </li>
+
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <% if current_user.has_role? :student %>
+              <%= link_to  "Informações Fila", information_path, class: "nav-item nav-link" %>
+            <% end %>
+          <% end %>
+        </li>
+
         <!-- account info and link to login -->
+
         <% if user_signed_in? %>
           <li class="nav-link dropdown">
             <div class="nav-item dropdown-toggle" data-toggle="dropdown">
               Olá, <b class="caret"><%= current_user.email%></b>
             </div>
+            <%# O dropdown abaixo é responsável por mostrar ao usuário se logado, qual grupo de usuário ele pertence
+            e também um link para que ele possa editar o perfil dele.%>
             <ul class="dropdown-menu" style="margin-top: 7px;">
-              <li><%= link_to "  Preferências", current_user.roles_name[0]+'s', class: "dropdown-item fa fas fa-cog fa-xs"%></li>
+              <% if current_user.has_role? :coordinator %>
+                <li><%= link_to "  Preferências", edit_coordinators_info_path(current_user), class: "dropdown-item fa fas fa-cog fa-xs"%></li>
+              <% end %>
 
-              <li><%= link_to ' Tipo:'+current_user.roles_name[0], current_user.roles_name[0]+'s', class: "dropdown-item fa fas fa-user fa-xs"%></li>
+              <% if current_user.has_role? :student %>
+                <li><%= link_to "  Preferências", edit_student_path(current_user), class: "dropdown-item fa fas fa-cog fa-xs"%></li>
+              <% end %>
+
+              <li><%= link_to ' Tipo:'+current_user.roles_name[0], '#', class: "dropdown-item fa fas fa-user fa-xs"%></li>
 
               <div class="dropdown-divider"></div>
 
