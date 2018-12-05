@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCreditForms < ActiveRecord::Migration[5.2]
   def change
     create_table :credit_forms do |t|
@@ -5,7 +7,7 @@ class CreateCreditForms < ActiveRecord::Migration[5.2]
       t.integer    :requisition_number
       t.string     :sei
       t.date       :received_at
-      #t.integer :funcionario_id
+      # t.integer :funcionario_id
       t.timestamps
     end
 

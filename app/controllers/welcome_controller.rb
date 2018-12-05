@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WelcomeController < ApplicationController
   def index
     @about = About.first
@@ -15,6 +17,5 @@ class WelcomeController < ApplicationController
     @coordinator = User.find(params[:id])
   end
 
-  def contact
-  end
+  def contact; end
 end
