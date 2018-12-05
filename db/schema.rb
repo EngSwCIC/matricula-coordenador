@@ -89,9 +89,9 @@ ActiveRecord::Schema.define(version: 20_181_121_193_133) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.string 'name'
-    t.bigint 'course_id'
     t.text 'notices'
     t.string 'office_hours'
+    t.bigint 'course_id'
     t.index ['course_id'], name: 'index_users_on_course_id'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true

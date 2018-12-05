@@ -10,7 +10,7 @@ class Admins::AboutsController < AdminsController
   def edit; end
 
   def update
-    if @about.update_attributes(about_params)
+    if @about.update(about_params)
       flash[:success] = 'Descrição editado com sucesso'
       redirect_to admins_abouts_path
     else

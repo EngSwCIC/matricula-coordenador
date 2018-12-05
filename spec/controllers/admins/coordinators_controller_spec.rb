@@ -67,7 +67,7 @@ RSpec.describe Admins::CoordinatorsController, type: :controller do
           sign_in @admin
           post :create, params: { user: {
             name: 'novo coordenador',
-            email: 'coord@coord.com',
+            email: '',
             password: ''
           } }
         end

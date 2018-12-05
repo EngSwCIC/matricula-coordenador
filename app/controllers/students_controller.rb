@@ -13,16 +13,13 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = User.new(student_params)
+    @student = User.new(student_params).add_role :student
 
     respond_to do |format|
       if @student.save
-        @student.add_role :student
         format.html { redirect_to students_path, notice: 'student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,10 +30,8 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @student.update_without_password(student_params)
         format.html { redirect_to students_path, notice: 'student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,13 +42,10 @@ class StudentsController < ApplicationController
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'student was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
-  def show
-    @student = User.find(params[:id])
-  end
+  def show; end
 
   private
 

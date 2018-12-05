@@ -50,6 +50,7 @@ group :development, :test do
   gem 'gemaina'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.8'
+  gem 'rubycritic', require: false
 end
 
 group :development do
