@@ -88,3 +88,6 @@ gem "rolify"
 
 # Font-Awesome
 gem "font-awesome-rails"
+
+# Rdoc
+gem "rdoc"
