@@ -93,3 +93,9 @@ gem 'font-awesome-rails'
 
 # Rdoc
 gem 'rdoc'
+
+# Flog
+gem 'flog'
+
+# Flog
+gem 'metric_fu-Saikuro'
