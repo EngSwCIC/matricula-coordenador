@@ -1,0 +1,38 @@
+<%= form_with(model: attendance, local: true) do |form| %>
+  <% if attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+      <% attendance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name_student %>
+    <%= form.text_field :name_student %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_student %>
+    <%= form.text_field :course_student %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority_student %>
+     <%= form.select :priority_student, options_for_select([['Em condição','Em condicao'],['Normal','Normal'],['Outros','Outros']], :selected => form.object.priority_student),
+                           {} %> 
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

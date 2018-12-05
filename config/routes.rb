@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-
-Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }
+Rails.application.routes.draw do  
+  resources :attendances
+  devise_for :users, :controllers => {:registrations => "registrations"}
   root 'welcome#index'
   get '/index', to: 'welcome#index', as: 'index'
   get '/about', to: 'welcome#about', as: 'about'

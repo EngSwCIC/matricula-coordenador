@@ -1,0 +1,9 @@
+<h1>Novo Atendimento</h1>
+
+<%= render 'form', attendance: @attendance %>
+
+<% if  current_user.has_role? :student%>
+    <%= link_to 'Voltar Página inical', index_path %>
+<% else %>
+    <%= link_to 'Voltar', attendances_path %>
+<%end%>
