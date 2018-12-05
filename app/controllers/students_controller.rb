@@ -1,30 +1,12 @@
 # frozen_string_literal: true
 
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[destroy edit update]
+  before_action :set_student, only: %i[destroy edit update] 
   # GET /coordinators
   # GET /coordinators.json
   def index
-    @students = User.with_role(:student)
+    @students = [current_user]
   end
-
-  def new
-    @student = User.new
-  end
-
-  def create
-    @student = User.new(student_params).add_role :student
-
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to students_path, notice: 'student was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
-
-  def edit; end
 
   def update
     respond_to do |format|
@@ -35,17 +17,6 @@ class StudentsController < ApplicationController
       end
     end
   end
-
-  # DELETE /students/1
-  # DELETE /students/1.json
-  def destroy
-    @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url, notice: 'student was successfully destroyed.' }
-    end
-  end
-
-  def show; end
 
   private
 
