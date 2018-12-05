@@ -10,29 +10,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name_student %>
-    <%= form.text_field :name_student %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="field">
+        <%= form.label "Nome estudante" %>
+        <%= form.text_field :name_student %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="field">
+        <%= form.label "Curso estudante" %>
+        <%= form.select :course_student, options_for_select([['Ciência da Computação (Bacharel)','Ciência da Computação (Bacharel)'],['Licenciatura','Licenciatura'],['Engenharia da Computação','Engenharia da Computação'], ["Estatística", "Estatística"],["Design", "Design"], ["Administração", "Administração"] ], :selected => form.object.priority_student),
+                              {} %> 
+      </div>
+    </div>  
   </div>
 
-  <div class="field">
-    <%= form.label :course_student %>
-    <%= form.text_field :course_student %>
+  <div class="row">
+      <div class="col-md-4">
+        <div class="field">
+          <%= form.label "Comentário" %>
+          <%= form.text_area :comment %>
+        </div>
+      </div>  
+    <div class="col-md-6">
+      <div class="field">
+        <%= form.label "Prioridade estudante" %>
+        <%= form.select :priority_student, options_for_select([['Em condição','Em condição'],['Normal','Normal'],['Outros','Outros']], :selected => form.object.priority_student),
+                              {} %> 
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :priority_student %>
-     <%= form.select :priority_student, options_for_select([['Em condição','Em condicao'],['Normal','Normal'],['Outros','Outros']], :selected => form.object.priority_student),
-                           {} %> 
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    
 <% end %>
+
+

@@ -5,13 +5,24 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all
+    @attendances = Attendance.all.order(priority_student: :asc)
   end
 
   # GET /attendances/1
   # GET /attendances/1.json
   def show
   end
+
+  # def attempt
+  #   @attendence = Attendance.find(params[:id])
+  #   @attendence.attempt = true;
+  #   @attendence.save
+ 
+  #   respond_to do |format|
+  #     format.html { redirect_to attendances_path, notice: 'Atendimento realizado com sucesso.'}
+  #     format.js {  }
+  #   end  
+  # end
 
   # GET /attendances/new
   def new
