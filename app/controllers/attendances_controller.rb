@@ -30,6 +30,7 @@ class AttendancesController < ApplicationController
       if @attendance.save
         format.html { redirect_to attendances_path, notice: 'Atendimento Criado com sucesso' }
       else
+        flash[:danger] = "Por obséquio, favor responder todos os campos"
         format.html { render :new }
       end
     end
