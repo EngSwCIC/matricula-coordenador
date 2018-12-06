@@ -8,7 +8,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Seeds para o ambiente de desenvolvimento
 unless Rails.env.production?
+
+  # Apaga todos usuários, descrições e cursos
   User.destroy_all
   puts 'Usuarios apagados'
   About.destroy_all
@@ -16,6 +19,7 @@ unless Rails.env.production?
   Course.destroy_all
   puts 'Cursos apagados'
 
+  # Cria a descrição
   About.create(
     description: "
       O sistema se resume em faciltar tanto o aluno quanto o coordenador com relação ao atendimento durante o período de matrículas. Nele será possível que o aluno, ao se autenticar, possa entrar em uma fila para atendimento, em que essa será automatizada visando priorizar a ordem pedida pela universidade, como: Aluno em condição, Aluno com atendimento especial, entre outros.
@@ -28,6 +32,7 @@ unless Rails.env.production?
   )
   puts 'Descrição Criada'
 
+  # Cria cursos
   Course.create(name: 'Ciência da Computação (Bacharel)')
   Course.create(name: 'Computação (Licenciatura)')
   Course.create(name: 'Engenharia da Computação')
@@ -36,11 +41,13 @@ unless Rails.env.production?
   Course.create(name: 'Administração')
   puts 'Cursos criados'
 
+  # Cria admin
   c = Course.find_by(name: 'Ciência da Computação (Bacharel)')
   u = User.create(name: 'Admin', email: 'email@email.com', password: 'aaa123', course: c)
   u.add_role(:admin)
   puts 'Usuario email@email.com criado'
 
+  # Cria coordenadores
   c = Course.find_by(name: 'Ciência da Computação (Bacharel)')
   u = User.create(name: 'Genaina', office_hours: '12hr - 14hr', notices: 'Estou ocupado hoje', email: 'genaina@genaina.com', password: 'aaa123', course: c)
   u.add_role(:coordinator)

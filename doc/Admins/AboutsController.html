@@ -90,6 +90,8 @@
 
   <section class="description">
     
+<p>Controller para que o admin do sistema tenha acesso a descrição do sistema</p>
+
   </section>
 
   
@@ -122,15 +124,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método edit da descrição do sistema</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/abouts_controller.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
-<span class="ruby-keyword">end</span></pre>
+            <pre><span class="ruby-comment"># File app/controllers/admins/abouts_controller.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -154,13 +155,13 @@
 
         <div class="method-description">
           
-          
+          <p>Método index da descrição do sistema</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/abouts_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/abouts_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@abouts</span> = <span class="ruby-constant">About</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -187,15 +188,15 @@
 
         <div class="method-description">
           
-          
+          <p>Método update da descrição do sistema</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/abouts_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/abouts_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@about</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">about_params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@about</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">about_params</span>)
     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&#39;Descrição editado com sucesso&#39;</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admins_abouts_path</span>
   <span class="ruby-keyword">else</span>

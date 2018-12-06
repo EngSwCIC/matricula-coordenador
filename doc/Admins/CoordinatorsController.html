@@ -96,6 +96,9 @@
 
   <section class="description">
     
+<p>Controller for admins controll all coordinators Controller para que o admin
+do sistema tenha acesso aos usuários com a role de coordenador no sistema</p>
+
   </section>
 
   
@@ -128,24 +131,22 @@
 
         <div class="method-description">
           
-          
+          <p>Método create dos coordenadores :reek: DuplicateMethodCall { allow_calls:
+[&#39;format.html&#39;, &#39;format2.html&#39;] }</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@coordinator</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">coordinator_params</span>)
-  <span class="ruby-ivar">@courses</span> = <span class="ruby-constant">Course</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">add_role</span> <span class="ruby-value">:coordinator</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">save</span>
-      <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">add_role</span> <span class="ruby-value">:coordinator</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admins_coordinators_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Coordenador criado com sucesso&#39;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:created</span>, <span class="ruby-value">location:</span> <span class="ruby-ivar">@coordinator</span> }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -172,18 +173,18 @@
 
         <div class="method-description">
           
-          <p>DELETE /coordinators/1 DELETE /coordinators/1.json</p>
+          <p>Método destroy dos coordenadores DELETE /coordinators/1 DELETE
+/coordinators/1.json</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admins_coordinators_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Coordenador excluído com sucesso&#39;</span> }
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -209,16 +210,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método edit dos coordenadores</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 29</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
-  <span class="ruby-ivar">@courses</span> = <span class="ruby-constant">Course</span>.<span class="ruby-identifier">all</span>
-<span class="ruby-keyword">end</span></pre>
+            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -242,13 +241,13 @@
 
         <div class="method-description">
           
-          <p>GET /coordinators GET /coordinators.json</p>
+          <p>GET /coordinators GET /coordinators.json Método index dos coordenadores</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@coordinators</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">with_role</span>(<span class="ruby-value">:coordinator</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -275,16 +274,15 @@
 
         <div class="method-description">
           
-          
+          <p>Método new dos coordenadores</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@coordinator</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@courses</span> = <span class="ruby-constant">Course</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -309,22 +307,19 @@
 
         <div class="method-description">
           
-          
+          <p>Método Update dos coordenadores :reek: DuplicateMethodCall</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 33</span>
+            <pre><span class="ruby-comment"># File app/controllers/admins/coordinators_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
-  <span class="ruby-ivar">@courses</span> = <span class="ruby-constant">Course</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">update_without_password</span>(<span class="ruby-identifier">coordinator_params</span>)
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admins_coordinators_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Coordenador editado com sucesso&#39;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:ok</span>, <span class="ruby-value">location:</span> <span class="ruby-ivar">@coordinator</span> }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>

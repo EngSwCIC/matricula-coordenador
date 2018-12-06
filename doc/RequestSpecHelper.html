@@ -132,7 +132,7 @@
 
           
           <div class="method-source-code" id="included-source">
-            <pre><span class="ruby-comment"># File spec/support/request_spec_helper.rb, line 5</span>
+            <pre><span class="ruby-comment"># File spec/support/request_spec_helper.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">included</span>(<span class="ruby-identifier">base</span>)
   <span class="ruby-identifier">base</span>.<span class="ruby-identifier">before</span>(<span class="ruby-value">:each</span>) { <span class="ruby-constant">Warden</span>.<span class="ruby-identifier">test_mode!</span> }
   <span class="ruby-identifier">base</span>.<span class="ruby-identifier">after</span>(<span class="ruby-value">:each</span>) { <span class="ruby-constant">Warden</span>.<span class="ruby-identifier">test_reset!</span> }
@@ -174,7 +174,7 @@
 
           
           <div class="method-source-code" id="sign_in-source">
-            <pre><span class="ruby-comment"># File spec/support/request_spec_helper.rb, line 10</span>
+            <pre><span class="ruby-comment"># File spec/support/request_spec_helper.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sign_in</span>(<span class="ruby-identifier">resource</span>)
   <span class="ruby-identifier">login_as</span>(<span class="ruby-identifier">resource</span>, <span class="ruby-value">scope:</span> <span class="ruby-identifier">warden_scope</span>(<span class="ruby-identifier">resource</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -207,7 +207,7 @@
 
           
           <div class="method-source-code" id="sign_out-source">
-            <pre><span class="ruby-comment"># File spec/support/request_spec_helper.rb, line 14</span>
+            <pre><span class="ruby-comment"># File spec/support/request_spec_helper.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sign_out</span>(<span class="ruby-identifier">resource</span>)
   <span class="ruby-identifier">logout</span>(<span class="ruby-identifier">warden_scope</span>(<span class="ruby-identifier">resource</span>))
 <span class="ruby-keyword">end</span></pre>

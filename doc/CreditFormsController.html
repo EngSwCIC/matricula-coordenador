@@ -98,6 +98,9 @@
 
   <section class="description">
     
+<p>Controller para que os alunos do sistema façam requisições pelos
+formulários de concessão de créditos</p>
+
   </section>
 
   
@@ -130,15 +133,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método create dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
-  <span class="ruby-ivar">@credit_form</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">credit_form_params</span>)
   <span class="ruby-ivar">@credit_form</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">credit_forms</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">credit_form_params</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@credit_form</span>.<span class="ruby-identifier">save</span>
     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&#39;Seu formulário de aproveitamento de créditos foi criado com sucesso&#39;</span>
@@ -170,15 +172,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método destroy dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
-  <span class="ruby-ivar">@credit_form</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@credit_form</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">credit_forms_path</span>
 <span class="ruby-keyword">end</span></pre>
@@ -205,16 +206,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método edit dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
-  <span class="ruby-ivar">@credit_form</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-<span class="ruby-keyword">end</span></pre>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -238,15 +237,15 @@
 
         <div class="method-description">
           
-          
+          <p>Método index dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">has_role?</span> <span class="ruby-value">:coordinator</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">has_role?</span> <span class="ruby-value">:admin</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">has_role?</span>(<span class="ruby-value">:coordinator</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">has_role?</span>(<span class="ruby-value">:admin</span>)
     <span class="ruby-ivar">@credit_forms</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">has_role?</span> <span class="ruby-value">:student</span>
     <span class="ruby-ivar">@credit_forms</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">current_user</span>)
@@ -275,15 +274,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método new dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 12</span>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
-  <span class="ruby-ivar">@credit_form</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@credit_form</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">credit_forms</span>.<span class="ruby-identifier">build</span>
   <span class="ruby-value">1</span>.<span class="ruby-identifier">times</span> { <span class="ruby-ivar">@credit_form</span>.<span class="ruby-identifier">credit_items</span>.<span class="ruby-identifier">build</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -310,15 +308,14 @@
 
         <div class="method-description">
           
-          
+          <p>Método show dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-  <span class="ruby-ivar">@credit_form</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@items</span> = <span class="ruby-ivar">@credit_form</span>.<span class="ruby-identifier">credit_items</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -344,16 +341,15 @@
 
         <div class="method-description">
           
-          
+          <p>Método update dos forms de concessão</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 38</span>
+            <pre><span class="ruby-comment"># File app/controllers/credit_forms_controller.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
-  <span class="ruby-ivar">@credit_form</span> = <span class="ruby-constant">CreditForm</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@credit_form</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">credit_form_params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@credit_form</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">credit_form_params</span>)
     <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&#39;Formulário de aproveitamento de créditos editado com sucesso&#39;</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@credit_form</span>
   <span class="ruby-keyword">else</span>

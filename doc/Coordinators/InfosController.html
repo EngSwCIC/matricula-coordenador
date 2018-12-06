@@ -88,6 +88,9 @@
 
   <section class="description">
     
+<p>Controller para que o coordenador do sistema tenha acesso as suas
+informações</p>
+
   </section>
 
   
@@ -120,13 +123,14 @@
 
         <div class="method-description">
           
-          <p>GET /coordinators GET /coordinators.json</p>
+          <p>GET /coordinators GET /coordinators.json Mostra as informações do
+coordenador</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/coordinators/infos_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/coordinators/infos_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@coordinator</span> = <span class="ruby-identifier">current_user</span>
 <span class="ruby-keyword">end</span></pre>
@@ -153,13 +157,13 @@
 
         <div class="method-description">
           
-          
+          <p>Método update das infos do coordenador</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/coordinators/infos_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/coordinators/infos_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coordinator</span>.<span class="ruby-identifier">update_without_password</span>(<span class="ruby-identifier">coordinator_params</span>)

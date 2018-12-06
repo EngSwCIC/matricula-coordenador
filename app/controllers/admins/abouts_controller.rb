@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
+# Controller para que o admin do sistema tenha acesso a descrição do sistema
 class Admins::AboutsController < AdminsController
   before_action :set_about, only: %i[edit update]
 
+  # Método index da descrição do sistema
   def index
     @abouts = About.all
   end
 
+  # Método edit da descrição do sistema
   def edit; end
 
+  # Método update da descrição do sistema
   def update
     if @about.update(about_params)
       flash[:success] = 'Descrição editado com sucesso'
@@ -22,10 +26,12 @@ class Admins::AboutsController < AdminsController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  # Recebe a descrição do sistema pelo id passado
   def set_about
     @about = About.find(params[:id])
   end
 
+  # Recebe os parametros
   # Never trust parameters from the scary internet, only allow the white list through.
   def about_params
     params.require(:about).permit(:description)

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Model do formulário de concessão de crédito
 class CreditForm < ApplicationRecord
   ITEMS_COUNT_MIN = 1
   belongs_to :user

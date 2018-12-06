@@ -79,6 +79,8 @@
     
     <li ><a href="#method-i-index">#index</a>
     
+    <li ><a href="#method-i-information">#information</a>
+    
     <li ><a href="#method-i-show">#show</a>
     
   </ul>
@@ -94,6 +96,8 @@
 
   <section class="description">
     
+<p>Controller para controlar as páginas estáticas da aplicação</p>
+
   </section>
 
   
@@ -126,13 +130,13 @@
 
         <div class="method-description">
           
-          
+          <p>pagina estatica about com descrição do funcionamento do sistema</p>
           
           
 
           
           <div class="method-source-code" id="about-source">
-            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">about</span>
   <span class="ruby-ivar">@about</span> = <span class="ruby-constant">About</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -159,13 +163,13 @@
 
         <div class="method-description">
           
-          
+          <p>pagina estatica com informações de contato</p>
           
           
 
           
           <div class="method-source-code" id="contact-source">
-            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">contact</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -191,13 +195,13 @@
 
         <div class="method-description">
           
-          
+          <p>pagina estatica com a lsita de coordenadores do sistema</p>
           
           
 
           
           <div class="method-source-code" id="coordinators-source">
-            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coordinators</span>
   <span class="ruby-ivar">@coordinators</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">with_role</span>(<span class="ruby-value">:coordinator</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -224,15 +228,48 @@
 
         <div class="method-description">
           
-          
+          <p>pagina estatica home com informações do sistema</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@about</span> = <span class="ruby-constant">About</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">information</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>pagina information com informações sobre o que é necessário pra entrar
+lista de espera</p>
+          
+          
+
+          
+          <div class="method-source-code" id="information-source">
+            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">information</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -257,13 +294,13 @@
 
         <div class="method-description">
           
-          
+          <p>pagina estatica com as infos de algum coordenador específico selecionado</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@coordinator</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>

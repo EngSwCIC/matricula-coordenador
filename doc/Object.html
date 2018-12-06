@@ -158,13 +158,13 @@
 
         <div class="method-description">
           
-          
+          <p>Verifica a validade da documentação do item</p>
           
           
 
           
           <div class="method-source-code" id="document_validation-source">
-            <pre><span class="ruby-comment"># File app/models/credit_item.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/models/credit_item.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">document_validation</span>
   <span class="ruby-comment"># Clean exit if there is a logo</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">document</span>.<span class="ruby-identifier">attached?</span>
@@ -173,7 +173,7 @@
   <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-string">&#39;Faltou anexar um documento&#39;</span>)
 
   <span class="ruby-comment"># Purge the blob</span>
-  <span class="ruby-comment">#document.record.document_attachment.blob.purge</span>
+  <span class="ruby-comment"># document.record.document_attachment.blob.purge</span>
 
   <span class="ruby-comment"># Purge attachment</span>
   <span class="ruby-identifier">document</span>.<span class="ruby-identifier">purge</span>
@@ -207,7 +207,7 @@
 
           
           <div class="method-source-code" id="system-21-source">
-            <pre><span class="ruby-comment"># File bin/setup, line 8</span>
+            <pre><span class="ruby-comment"># File bin/setup, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">system!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">system</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">abort</span>(<span class="ruby-node">&quot;\n== Command #{args} failed ==&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
