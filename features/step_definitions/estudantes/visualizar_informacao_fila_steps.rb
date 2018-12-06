@@ -12,7 +12,7 @@ Então("devo ver informações tais como {string}") do |string|
 end
 
 Dado("que eu seja um usuário diferente de estudante") do
-	user = User.create(name: 'student', email: 'email@email.com', password: 'aaa123')
+  user = User.create(name: 'student', email: 'email@email.com', password: 'aaa123')
   user.add_role(:coordinator)
 end
 
