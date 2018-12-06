@@ -59,11 +59,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_134331) do
   end
 
   create_table "credit_forms", force: :cascade do |t|
-    t.string "name"
-    t.string "matricula"
-    t.string "email"
-    t.string "cellphone"
-    t.integer "curso"
     t.bigint "user_id"
     t.integer "requisition_number"
     t.string "sei"

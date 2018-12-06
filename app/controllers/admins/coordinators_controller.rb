@@ -16,8 +16,7 @@ class Admins::CoordinatorsController < AdminsController
 
   # :reek:DuplicateMethodCall { allow_calls: ['format.html', 'format2.html'] }
   def create
-    @coordinator = User.new(coordinator_params)
-    @coordinator.add_role :coordinator
+    @coordinator = User.new(coordinator_params).add_role :coordinator
     respond_to do |format|
       if @coordinator.save
         format.html { redirect_to admins_coordinators_path, notice: 'Coordenador criado com sucesso' }

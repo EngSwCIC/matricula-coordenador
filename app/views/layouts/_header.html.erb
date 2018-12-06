@@ -54,9 +54,6 @@
         <!-- account info and link to login -->
 
         <% if user_signed_in? %>
-          <li>
-            <%= link_to  "Novo atendimento", new_attendance_path , class: "nav-item nav-link" %>
-          </li>
           <li class="nav-link dropdown">
             <div class="nav-item dropdown-toggle" data-toggle="dropdown">
               Olá, <b class="caret"><%= current_user.email%></b>

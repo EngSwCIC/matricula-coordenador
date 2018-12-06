@@ -25,117 +25,150 @@ require 'rails_helper'
 
 RSpec.describe AttendancesController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Attendance. As you add validations to Attendance, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  before(:each) do
+    @coordinator = User.new(email: 'coordinator@coordinator.com', password: '123456')
+    @coordinator.add_role(:coordinator)
+    @coordinator.save!
+    sign_in @coordinator
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  describe 'GET #index' do
+    it 'return all coodinators' do
+      att = Attendance.create!(name_student: 'Artur', comment: 'Vish')
+      att2 = Attendance.create!(name_student: 'Artur2', comment: 'Vish')
+      get :index
+      expect(assigns(:attendances)).to match_array([att, att2])
+    end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # AttendancesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
-
-  describe "GET #index" do
-    it "returns a success response" do
-      Attendance.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
+    it 'renders the :index view' do
+      get :index
+      expect(response).to render_template('index')
     end
   end
 
-  describe "GET #show" do
-    it "returns a success response" do
-      attendance = Attendance.create! valid_attributes
-      get :show, params: {id: attendance.to_param}, session: valid_session
-      expect(response).to be_successful
+  describe 'GET #new' do
+    it 'assigns a new Attendance to @attendance' do
+      get :new
+      expect(assigns(:attendance)).to_not be_nil
+    end
+
+    it 'renders the :new template' do
+      get :new
+      expect(response).to render_template(:new)
     end
   end
 
-  describe "GET #new" do
-    it "returns a success response" do
-      get :new, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET #edit" do
-    it "returns a success response" do
-      attendance = Attendance.create! valid_attributes
-      get :edit, params: {id: attendance.to_param}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Attendance" do
-        expect {
-          post :create, params: {attendance: valid_attributes}, session: valid_session
-        }.to change(Attendance, :count).by(1)
+  describe 'POST #create' do
+    context 'with valid attributes' do
+      before(:each) do
+        post :create, params: { attendance: {
+          name_student: 'Artur',
+          comment: 'Deu muito ruim me passa',
+          course_student: 'Engenharia da Computação',
+          priority_student: 'Em condição'        
+        } }
+      end
+      it 'saves the new coodinator in the database' do
+        expect(flash[:notice]).to eq('Atendimento Criado com sucesso')
+        expect(Attendance.count).to be(1)
       end
 
-      it "redirects to the created attendance" do
-        post :create, params: {attendance: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Attendance.last)
+      it 'redirects to backoffice coordinators' do
+        expect(response).to redirect_to(attendances_path)
       end
     end
 
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {attendance: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+    context 'with invalid attributes' do
+      before(:each) do
+        post :create, params: { attendance: {
+          name_student: 'Estudante',
+          comment: '',
+        } }
+      end
+
+      it 'does not save the new coordinator in the database' do
+        expect(Attendance.count).to be(0)
       end
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PUT #update' do
+    context 'with valid attributes' do
+      before(:each) do
+        @attendance = Attendance.create(name_student: 'Artur',
+                                        comment: 'Deu muito ruim me passa',
+                                        course_student: 'Engenharia da Computação',
+                                        priority_student: 'Em condição')
 
-      it "updates the requested attendance" do
-        attendance = Attendance.create! valid_attributes
-        put :update, params: {id: attendance.to_param, attendance: new_attributes}, session: valid_session
-        attendance.reload
-        skip("Add assertions for updated state")
+        put :update, params: { id: @attendance.id,
+                               attendance: {
+                                 name_student: 'Moutinho'
+                               } }
       end
 
-      it "redirects to the attendance" do
-        attendance = Attendance.create! valid_attributes
-        put :update, params: {id: attendance.to_param, attendance: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(attendance)
+      it 'updates the coodinator in the database' do
+        @attendance = Attendance.find(@attendance.id)
+        expect(flash[:notice]).to eq('Atendimento editado com sucesso')
+        expect(@attendance.name_student).to eql('Moutinho')
+      end
+
+      it 'redirects to atendimentos' do
+        expect(response).to redirect_to(attendances_path)
       end
     end
 
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        attendance = Attendance.create! valid_attributes
-        put :update, params: {id: attendance.to_param, attendance: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+    context 'with invalid attributes' do
+      before(:each) do
+        @attendance = Attendance.create(name_student: 'Artur',
+                                        comment: 'Deu muito ruim me passa',
+                                        course_student: 'Engenharia da Computação',
+                                        priority_student: 'Em condição')
+
+        put :update, params: { id: @attendance.id,
+                               attendance: {
+                                 name_student: ''
+                               } }
+      end
+
+      it 'does not updates the attendance in the database' do
+        @attendance = Attendance.find(@attendance.id)
+        expect(@attendance.name_student).to eql('Artur')
       end
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested attendance" do
-      attendance = Attendance.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: attendance.to_param}, session: valid_session
-      }.to change(Attendance, :count).by(-1)
+  describe 'GET #edit' do
+    before(:each) do
+      @attendance = Attendance.create(name_student: 'Artur',
+                                        comment: 'Deu muito ruim me passa',
+                                        course_student: 'Engenharia da Computação',
+                                        priority_student: 'Em condição')
+
+      get :edit, params: { id: @attendance.id }
     end
 
-    it "redirects to the attendances list" do
-      attendance = Attendance.create! valid_attributes
-      delete :destroy, params: {id: attendance.to_param}, session: valid_session
-      expect(response).to redirect_to(attendances_url)
+    it 'assigns a new Attendance to @attendance' do
+      expect(assigns(:attendance)).to_not be_nil
+    end
+
+    it 'renders the :edit template' do
+      expect(response).to render_template(:edit)
     end
   end
 
+  describe 'DELETE #delete' do
+    before(:each) do
+      @attendance = Attendance.create(name_student: 'Artur',
+                                        comment: 'Deu muito ruim me passa',
+                                        course_student: 'Engenharia da Computação',
+                                        priority_student: 'Em condição')
+
+      delete :destroy, params: { id: @attendance.id }
+    end
+
+    it 'delete coordinator' do
+      expect(flash[:notice]).to eq('Atendimento foi realizado com sucesso')
+      expect(Attendance.count).to be(0)
+    end
+  end
 end

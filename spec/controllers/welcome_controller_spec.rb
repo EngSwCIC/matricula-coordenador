@@ -39,11 +39,11 @@ RSpec.describe WelcomeController, type: :controller do
     
   end
 
-  RSpec.describe "HomeFooters", type: :feature do
-  it "should list the article titles on the index" do
-      visit information_path
-    end
-  end
+  # RSpec.describe "HomeFooters", type: :feature do
+  #   # it "should list the article titles on the index" do
+  #   #   visit information_path
+  #   # end
+  # end
 
   describe 'GET #index' do
     it 'return all coodinators' do
