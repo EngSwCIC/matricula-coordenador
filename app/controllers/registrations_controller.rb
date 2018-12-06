@@ -2,7 +2,6 @@
 
 # Controller para que os alunos se registrem no sistema
 class RegistrationsController < Devise::RegistrationsController
-
   # Método create dos registros
   def create
     super do

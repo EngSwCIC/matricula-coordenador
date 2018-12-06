@@ -1,13 +1,15 @@
-Rails.application.routes.draw do  
+# frozen_string_literal: true
+
+Rails.application.routes.draw do
   resources :attendances
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, controllers: { registrations: 'registrations' }
   root 'welcome#index'
   get '/index', to: 'welcome#index', as: 'index'
   get '/about', to: 'welcome#about', as: 'about'
   get '/contact', to: 'welcome#contact', as: 'contact'
   get '/coordinator/:id', to: 'welcome#show'
   get '/coordinators', to: 'welcome#coordinators'
-  get '/information', to:'welcome#information'
+  get '/information', to: 'welcome#information'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

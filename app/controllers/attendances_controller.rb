@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 # Controller para que os alunos requisitem atendimentos ao coordenador
 class AttendancesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_attendance, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendance, only: %i[show edit update destroy]
 
   # Método index dos atendimentos
   def index
@@ -9,8 +10,7 @@ class AttendancesController < ApplicationController
   end
 
   # Método show dos atendimentos
-  def show
-  end
+  def show; end
 
   # Método new dos atendimentos
   def new
@@ -18,8 +18,7 @@ class AttendancesController < ApplicationController
   end
 
   # Método edit dos atendimentos
-  def edit
-  end
+  def edit; end
 
   # Método create dos atendimentos
   # :flay:DuplicateCode
@@ -58,15 +57,16 @@ class AttendancesController < ApplicationController
   end
 
   private
-    # Recebe atendimento pelo id
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attendance
-      @attendance = Attendance.find(params[:id])
-    end
 
-    # Parâmetros do atendimento
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def attendance_params
-      params.require(:attendance).permit(:name_student, :course_student, :comment, :priority_student)
-    end
+  # Recebe atendimento pelo id
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attendance
+    @attendance = Attendance.find(params[:id])
+  end
+
+  # Parâmetros do atendimento
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def attendance_params
+    params.require(:attendance).permit(:name_student, :course_student, :comment, :priority_student)
+  end
 end

@@ -35,8 +35,6 @@ RSpec.describe WelcomeController, type: :controller do
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
-
-    
   end
 
   # RSpec.describe "HomeFooters", type: :feature do

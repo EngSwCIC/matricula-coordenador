@@ -2,7 +2,7 @@
 
 # Controller para que listar os alunos do sistema
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[destroy edit update] 
+  before_action :set_student, only: %i[destroy edit update]
   # GET /coordinators
   # GET /coordinators.json
 

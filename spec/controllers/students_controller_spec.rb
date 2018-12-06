@@ -12,7 +12,6 @@ RSpec.describe StudentsController, type: :controller do
 
   describe 'GET #index' do
     it 'return this student' do
-      
       get :index
       expect(assigns(:students)).to match_array([@student])
     end
@@ -26,10 +25,10 @@ RSpec.describe StudentsController, type: :controller do
   describe 'PUT #update' do
     context 'with valid attributes' do
       before(:each) do
-        put :update, params: { id: @student.to_param, 
-                                user: {
-                                  name: 'novo student2'
-                                } }
+        put :update, params: { id: @student.to_param,
+                               user: {
+                                 name: 'novo student2'
+                               } }
       end
 
       it 'updates the student in the database' do
@@ -46,9 +45,9 @@ RSpec.describe StudentsController, type: :controller do
     context 'with invalid attributes' do
       before(:each) do
         put :update, params: { id: @student.id,
-                                user: {
-                                  email: 'dasdasd.com'
-                                } }
+                               user: {
+                                 email: 'dasdasd.com'
+                               } }
       end
 
       it 'does not updates the student in the database' do
