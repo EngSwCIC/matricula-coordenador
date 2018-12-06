@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'capybara/rails'
+require 'capybara/rspec'
 
 RSpec.describe WelcomeController, type: :controller do
   describe 'Sucesfulll navigation static_pages' do
@@ -27,6 +28,20 @@ RSpec.describe WelcomeController, type: :controller do
       get :contact
       expect(response).to be_successful
       expect(response).to have_http_status(200)
+    end
+
+    it 'should render information page' do
+      get :information
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+    end
+
+    
+  end
+
+  RSpec.describe "HomeFooters", type: :feature do
+  it "should list the article titles on the index" do
+      visit information_path
     end
   end
 

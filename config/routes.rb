@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'welcome#contact', as: 'contact'
   get '/coordinator/:id', to: 'welcome#show'
   get '/coordinators', to: 'welcome#coordinators'
+  get '/information', to:'welcome#information'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -23,7 +24,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :students
+  authenticated :user do
+    resources :students
+  end
+
   authenticated :user do
     namespace :coordinators do
       resources :infos
