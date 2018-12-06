@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-
-# :nocov:
+# Helper do admin
 module AdminsHelper
 end
-# :nocov:

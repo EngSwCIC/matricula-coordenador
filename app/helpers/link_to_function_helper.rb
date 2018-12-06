@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 # :nocov:
+# Helper para linkar para funções
 module LinkToFunctionHelper
+  # Helper para linkar funções do formulario de concessao
   def link_to_function(name, *args, &block)
     html_options = args.extract_options!.symbolize_keys
 

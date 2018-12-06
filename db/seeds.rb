@@ -8,6 +8,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Comandos uteis: 
+# rdoc app (documentacao para app)
+# saikuro -i app -c (complexidade ciclomatica para app)
+# flog check app (abc score para app)
 # Seeds para o ambiente de desenvolvimento
 unless Rails.env.production?
 

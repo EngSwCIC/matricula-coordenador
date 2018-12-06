@@ -139,7 +139,7 @@ DuplicateMethodCall { allow_calls: [&#39;format.html&#39;] }</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@attendance</span> = <span class="ruby-constant">Attendance</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attendance_params</span>)
 
@@ -180,7 +180,7 @@ DuplicateMethodCall { allow_calls: [&#39;format.html&#39;] }</p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 52</span>
+            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@attendance</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
@@ -218,8 +218,7 @@ DuplicateMethodCall { allow_calls: [&#39;format.html&#39;] }</p>
           
           <div class="method-source-code" id="edit-source">
             <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
-<span class="ruby-keyword">end</span></pre>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -249,7 +248,7 @@ DuplicateMethodCall { allow_calls: [&#39;format.html&#39;] }</p>
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@attendances</span> = <span class="ruby-constant">Attendance</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">priority_student:</span> <span class="ruby-value">:asc</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -315,9 +314,8 @@ DuplicateMethodCall { allow_calls: [&#39;format.html&#39;] }</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-<span class="ruby-keyword">end</span></pre>
+            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -348,7 +346,7 @@ DuplicateMethodCall { allow_calls: [&#39;format.html&#39;] }</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 41</span>
+            <pre><span class="ruby-comment"># File app/controllers/attendances_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@attendance</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">attendance_params</span>)
