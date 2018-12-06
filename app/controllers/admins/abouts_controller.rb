@@ -1,31 +1,39 @@
-class Admins::AboutsController < AdminsController
-  before_action :set_about, only: [:edit, :update]
+# frozen_string_literal: true
 
+# Controller para que o admin do sistema tenha acesso a descrição do sistema
+class Admins::AboutsController < AdminsController
+  before_action :set_about, only: %i[edit update]
+
+  # Método index da descrição do sistema
   def index
     @abouts = About.all
   end
 
-  def edit
-  end
+  # Método edit da descrição do sistema
+  def edit; end
 
+  # Método update da descrição do sistema
   def update
-    if @about.update_attributes(about_params)
+    if @about.update(about_params)
       flash[:success] = 'Descrição editado com sucesso'
       redirect_to admins_abouts_path
     else
-      flash[:error] = 'Erro na edição da descrição'
+      flash[:danger] = 'Erro na edição da descrição'
       redirect_to edit_admins_about_path(@about)
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_about
-      @about = About.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def about_params
-      params.require(:about).permit(:description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  # Recebe a descrição do sistema pelo id passado
+  def set_about
+    @about = About.find(params[:id])
+  end
+
+  # Recebe os parametros
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def about_params
+    params.require(:about).permit(:description)
+  end
 end

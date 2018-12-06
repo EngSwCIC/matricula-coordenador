@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container pb-4">
+  <h2 class="mt-4">Atendimento</h2>
+  <hr class="divider">
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome estudante</th>
+            <th>Curso estudante</th>
+            <th>Comentário</th>
+            <th>Prioridade</th>
+            <th>Realizado?</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @attendances.each do |attendance| %>
+            <tr>
+              <td><%= attendance.name_student %></td>
+              <td><%= attendance.course_student %></td>
+              <td><%= attendance.comment %></td>
+              <td><%= attendance.priority_student %></td>
+              <td><%= link_to 'Realizado',attendance, method: :delete, data: { confirm: 'Deseja marcar como realizado?' }  %></td>
+              <td><%= link_to 'Show', attendance %></td>
+              <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+  
+  <br>
+  
+<%= link_to 'Novo atendimento', new_attendance_path %>
+
+</div>
