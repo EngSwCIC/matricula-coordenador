@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     get 'admins/backoffice' => 'admins#backoffice'
     get 'coordinators/backoffice' => 'coordinators#coordinators_backoffice'
     # get 'students/backoffice' => 'students#students_backoffice'
-    get '/information', to: 'attendance_requests#index'
   end
 
   authenticated :user do
