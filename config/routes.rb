@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :attendance_requests, only: [:new, :create, :destroy]
   resources :attendances
   match "attendances/filter_by_priority" => "attendances#filter_by_priority", :via => :post
   
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'welcome#contact', as: 'contact'
   get '/coordinator/:id', to: 'welcome#show'
   get '/coordinators', to: 'welcome#coordinators'
-  get '/information', to: 'welcome#information'
+  get '/information', to: 'attendance_requests#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     get 'admins/backoffice' => 'admins#backoffice'
     get 'coordinators/backoffice' => 'coordinators#coordinators_backoffice'
     # get 'students/backoffice' => 'students#students_backoffice'
+    get '/information', to: 'attendance_requests#index'
   end
 
   authenticated :user do

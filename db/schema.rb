@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_134331) do
+ActiveRecord::Schema.define(version: 2019_06_13_123600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2018_12_05_134331) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "attendance_requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "status", default: "pendding"
+    t.bigint "attendance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attendance_id"], name: "index_attendance_requests_on_attendance_id"
+    t.index ["user_id"], name: "index_attendance_requests_on_user_id"
   end
 
   create_table "attendances", force: :cascade do |t|
@@ -114,5 +124,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_134331) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "attendance_requests", "attendances"
+  add_foreign_key "attendance_requests", "users"
   add_foreign_key "users", "courses"
 end
