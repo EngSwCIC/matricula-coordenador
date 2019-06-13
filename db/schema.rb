@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_123600) do
 
   create_table "attendance_requests", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "status", default: "pendding"
+    t.string "status", default: "pendding", comment: "stauts are : pendding, appontiment ok, appontiment removed"
     t.bigint "attendance_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
