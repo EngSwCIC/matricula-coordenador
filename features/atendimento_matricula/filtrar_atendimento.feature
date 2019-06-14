@@ -9,13 +9,12 @@ Funcionalidade: filtrar_atendimento
   #casos felizes
   Cenario: Filtrar atendimento por prioridade corretamente
     Dado que eu esteja na pagina para ver atendimentos
-    Quando eu clicar em filtrar por "Prioridade"
-    E selecionar "Em condição" do campo de id "priority-filter"
+    Quando eu clicar em filtrar por "Prioridade" e selecionar "Em condição" do campo de id "priority_filter"
     Então devo ver na tabela de atendimentos em todas as linhas a coluna "Prioridade" com o valor "Em condição"
     
   #casos tristes
-  Cenario: Filtrar atendimentos por prioridade com falha
-    Dado que eu esteja na pagina para ver atendimentos
-    Quando eu clicar em filtrar por "Prioridade"
-    E selecionar "Em condição" do campo de id "priority_filter"
-    Então devo ver na tabela de atendimentos em todas as linhas a coluna "Prioridade" com o valor diferente de "Em condição"
+  # Cenario: Filtrar atendimentos por prioridade com falha
+  #   Dado que eu esteja na pagina para ver atendimentos
+  #   Quando eu clicar em filtrar por "Prioridade"
+  #   E selecionar "Em condição" do campo de id "priority_filter"
+  #   Então devo ver na tabela de atendimentos em todas as linhas a coluna "Prioridade" com o valor diferente de "Em condição"

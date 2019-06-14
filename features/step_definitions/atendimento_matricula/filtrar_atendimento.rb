@@ -3,9 +3,9 @@ Dado('que eu esteja na pagina para ver atendimentos') do
   visit attendances_path
 end
 
-Quando('eu clicar em filtrar por {string}') do |_string|
-  find('#priority-filter').click
-  find('#priority-filter option', :text => _string).click
+Quando('eu clicar em filtrar por {string} e selecionar {string} do campo de id {string}') do |s,t,g|
+  find('#priority_filter').click
+  find('#priority_filter option', :text => t).click
 end
 
 
