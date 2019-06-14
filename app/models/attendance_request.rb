@@ -1,6 +1,7 @@
 class AttendanceRequest < ApplicationRecord
   belongs_to :user
   validates :user, presence: true
+  validates :description, presence: true
   attr_accessor :position
 
   private

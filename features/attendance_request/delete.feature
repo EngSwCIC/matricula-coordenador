@@ -1,16 +1,16 @@
 #language: pt
 #encoding: utf-8
 
-Funcionalidade: attendance_request
-  Como [stakeholder]
-  Para que eu [funcionalidade]
-  Eu quero [finalidade]
+Funcionalidade: delete_attendance_request
+  Como estudante autenticado
+  Quero deletar uma requisições de atendimento no sistema
 
-  #index
-  Cenário: Listar todos os attendance_requests
-
-  #create
-  Cenário: Criar um attendance_request
-
-  #destroy
-  Cenário: Deletar um attendance_request
+  #casos felize
+  Cenário: Deletar uma requisição de atendimento
+    Dado que eu seja um estudante
+    E esteja autenticado
+    E possua uma requisição
+    E esteja na pagina de informações da fila
+    Quando eu clicar no link "Remover Requisição"
+    Então devo ver a mensagem de sucesso "Attendance request was successfully destroyed."
+    E sou redirecionado para página de informações da fila

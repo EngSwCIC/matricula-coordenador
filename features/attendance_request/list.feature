@@ -7,14 +7,13 @@ Funcionalidade: listar_attendance_request
 
   #casos felize
   Cenário: Listar todos as minhas requisições de atendimento
-    pending # fazer
-    Dado que eu seja um estudante
-    E esteja autenticado
-    E esteja na pagina de informações da fila
-    Quando eu clicar em "Requisitar Atendimento"
-    Então sou redirecionado para página de informações da requisição
-    E eu clicar no botão "Confirmar Requisição"
-    Então devo ver a mensagem de sucesso "Attendance request was successfully created."
-    E sou redirecionado para página de informações da fila
+    # Dado que eu seja um estudante
+    # E esteja autenticado
+    # E esteja na pagina de informações da fila
+    # Quando eu clicar em "Requisitar Atendimento"
+    # Então sou redirecionado para página de informações da requisição
+    # E eu clicar no botão "Confirmar Requisição"
+    # Então devo ver a mensagem de sucesso "Attendance request was successfully created."
+    # E sou redirecionado para página de informações da fila
 
 
