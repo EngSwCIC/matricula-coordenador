@@ -3,8 +3,19 @@
 <div class="container pb-4">
   <h2 class="mt-4">Atendimento</h2>
   <hr class="divider">
-
-  <div class="card">
+  <div class="row">
+    <div class="offset-md-6 col-md-6 form-group row py-2">
+      <label for="priority_filter" class="col-form-label">Filtrar por prioridade: </label>
+      <div class="col-sm-8">
+        <%= 
+          select_tag(:priority_filter, 
+          options_for_select([['Todas','Todas'], ['Em condição','Em condição'],['Normal','Normal'],['Outros', 'Outros']]), 
+          {class: "form-control"})
+        %> 
+      </div>
+    </div>
+  </div>
+  <div class="card row">
     <div class="card-body">
       <table class="table">
         <thead>
