@@ -57,6 +57,16 @@ class AttendancesController < ApplicationController
     end
   end
 
+  def filter_by_priority
+    priority_student = filter_params[:priority_student]
+    if !priority_student.include?("Todas")
+      @attendances = Attendance.where(priority_student: filter_params[:priority_student]).all
+    else
+      @attendances = Attendance.all.order(priority_student: :asc)
+    end
+    render json: { html: render_to_string(partial: 'attendances_list')  }
+  end
+
   private
 
   # Recebe atendimento pelo id
@@ -69,5 +79,9 @@ class AttendancesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def attendance_params
     params.require(:attendance).permit(:name_student, :course_student, :comment, :priority_student)
+  end
+
+  def filter_params
+    params.permit(:priority_student)
   end
 end

@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-Dado('que eu seja um coordenador') do
-  @user = User.create(name: 'Matheus', email: 'email@email.com', password: 'aaa123')
-  @user.add_role(:coordinator)
-end
-
 Dado('esteja na página de informações pessoais do coordenador') do
   visit coordinators_infos_path
 end

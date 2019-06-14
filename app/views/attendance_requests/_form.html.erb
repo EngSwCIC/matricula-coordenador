@@ -1,0 +1,30 @@
+<%= form_with(model: attendance_request, local: true) do |form| %>
+  <% if attendance_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attendance_request.errors.count, "error") %> prohibited this attendance_request from being saved:</h2>
+
+      <ul>
+      <% attendance_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>Nome</label>
+    <input type="text" class="form-control" value="<%= current_user.name %>" disabled readonly>
+  </div>
+
+  <div class="form-group">
+    <label>Curso</label>
+    <input type="text" class="form-control" value="<%= current_user.course.name %>" disabled readonly>
+  </div>
+
+  <div class="form-group">
+    <label>Tipo de pedido</label>
+    <%= form.text_field :description , {class: 'form-control'}%>
+  </div>
+
+  <%= form.submit "Confirmar Requisição", class: 'btn btn-primary mb-2' %>
+<% end %>
