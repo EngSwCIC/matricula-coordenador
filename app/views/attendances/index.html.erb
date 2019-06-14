@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container pb-4">
+<div class="container pb-4 arddada">
   <h2 class="mt-4">Atendimento</h2>
   <hr class="divider">
   <div class="row">
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="card row">
+  <div class="card row ">
     <div class="card-body">
       <table class="table">
         <thead>
@@ -29,18 +29,8 @@
           </tr>
         </thead>
 
-        <tbody>
-          <% @attendances.each do |attendance| %>
-            <tr>
-              <td><%= attendance.name_student %></td>
-              <td><%= attendance.course_student %></td>
-              <td><%= attendance.comment %></td>
-              <td><%= attendance.priority_student %></td>
-              <td><%= link_to 'Realizado',attendance, method: :delete, data: { confirm: 'Deseja marcar como realizado?' }  %></td>
-              <td><%= link_to 'Show', attendance %></td>
-              <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-            </tr>
-          <% end %>
+        <tbody class="attendances-list">
+          <%= render partial: 'attendances_list', attendances: @attendances %>
         </tbody>
         
       </table>

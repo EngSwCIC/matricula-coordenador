@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   resources :attendances
+  match "attendances/filter_by_priority" => "attendances#filter_by_priority", :via => :post
+  
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'welcome#index'
   get '/index', to: 'welcome#index', as: 'index'
