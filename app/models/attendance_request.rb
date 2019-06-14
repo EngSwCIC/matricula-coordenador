@@ -1,6 +1,13 @@
 class AttendanceRequest < ApplicationRecord
   belongs_to :user
-  belongs_to :attendance, optional: true
-
   validates :user, presence: true
+  attr_accessor :position
+
+  private
+    after_initialize do
+      unless self.created_at.nil?
+        @position = AttendanceRequest.where("status = 'aguardando' AND created_at < '#{self.created_at}' ").count
+        @position += 1;
+      end
+    end
 end

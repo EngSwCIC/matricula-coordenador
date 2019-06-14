@@ -31,6 +31,7 @@ class AttendanceRequestsController < ApplicationController
   def create
     @attendance_request = AttendanceRequest.new;
     @attendance_request.user = current_user;
+    @attendance_request.description = attendance_request_params.to_h[:description];
 
     respond_to do |format|
       if @attendance_request.save
@@ -75,6 +76,6 @@ class AttendanceRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_request_params
-      params.require(:attendance_request).permit(:user_id, :status, :attendance_id)
+      params.require(:attendance_request).permit(:description)
     end
 end

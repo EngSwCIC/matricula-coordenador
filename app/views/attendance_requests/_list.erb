@@ -5,9 +5,10 @@
         <table class="table">
             <thead>
                 <tr>
+                <th>Posição</th>
                 <th>Data Pedidos</th>
                 <th>Status</th>
-                <th>Atendimento</th>
+                <th>Descrição</th>
                 <th>Ações</th>
                 </tr>
             </thead>
@@ -15,9 +16,10 @@
             <tbody>
                 <% @attendance_requests.each do |attendance_request| %>
                 <tr>
+                    <td><%= attendance_request.position %></td>
                     <td><%= attendance_request.created_at.strftime("%d/%m/%Y %H:%M") %></td>
                     <td><%= attendance_request.status %></td>
-                    <td><%= 'Nenhum' unless attendance_request.attendance %></td>
+                    <td><%= attendance_request.description %></td>
                     <td><%= link_to 'Remover Requisição', attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
                 <% end %>
