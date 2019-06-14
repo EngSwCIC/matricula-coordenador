@@ -12,7 +12,7 @@ Funcionalidade: editar_coordenadores
     E exista um coordenador com email "mout@mout.com"
     E tenha o curso "Design"
     E esteja na pagina para criar coordenadores
-    Quando eu clicar para editar no botao "Editar"
+    Quando eu clicar no botão "Editar" de um coordenador
     E preencher os dados do formulário:
     	| user_name       | Rafael                           |
     	| user_email      | rafa@rafa.com                    |
@@ -25,11 +25,11 @@ Funcionalidade: editar_coordenadores
   #casos tristes
   Cenario: Editar coordenadores com falha
     Dado exista um coordenador do curso "Estatística" com email "mout@mout.com"
-    E  exista um coordenador do curso "Design" com email "khaliu@khaliu.com"
+    E exista um coordenador do curso "Design" com email "khaliu@khaliu.com"
     E que eu seja um administrador
     E esteja autenticado
     E esteja na pagina para criar coordenadores
-    Quando eu clicar para editar no botao "Editar"
+    Quando eu clicar no botão "Editar" de um coordenador
     E preencher os dados do formulário:
     	| user_name       | Rafael                           |
     	| user_email      | mout@mout.com                    |

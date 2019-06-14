@@ -7,7 +7,8 @@ Funcionalidade: listar_attendance_request
 
   #casos felize
   Cenário: Listar todos as minhas requisições de atendimento
-    Dado que eu seja um estudantee
+    pending # fazer
+    Dado que eu seja um estudante
     E esteja autenticado
     E esteja na pagina de informações da fila
     Quando eu clicar em "Requisitar Atendimento"

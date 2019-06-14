@@ -7,11 +7,11 @@ Funcionalidade: create_attendance_request
 
   #casos felize
   Cenário: Criar uma requisição de atendimento
-    Dado que eu seja um estudantee
-    E esteja autenticadoo
+    Dado que eu seja um estudante
+    E esteja autenticado
     E esteja na pagina de informações da fila
-    Quando eu clicar emm "Requisitar Atendimento"
+    Quando eu clicar em "Requisitar Atendimento"
     Então sou redirecionado para página de informações da requisição
-    E eu clicar no botãoo "Confirmar Requisição"
-    Então devo ver a mensagem de sucessoo "Attendance request was successfully created."
+    Quando eu clicar no botão "Confirmar Requisição"
+    Então devo ver a mensagem de sucesso "Attendance request was successfully created."
     E sou redirecionado para página de informações da fila
