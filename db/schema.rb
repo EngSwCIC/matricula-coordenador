@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_123600) do
+ActiveRecord::Schema.define(version: 2019_06_14_161947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +44,10 @@ ActiveRecord::Schema.define(version: 2019_06_13_123600) do
 
   create_table "attendance_requests", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "status", default: "pendding", comment: "stauts are : pendding, appontiment ok, appontiment removed"
-    t.bigint "attendance_id"
+    t.string "status", default: "aguardando", comment: "stauts são : [ aguardando, atendido, faltou ]"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["attendance_id"], name: "index_attendance_requests_on_attendance_id"
     t.index ["user_id"], name: "index_attendance_requests_on_user_id"
   end
 
@@ -124,7 +123,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_123600) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "attendance_requests", "attendances"
   add_foreign_key "attendance_requests", "users"
   add_foreign_key "users", "courses"
 end
