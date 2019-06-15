@@ -14,12 +14,25 @@
 # flog check app (abc score para app)
 # Seeds para o ambiente de desenvolvimento
 unless Rails.env.production?
+  # Apaga formularios de concessao de credito
+  CreditForm.destroy_all
+  puts 'Formularios de concessao de credito apagados'
+
+  # Apaga atendimentos
+  Attendance.destroy_all
+  puts 'Atendimentos apagados'
+
+  # Apaga requisicao atendimentos 
+  AttendanceRequest.destroy_all
+  puts 'Requisicao de atendimento apagados'
 
   # Apaga todos usuários, descrições e cursos
   User.destroy_all
   puts 'Usuarios apagados'
+
   About.destroy_all
   puts 'Descrição apagada'
+
   Course.destroy_all
   puts 'Cursos apagados'
 
