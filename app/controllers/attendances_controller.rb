@@ -57,6 +57,7 @@ class AttendancesController < ApplicationController
     end
   end
 
+  #filtra os atendimento pelo tipo de prioridade
   def filter_by_priority
     priority_student = filter_params[:priority_student]
     if !priority_student.include?("Todas")

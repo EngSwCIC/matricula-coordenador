@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   $('#priority_filter').change(function () {
     let priority = $(this).val();
     $.ajax({
