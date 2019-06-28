@@ -6,6 +6,7 @@
             <thead>
                 <tr>
                 <th>Posição</th>
+                <th>Aluno</th>
                 <th>Data Pedidos</th>
                 <th>Status</th>
                 <th>Descrição</th>
@@ -17,6 +18,7 @@
                 <% @attendance_requests.each do |attendance_request| %>
                 <tr>
                     <td><%= attendance_request.position %></td>
+                    <td><%= attendance_request.user.name %></td>
                     <td><%= attendance_request.created_at.strftime("%d/%m/%Y %H:%M") %></td>
                     <td><%= attendance_request.status %></td>
                     <td><%= attendance_request.description %></td>
@@ -28,7 +30,8 @@
         </table>
 
         <br>
-
+        <% if  current_user.has_role? :student %>
         <%= link_to 'Requisitar Atendimento', new_attendance_request_path , class:'btn btn-primary' %>
+        <% end %>
     </div>
 </div>

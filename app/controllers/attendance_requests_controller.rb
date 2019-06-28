@@ -8,7 +8,11 @@ class AttendanceRequestsController < ApplicationController
   # GET /attendance_requests
   # GET /attendance_requests.json
   def index
-    @attendance_requests = AttendanceRequest.where(user_id: current_user.id).all
+    if current_user.has_role? :coordinator
+      @attendance_requests = AttendanceRequest.all
+    else
+      @attendance_requests = AttendanceRequest.where(user_id: current_user.id).all
+    end
     render INFORMATION_PATH
   end
 
