@@ -1,0 +1,37 @@
+<div class='row'>
+    <div class='col-12'>
+        <h2>Requisição de atedimento </h2>
+        <p id="notice"><%= notice %></p>
+        <table class="table">
+            <thead>
+                <tr>
+                <th>Posição</th>
+                <th>Aluno</th>
+                <th>Data Pedidos</th>
+                <th>Status</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @attendance_requests.each do |attendance_request| %>
+                <tr>
+                    <td><%= attendance_request.position %></td>
+                    <td><%= attendance_request.user.name %></td>
+                    <td><%= attendance_request.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+                    <td><%= attendance_request.status %></td>
+                    <td><%= attendance_request.description %></td>
+                    <td><%= link_to 'Remover Requisição', attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <!--  <td><%# link_to 'Remover Requisição', attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td> %> -->
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <br>
+        <% if  current_user.has_role? :student %>
+        <%= link_to 'Requisitar Atendimento', new_attendance_request_path , class:'btn btn-primary' %>
+        <% end %>
+    </div>
+</div>

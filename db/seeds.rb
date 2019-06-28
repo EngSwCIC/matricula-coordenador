@@ -14,12 +14,25 @@
 # flog check app (abc score para app)
 # Seeds para o ambiente de desenvolvimento
 unless Rails.env.production?
+  # Apaga formularios de concessao de credito
+  CreditForm.destroy_all
+  puts 'Formularios de concessao de credito apagados'
+
+  # Apaga atendimentos
+  Attendance.destroy_all
+  puts 'Atendimentos apagados'
+
+  # Apaga requisicao atendimentos 
+  AttendanceRequest.destroy_all
+  puts 'Requisicao de atendimento apagados'
 
   # Apaga todos usuários, descrições e cursos
   User.destroy_all
   puts 'Usuarios apagados'
+
   About.destroy_all
   puts 'Descrição apagada'
+
   Course.destroy_all
   puts 'Cursos apagados'
 
@@ -46,10 +59,18 @@ unless Rails.env.production?
   puts 'Cursos criados'
 
   # Cria admin
-  c = Course.find_by(name: 'Ciência da Computação (Bacharel)')
-  u = User.create(name: 'Admin', email: 'email@email.com', password: 'aaa123', course: c)
+  c_cic = Course.find_by(name: 'Ciência da Computação (Bacharel)')
+  u = User.create(name: 'Admin', email: 'email@email.com', password: 'aaa123', course: c_cic)
   u.add_role(:admin)
   puts 'Usuario email@email.com criado'
+
+  # Cria alunos
+  u = User.create(name: 'Estudante1', email: 'teste@teste', password: '123456', course: c_cic)
+  u.add_role(:student)
+  u = User.create(name: 'Estudante2', email: 'teste2@teste', password: '123456', course: c_cic)
+  u.add_role(:student)
+  puts 'Estudantes criados'
+
 
   # Cria coordenadores
   c = Course.find_by(name: 'Ciência da Computação (Bacharel)')

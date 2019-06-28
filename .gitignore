@@ -27,3 +27,8 @@
 /config/master.key
 
 coverage/*
+
+*_cyclo.html
+*_token.html
+
+.vscode/*

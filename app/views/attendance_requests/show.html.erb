@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @attendance_request.user %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @attendance_request.status %>
+</p>
+
+<p>
+  <strong>Attendance:</strong>
+  <%= @attendance_request.attendance %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_request_path(@attendance_request) %> |
+<%= link_to 'Back', attendance_requests_path %>
