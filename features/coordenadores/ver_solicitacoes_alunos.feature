@@ -9,20 +9,6 @@ Funcionalidade: ver_lista_attendance
   Cenario: Ver Lista de Requisições de Atendimento de Todos os Alunos
     Dado que eu seja um coordenador
     E esteja autenticado
+    E tenha pedidos de alunos
     E esteja na pagina de informações da fila
-    E tenha pedidos de alunos com os dados:
-    	| user_name       | Moutinho                         |
-    	| user_email      | mout@mout.com                    |
-    	| user_password   | 123456                           |
-    Então devo ver uma lista com 3 entradas
-
-  #casos tristes
-  Cenario: Ver Lista de Requisições de Atendimento de Todos os Alunos
-    Dado que eu seja um coordenador
-    E esteja autenticado
-    E esteja na pagina de informações da fila
-    E tenha pedidos de alunos com os dados:
-    	| user_name       | Moutinho                         |
-    	| user_email      | mout@mout.com                    |
-    	| user_password   | 123456                           |
-    Então não vejo nada
+    Então devo ver uma lista com os pedidos de todos os alunos
