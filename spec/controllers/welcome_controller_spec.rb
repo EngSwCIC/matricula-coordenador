@@ -33,7 +33,7 @@ RSpec.describe WelcomeController, type: :controller do
 
   # RSpec.describe "HomeFooters", type: :feature do
   #   # it "should list the article titles on the index" do
-  #   #   visit information_path
+  #   #   visit attendance_request_path
   #   # end
   # end
 

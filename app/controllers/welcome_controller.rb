@@ -24,7 +24,4 @@ class WelcomeController < ApplicationController
 
   # pagina estatica com informações de contato
   def contact; end
-
-  # pagina information com informações sobre o que é necessário pra entrar lista de espera
-  def information; end
 end

@@ -3,8 +3,8 @@ Dado("esteja na pagina inicial") do
 end
 
 Então("sou redirecionado para página Informações Fila") do
-  visit information_path
-  expect(current_path).to eql("/information")
+  visit attendance_requests_path
+  expect(current_path).to eql("/attendance_requests")
 end
 
 Então("devo ver informações tais como {string}") do |string|

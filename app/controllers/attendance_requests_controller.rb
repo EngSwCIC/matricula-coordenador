@@ -37,8 +37,8 @@ class AttendanceRequestsController < ApplicationController
 
     respond_to do |format|
       if @attendance_request.save
-        format.html { render :index, notice: 'Attendance request was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance_request }
+        format.html { redirect_to attendance_requests_path :index, notice: 'Attendance request was successfully created.' }
+        format.json { render :index, status: :created, location: @attendance_request }
       else
         format.html { render :new }
         format.json { render json: @attendance_request.errors, status: :unprocessable_entity }
@@ -51,8 +51,8 @@ class AttendanceRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @attendance_request.update(attendance_request_params)
-        format.html { redirect_to :index, notice: 'Attendance request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance_request }
+        format.html { redirect_to attendance_requests_path, notice: 'Attendance request was successfully updated.' }
+        format.json { render :index, status: :ok, location: @attendance_request }
       else
         format.html { render :edit }
         format.json { render json: @attendance_request.errors, status: :unprocessable_entity }
@@ -65,7 +65,7 @@ class AttendanceRequestsController < ApplicationController
   def destroy
     @attendance_request.destroy
     respond_to do |format|
-      format.html { redirect_to INFO_REDIRECT_PATH, notice: 'Attendance request was successfully destroyed.' }
+      format.html { redirect_to attendance_requests_url, notice: 'Attendance request was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
