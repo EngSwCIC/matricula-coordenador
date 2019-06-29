@@ -1,0 +1,36 @@
+<%= form_with(model: reminder, local: true) do |form| %>
+  <% if reminder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reminder.errors.count, "error") %> prohibited this reminder from being saved:</h2>
+
+      <ul>
+      <% reminder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="form-group">
+    <%= form.label :remind %>
+    <%= form.text_area :remind %>
+  </div>
+
+  <div class="form-group">
+    <%= form.date_field :remind_date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :read %>
+    <%= form.check_box :read %>
+  </div>
+
+  <div class="form-group">
+    <%= form.collection_select :attendance_request, AttendanceRequest.all, :id, :user_name, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.submit %>
+  </div>
+<% end %>

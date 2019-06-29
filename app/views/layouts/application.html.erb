@@ -26,7 +26,15 @@
         <%= yield %>
       </div>
     </section>
-
+    <% if user_signed_in? %>
+      <% if current_user.has_role? :coordinator%>
+        <div class="row ">
+          <div class="col-4">
+              <%= render partial: "layouts/coordinators/action_buttons" %>
+          </div>
+        </div>
+     <% end %>
+    <% end %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

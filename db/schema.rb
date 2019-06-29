@@ -90,6 +90,18 @@ ActiveRecord::Schema.define(version: 2019_06_29_032137) do
     t.index ["credit_form_id"], name: "index_credit_items_on_credit_form_id"
   end
 
+  create_table "reminders", force: :cascade do |t|
+    t.text "remind"
+    t.datetime "remind_date"
+    t.boolean "read"
+    t.bigint "user_id"
+    t.bigint "attendance_request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attendance_request_id"], name: "index_reminders_on_attendance_request_id"
+    t.index ["user_id"], name: "index_reminders_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -126,5 +138,7 @@ ActiveRecord::Schema.define(version: 2019_06_29_032137) do
   end
 
   add_foreign_key "attendance_requests", "users"
+  add_foreign_key "reminders", "attendance_requests"
+  add_foreign_key "reminders", "users"
   add_foreign_key "users", "courses"
 end

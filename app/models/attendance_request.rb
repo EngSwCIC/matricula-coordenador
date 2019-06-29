@@ -7,10 +7,14 @@ class AttendanceRequest < ApplicationRecord
   enum priority_student: {normal: 'normal', 'em condicao': 'em condicao', outros: 'outros'}
 
   private
-    after_initialize do
-      unless self.created_at.nil?
-        @position = AttendanceRequest.where("status = 'aguardando' AND created_at < '#{self.created_at}' ").count
-        @position += 1;
-      end
+  after_initialize do
+    unless self.created_at.nil?
+      @position = AttendanceRequest.where("status = 'aguardando' AND created_at < '#{self.created_at}' ").count
+      @position += 1;
     end
+  end
+
+  def user_name
+    "#{user.name}"
+  end
 end
