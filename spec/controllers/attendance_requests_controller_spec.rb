@@ -47,6 +47,17 @@ RSpec.describe AttendanceRequestsController, type: :controller do
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
+
+    it 'should render user attendance request page' do
+      @student = User.new(email: 'student@student.com', password: '123456')
+      @student.add_role(:student)
+      @student.save!
+      sign_in @student
+
+      get :information
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "GET #show" do

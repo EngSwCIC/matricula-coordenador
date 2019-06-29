@@ -2,18 +2,15 @@ class AttendanceRequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_attendance_request, only: [:show, :edit, :update, :destroy]
 
-  INFORMATION_PATH = 'welcome/information'
-  INFO_REDIRECT_PATH = '/information';
-
   # GET /attendance_requests
   # GET /attendance_requests.json
   def index
-    if current_user.has_role? :coordinator
+    if current_user.has_role? :coordinator or current_user.has_role? :admin
       @attendance_requests = AttendanceRequest.all
     else
       @attendance_requests = AttendanceRequest.where(user_id: current_user.id).all
     end
-    render INFORMATION_PATH
+    render :index
   end
 
   # GET /attendance_requests/1
@@ -40,7 +37,7 @@ class AttendanceRequestsController < ApplicationController
 
     respond_to do |format|
       if @attendance_request.save
-        format.html { redirect_to INFO_REDIRECT_PATH, notice: 'Attendance request was successfully created.' }
+        format.html { render :index, notice: 'Attendance request was successfully created.' }
         format.json { render :show, status: :created, location: @attendance_request }
       else
         format.html { render :new }
@@ -54,7 +51,7 @@ class AttendanceRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @attendance_request.update(attendance_request_params)
-        format.html { redirect_to INFO_REDIRECT_PATH, notice: 'Attendance request was successfully updated.' }
+        format.html { redirect_to :index, notice: 'Attendance request was successfully updated.' }
         format.json { render :show, status: :ok, location: @attendance_request }
       else
         format.html { render :edit }
