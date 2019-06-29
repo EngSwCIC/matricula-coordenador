@@ -52,6 +52,9 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubycritic', require: false
+  gem 'ruby-debug-ide'
+  gem 'debase'
+
 end
 
 group :development do

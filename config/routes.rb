@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :attendance_requests
+  resources :attendance_requests, except: :edit
+  get 'attendance_requests/:id/perform_attendance', to: 'attendance_requests#edit', as: 'perform_attendance'
+
   resources :attendances
 
+  match "attendance_requests/filter_by_priority" => "attendance_requests#filter_by_priority", :via => :post
   match "attendances/filter_by_priority" => "attendances#filter_by_priority", :via => :post
   
   devise_for :users, controllers: { registrations: 'registrations' }

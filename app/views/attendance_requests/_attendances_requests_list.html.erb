@@ -1,0 +1,12 @@
+<% @attendance_requests.each do |attendance_request| %>
+  <tr>
+      <td><%= attendance_request.position %></td>
+      <td><%= attendance_request.user.name %></td>
+      <td><%= attendance_request.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+      <td><%= attendance_request.status.capitalize %></td>
+      <td><%= attendance_request.description %></td>
+      <td><%= attendance_request.priority_student.capitalize %></td>
+      <td><%= link_to 'Realizar Atendimento', perform_attendance_path(attendance_request) %></td>
+      <td><%= link_to (fa_icon "trash", class: 'text-danger'), attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>

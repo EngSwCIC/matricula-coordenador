@@ -107,6 +107,9 @@ GEM
     cucumber-tag_expressions (1.1.1)
     cucumber-wire (0.0.1)
     database_cleaner (1.7.0)
+    debase (0.2.2)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.6.2)
@@ -255,6 +258,8 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    ruby-debug-ide (0.7.0)
+      rake (>= 0.8.1)
     ruby_dep (1.5.0)
     ruby_parser (3.13.1)
       sexp_processor (~> 4.9)
@@ -337,6 +342,7 @@ DEPENDENCIES
   cucumber
   cucumber-rails
   database_cleaner
+  debase
   devise
   factory_bot_rails
   flog
@@ -353,6 +359,7 @@ DEPENDENCIES
   rdoc
   rolify
   rspec-rails (~> 3.8)
+  ruby-debug-ide
   rubycritic
   sass-rails (~> 5.0)
   simplecov

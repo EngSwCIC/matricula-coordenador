@@ -1,12 +1,13 @@
 class AttendanceRequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_attendance_request, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /attendance_requests
   # GET /attendance_requests.json
   def index
     if current_user.has_role? :coordinator or current_user.has_role? :admin
-      @attendance_requests = AttendanceRequest.all
+      @attendance_requests = AttendanceRequest.joins(:user).where("users.course_id = #{current_user.course_id}").all
     else
       @attendance_requests = AttendanceRequest.where(user_id: current_user.id).all
     end
@@ -33,7 +34,6 @@ class AttendanceRequestsController < ApplicationController
     @attendance_request = AttendanceRequest.new;
     @attendance_request.user = current_user;
     @attendance_request.description = attendance_request_params.to_h[:description];
-    @attendance_request.details = attendance_request_params.to_h[:details];
 
     respond_to do |format|
       if @attendance_request.save
@@ -70,6 +70,16 @@ class AttendanceRequestsController < ApplicationController
     end
   end
 
+  #filtra os atendimento pelo tipo de prioridade
+  def filter_by_priority
+    priority_student = filter_params[:priority_student]
+    if !priority_student.include?("Todas")
+      @attendance_requests = AttendanceRequest.where(priority_student: filter_params[:priority_student]).all
+    else
+      @attendance_requests = AttendanceRequest.all.order(priority_student: :asc)
+    end
+    render json: { html: render_to_string(partial: 'attendances_requests_list')  }
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attendance_request
@@ -79,5 +89,9 @@ class AttendanceRequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_request_params
       params.require(:attendance_request).permit(:description, :details)
+    end
+
+    def filter_params
+      params.permit(:priority_student)
     end
 end

@@ -1,0 +1,33 @@
+    <div class='row'>
+        <div class="offset-md-6 col-md-6 form-group row py-2">
+            <label for="priority_filter" class="col-form-label">Filtrar por prioridade: </label>
+            <div class="col-sm-8">
+                <%= 
+                select_tag(:priority_filter, 
+                options_for_select([['Todas','Todas'], ['Em condição','Em condição'],['Normal','Normal'],['Outros', 'Outros']]), 
+                {class: "form-control"})
+                %>
+            </div>
+        </div>
+    <div class='col-12'>
+        <h2>Requisição de atedimento </h2>
+        <p id="notice"><%= notice %></p>
+        <table class="table">
+            <thead>
+                <tr>
+                <th>Posição</th>
+                <th>Aluno</th>
+                <th>Data Pedidos</th>
+                <th>Status</th>
+                <th>Descrição</th>
+                <th>Prioridade</th>
+                <th colspan="2">Ações</th>
+                </tr>
+            </thead>
+
+            <tbody class="attendances-requests-list">
+                <%= render partial: 'attendances_requests_list', attendances: @attendance_requests %>
+            </tbody>
+        </table>
+    </div>
+</div>

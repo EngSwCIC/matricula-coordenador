@@ -3,6 +3,8 @@ class AttendanceRequest < ApplicationRecord
   validates :user, presence: true
   validates :description, presence: true
   attr_accessor :position
+  enum status: {aguardando: 'aguardando' , atendido: 'atendido'}
+  enum priority_student: {normal: 'normal', 'em condicao': 'em condicao', outros: 'outros'}
 
   private
     after_initialize do
