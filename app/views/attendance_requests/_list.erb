@@ -10,6 +10,9 @@
                 <th>Data Pedidos</th>
                 <th>Status</th>
                 <th>Descrição</th>
+                <% if  current_user.has_role? :coordinator %>
+                <th>Detalhes</th>
+                <% end %>
                 <th>Ações</th>
                 </tr>
             </thead>
@@ -22,6 +25,9 @@
                     <td><%= attendance_request.created_at.strftime("%d/%m/%Y %H:%M") %></td>
                     <td><%= attendance_request.status %></td>
                     <td><%= attendance_request.description %></td>
+                    <% if  current_user.has_role? :coordinator %>
+                    <td><%= attendance_request.details %></td>
+                    <% end %>
                     <td><%= link_to 'Remover Requisição', attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     <!--  <td><%# link_to 'Remover Requisição', attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td> %> -->
                 </tr>

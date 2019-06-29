@@ -26,5 +26,12 @@
     <%= form.text_field :description , {class: 'form-control'}%>
   </div>
 
+  <% if  current_user.has_role? :coordinator %>
+  <div class="form-group">
+    <label>Detalhes</label>
+    <%= form.text_field :details , {class: 'form-control'}%>
+  </div>
+  <% end %>
+
   <%= form.submit "Confirmar Requisição", class: 'btn btn-primary mb-2' %>
 <% end %>
