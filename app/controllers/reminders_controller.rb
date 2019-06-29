@@ -9,11 +9,6 @@ class RemindersController < ApplicationController
     @reminders = Reminder.where(user_id: current_user.id)
   end
 
-  # GET /reminders/1
-  # GET /reminders/1.json
-  def show
-  end
-
   # GET /reminders/new
   def new
     @reminder = Reminder.new
@@ -27,14 +22,17 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     @reminder = Reminder.new(reminder_params)
-    @reminder.user = current_user
+    @reminder.remind_date = Time.zone.parse(reminder_params[:remind_date])
+    @reminder.user_id = current_user.id
+    @reminder.attendance_request_id = reminder_params[:attendance_request_id]
+    puts @reminder.inspect
     respond_to do |format|
       if @reminder.save
-        format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
-        format.json { render :show, status: :created, location: @reminder }
+        format.html { redirect_to reminders_path, notice: 'Lembrete criado com sucesso .' }
+        format.json { render :index, status: :created, location: @reminder }
       else
         format.html { render :new }
-        format.json { render json: @reminder.errors, status: :unprocessable_entity }
+        format.json { render json: @reminder.erros, status: :unprocessable_entity }
       end
     end
   end
@@ -42,9 +40,10 @@ class RemindersController < ApplicationController
   # PATCH/PUT /reminders/1
   # PATCH/PUT /reminders/1.json
   def update
+    @reminder.attendance_request = AttendanceRequest.find(reminder_params[:attendance_request_id])
     respond_to do |format|
       if @reminder.update(reminder_params)
-        format.html { redirect_to @reminder, notice: 'Reminder was successfully updated.' }
+        format.html { redirect_to @reminder, notice: 'Lembrete atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @reminder }
       else
         format.html { render :edit }
@@ -58,7 +57,7 @@ class RemindersController < ApplicationController
   def destroy
     @reminder.destroy
     respond_to do |format|
-      format.html { redirect_to reminders_url, notice: 'Reminder was successfully destroyed.' }
+      format.html { redirect_to reminders_url, notice: 'Lembrete excluido com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +70,6 @@ class RemindersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
-      params.require(:reminder).permit(:remind, :remind_date, :read, :user_id, :attendance_request)
+      params.require(:reminder).permit(:remind, :remind_date, :read, :user_id, :attendance_request_id)
     end
 end

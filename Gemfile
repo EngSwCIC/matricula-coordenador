@@ -42,6 +42,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem to veirfy permissions
 gem 'cancancan'
 
+gem 'jquery-ui-rails'
+
 # Simplecov
 group :test do
   gem 'simplecov', require: false

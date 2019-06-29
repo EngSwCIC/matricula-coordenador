@@ -10,4 +10,18 @@ module ApplicationHelper
   def abouts_page?
     controller_name == 'abouts'
   end
+
+  #Helper das mensagens
+  def render_alert_message key
+    case key
+    when "alert"
+      "danger" 
+    when "notice"
+      "success"
+    when "info"
+      "warning"
+    else
+      key
+    end
+  end
 end
