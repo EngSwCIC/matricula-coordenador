@@ -1,0 +1,11 @@
+<div class="wrapper row-fluid">
+  <% flash.each do |key, value| %>
+    <% alert  =  key.include?("alert") ? "danger" : key %>
+    <% alert  =  key.include?("notice") ? "success" : key %>
+    <% alert  =  key.include?("info") ? "warning" : key %>
+
+    <p class="alert alert-<%=alert%>"> <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= value %>
+    </p>
+  <% end  %>
+</div>

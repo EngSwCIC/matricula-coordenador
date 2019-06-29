@@ -1,11 +1,12 @@
 class RemindersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reminder, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /reminders
   # GET /reminders.json
   def index
-    @reminders = Reminder.all
+    @reminders = Reminder.where(user_id: current_user.id)
   end
 
   # GET /reminders/1
