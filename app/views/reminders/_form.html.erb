@@ -18,7 +18,7 @@
    <div class="col-auto form-group">
     <label for="attendance_request" class="col-form-label">Selecione o atendimento referente: </label>
       <%= f.select(:attendance_request_id, 
-        options_for_select(AttendanceRequest.all.map{|attendance| attendance_user_name attendance}), 
+        options_for_select(AttendanceRequest.all.map{|attendance| attendance_user_name attendance},attendance_user_name(f.object.attendance_request)), 
         { include_blank: true },class: "form-control")
       %> 
   </div>
