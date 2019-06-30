@@ -1,3 +1,6 @@
+Before do
+  $session = Capybara::Session.new(:chrome)
+end
 
 Before('@coordinator') do 
   @user = User.create(name: 'Coordenador', email: 'coordenador@coordenador.com', password: '123qwe123')
