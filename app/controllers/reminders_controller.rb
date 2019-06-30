@@ -38,7 +38,7 @@ class RemindersController < ApplicationController
         format.json { render :index, status: :created, location: @reminder }
       else
         format.html { render :new }
-        format.json { render json: @reminder.erros, status: :unprocessable_entity }
+        format.json { render json: @reminder.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,12 +50,13 @@ class RemindersController < ApplicationController
     if reminder_params[:attendance_request_id].blank?
       @reminder.attendance_request_id = reminder_params[:attendance_request_id]
     end
-    
+    @reminder.update(reminder_params)
     respond_to do |format|
-      if @reminder.update(reminder_params)
+      if @reminder.save
         format.html { redirect_to reminders_path, notice: 'Lembrete atualizado com sucesso' }
         format.json { render :index, status: :ok, location: @reminder }
       else
+        puts @reminder.errors.empty?
         format.html { render :edit }
         format.json { render json: @reminder.errors, status: :unprocessable_entity }
       end
