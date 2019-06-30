@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_29_032137) do
 
   create_table "attendance_requests", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "status", default: "aguardando", comment: "status são : [ aguardando, atendido, faltou ]"
+    t.string "status", default: "aguardando", comment: "status são : [ aguardando, atendido ]"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

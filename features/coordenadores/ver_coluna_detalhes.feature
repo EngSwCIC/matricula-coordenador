@@ -9,6 +9,6 @@ Funcionalidade: ver_coluna_detalhes
   Cenario: Ver coluna de detalhes
     Dado que eu seja um coordenador
     Dado que eu esteja autenticado
-    E tenha pedidos de alunos com detalhes
-    E esteja na pagina de informações da fila
-    Então devo ver a coluna de detalhes
+    E tenha pedidos de alunos
+    E esteja na pagina de realizar atendimento
+    Então devo ver o campo de detalhes

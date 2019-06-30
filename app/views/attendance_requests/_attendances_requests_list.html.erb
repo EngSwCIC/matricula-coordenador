@@ -7,6 +7,6 @@
       <td><%= attendance_request.description %></td>
       <td><%= attendance_request.priority_student.capitalize %></td>
       <td><%= link_to 'Realizar Atendimento', perform_attendance_path(attendance_request) %></td>
-      <td><%= link_to (fa_icon "trash", class: 'text-danger'), attendance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to (fa_icon "trash", class: 'text-danger lixeira'), attendance_request, method: :delete, data: { confirm: 'Are you sure?' }, :class => "lixeira" %></td>
   </tr>
 <% end %>

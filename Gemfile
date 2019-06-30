@@ -55,7 +55,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'gemaina'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 3.8'
   gem 'rubycritic', require: false
   gem 'ruby-debug-ide'
   gem 'debase'

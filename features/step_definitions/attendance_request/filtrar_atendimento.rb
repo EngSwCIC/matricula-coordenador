@@ -1,6 +1,6 @@
 
 Dado('que eu esteja na pagina para ver atendimentos') do
-  visit attendances_path
+  visit attendance_requests_path
 end
 
 Quando('eu clicar em filtrar por {string} e selecionar {string} do campo de id {string}') do |s,t,g|

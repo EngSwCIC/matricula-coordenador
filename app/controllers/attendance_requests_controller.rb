@@ -37,7 +37,7 @@ class AttendanceRequestsController < ApplicationController
 
     respond_to do |format|
       if @attendance_request.save
-        format.html { redirect_to attendance_requests_path :index, notice: 'Attendance request was successfully created.' }
+        format.html { redirect_to attendance_requests_path, notice: 'Attendance request was successfully created.' }
         format.json { render :index, status: :created, location: @attendance_request }
       else
         format.html { render :new }
