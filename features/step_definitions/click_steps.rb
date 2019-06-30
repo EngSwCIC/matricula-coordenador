@@ -3,7 +3,7 @@ Quando('eu clicar em {string}') do |botao|
 end
 
 Quando('eu clicar no link {string}') do |string|
-  page.find('a', text: string).click
+  page.first('a', text: string).click
 end
 
 Quando('eu clicar no link com a classe {string}') do |string|
