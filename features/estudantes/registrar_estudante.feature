@@ -8,7 +8,7 @@ Funcionalidade: registrar_estudante
 	#caso feliz
   Cenario: Se cadastrar no sistema com sucesso
   	Dado que eu seja um aluno não autenticado
-  	E esteja na página principal
+  	Dado que eu esteja na página "root_path"
   	Quando eu clicar no botao em "Login"
   	Então devo ser redirecionado para rota "users/sign_in"
   	Quando eu clicar em "Sign up"
@@ -23,7 +23,7 @@ Funcionalidade: registrar_estudante
 	Cenario: Se cadastrar no sistema com falha
 		Dado exista um coordenador com email "mout@mout.com"
 		E que eu seja um aluno não autenticado
-  	E esteja na página principal
+  	Dado que eu esteja na página "root_path"
   	Quando eu clicar no botao em "Login"
   	Então devo ser redirecionado para rota "users/sign_in"
   	Quando eu clicar em "Sign up"

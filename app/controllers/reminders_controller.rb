@@ -34,7 +34,7 @@ class RemindersController < ApplicationController
 
     respond_to do |format|
       if @reminder.save
-        format.html { redirect_to reminders_path, notice: 'Lembrete criado com sucesso .' }
+        format.html { redirect_to reminders_path, notice: 'Lembrete criado com sucesso.' }
         format.json { render :index, status: :created, location: @reminder }
       else
         format.html { render :new }

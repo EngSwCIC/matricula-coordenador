@@ -8,7 +8,7 @@ Funcionalidade: editar_informacao_coordenadores
   #caso feliz
   Cenario: Editar minhas informações pessoais com sucesso
     Dado que eu seja um coordenador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na página de informações pessoais do coordenador
     Quando eu clicar para editar informações do coordenador em "Editar"
     E preencher os dados do formulário:
@@ -24,8 +24,8 @@ Funcionalidade: editar_informacao_coordenadores
   #caso triste
   Cenario: Editar minhas informações pessoais com falha
     Dado exista um coordenador do curso "Estatística" com email "mout@mout.com"
-    E que eu seja um coordenador 
-    E esteja autenticado
+    Dado que eu seja um coordenador 
+    Dado que eu esteja autenticado
     E esteja na página de informações pessoais do coordenador
     Quando eu clicar para editar informações do coordenador em "Editar"
     E preencher os dados do formulário:

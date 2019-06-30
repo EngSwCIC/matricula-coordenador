@@ -8,7 +8,7 @@ Funcionalidade: delete_attendance_request
   #casos felize
   Cenário: Deletar uma requisição de atendimento
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E possua uma requisição
     E esteja na pagina de informações da fila
     Quando eu clicar no link "Remover Requisição"

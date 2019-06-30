@@ -8,7 +8,7 @@ Funcionalidade: criar_formularios
   #casos felizes
   Cenario: Criar formulario com sucesso
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar formularios
     Quando eu clicar em "Novo Formulário"
     E preencher "Descrição" com "Inglês"
@@ -22,7 +22,7 @@ Funcionalidade: criar_formularios
   #casos tristes
   Cenario: Criar formulario apenas com Descrição
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar formularios
     Quando eu clicar em "Novo Formulário"
     E preencher "Descrição" com "Inglês"
@@ -31,7 +31,7 @@ Funcionalidade: criar_formularios
 
   Cenario: Criar formulario apenas com Grupo
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar formularios
     Quando eu clicar em "Novo Formulário"
     E preencher "Grupo" com "1"
@@ -40,7 +40,7 @@ Funcionalidade: criar_formularios
 
   Cenario: Criar formulario apenas com Carga Horária
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar formularios
     Quando eu clicar em "Novo Formulário"
     E preencher "Carga horária" com "10"
@@ -49,7 +49,7 @@ Funcionalidade: criar_formularios
   
   Cenario: Criar formulario apenas com Quantidade de créditos
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar formularios
     Quando eu clicar em "Novo Formulário"
     E preencher "Quantidade de créditos solicitados" com "4"

@@ -8,7 +8,7 @@ Funcionalidade: excluir_coordenadores
   #caso feliz
   Cenario: Excluir coordenadores com sucesso
     Dado que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E exista um coordenador com email "mout@mout.com"
     E esteja na pagina para criar coordenadores
     Quando eu clicar para deletar no botao "Excluir"

@@ -8,7 +8,7 @@ Funcionalidade: criar_coordenadores
   #casos felizes
   Cenario: Criar coordenadores com sucesso
     Dado que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar coordenadores
     E tenha o curso "Engenharia de Computação"
     Quando eu clicar em "Novo Coordenador"
@@ -25,7 +25,7 @@ Funcionalidade: criar_coordenadores
   Cenario: Criar coordenadores com falha
     Dado exista um coordenador do curso "Estatística" com email "mout@mout.com"
     E que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar coordenadores
     Quando eu clicar em "Novo Coordenador"
     E preencher os dados do formulário:

@@ -8,7 +8,7 @@ Funcionalidade: create_attendance_request
   #casos felize
   Cenário: Criar uma requisição de atendimento
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina de informações da fila
     Quando eu clicar em "Requisitar Atendimento"
     Então sou redirecionado para página de informações da requisição

@@ -20,6 +20,6 @@ Dado("que eu seja um usuario nao autenticado") do
     destroy_user_session_path
   end
 
-Dado('esteja autenticado') do
+Dado('que eu esteja autenticado') do
     Login::as(@user.email, @user.password)
 end
