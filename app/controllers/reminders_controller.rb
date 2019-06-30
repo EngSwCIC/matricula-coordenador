@@ -6,7 +6,7 @@ class RemindersController < ApplicationController
   # GET /reminders
   # GET /reminders.json
   def index
-    @reminders = Reminder.where(user_id: current_user.id)
+    @reminders = Reminder.where(user_id: current_user.id).order(:remind_date)
   end
 
   # GET /reminders/new
