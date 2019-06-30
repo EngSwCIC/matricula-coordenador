@@ -10,16 +10,16 @@
     <div class="form-group">
       <%= f.label "Data do lembrete:" %>
       <%= f.text_field :remind_date, class:'form-control datepicker', 
-      value:"#{f.object.remind_date.strftime("%dd-%mm-%YYYY") unless f.object.new_record? or f.object.remind_date.nil?}" 
+      value:"#{f.object.remind_date.strftime("%d-%m-%Y") unless f.object.new_record? or f.object.remind_date.nil?}" 
       %>
     </div>
   </div>
 
    <div class="col-auto form-group">
     <label for="attendance_request" class="col-form-label">Selecione o atendimento referente: </label>
-      <%= select_tag(:attendance_request_id, 
+      <%= f.select(:attendance_request_id, 
         options_for_select(AttendanceRequest.all.map{|attendance| attendance_user_name attendance}), 
-        {class: "form-control", include_blank: true },)
+        { include_blank: true },class: "form-control")
       %> 
   </div>
   <div class="form-group float-right">

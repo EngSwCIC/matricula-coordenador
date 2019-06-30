@@ -24,4 +24,19 @@ module ApplicationHelper
       key
     end
   end
+
+  def verify_coordinator_reminders
+    count = 0
+    if current_user.has_role? :coordinator
+      reminders = current_user.reminders
+      if reminders.size > 0
+        reminders.each do |reminder|
+          if reminder.remind_date <= 1.day.from_now
+            count += 1
+          end
+        end
+      end
+    end
+    count
+  end
 end

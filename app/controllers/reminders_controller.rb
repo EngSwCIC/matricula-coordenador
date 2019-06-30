@@ -14,6 +14,9 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new
   end
 
+  def show
+  end
+
   # GET /reminders/1/edit
   def edit
   end
@@ -24,8 +27,11 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new(reminder_params)
     @reminder.remind_date = Time.zone.parse(reminder_params[:remind_date])
     @reminder.user_id = current_user.id
-    @reminder.attendance_request_id = reminder_params[:attendance_request_id]
-    puts @reminder.inspect
+
+    if reminder_params[:attendance_request_id].blank?
+      @reminder.attendance_request_id = reminder_params[:attendance_request_id]
+    end
+
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to reminders_path, notice: 'Lembrete criado com sucesso .' }
@@ -40,11 +46,15 @@ class RemindersController < ApplicationController
   # PATCH/PUT /reminders/1
   # PATCH/PUT /reminders/1.json
   def update
-    @reminder.attendance_request = AttendanceRequest.find(reminder_params[:attendance_request_id])
+    @reminder.remind_date = Time.zone.parse(reminder_params[:remind_date])
+    if reminder_params[:attendance_request_id].blank?
+      @reminder.attendance_request_id = reminder_params[:attendance_request_id]
+    end
+    
     respond_to do |format|
       if @reminder.update(reminder_params)
-        format.html { redirect_to @reminder, notice: 'Lembrete atualizado com sucesso' }
-        format.json { render :show, status: :ok, location: @reminder }
+        format.html { redirect_to reminders_path, notice: 'Lembrete atualizado com sucesso' }
+        format.json { render :index, status: :ok, location: @reminder }
       else
         format.html { render :edit }
         format.json { render json: @reminder.errors, status: :unprocessable_entity }
