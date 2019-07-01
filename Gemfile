@@ -44,48 +44,6 @@ gem 'cancancan'
 
 gem 'jquery-ui-rails'
 
-# Simplecov
-group :test do
-  gem 'simplecov', require: false
-end
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails'
-  gem 'gemaina'
-  gem 'rails-controller-testing'
-  gem 'rubycritic', require: false
-  gem 'ruby-debug-ide'
-  gem 'debase'
-
-end
-
-group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'web-console', '>= 3.3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-# Cucumber
-
-gem 'cucumber'
-
-# Cucumber
-
-group :test do
-  gem 'cucumber-rails', require: false
-  # database_cleaner is not mandatory, but highly recommended
-  gem 'database_cleaner'
-  gem 'rspec-rails', '~> 3.8'
-end
-
 # Bootstrap
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
@@ -107,3 +65,38 @@ gem 'flog'
 
 # Flog
 gem 'metric_fu-Saikuro'
+
+# Cucumber
+gem 'cucumber'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'simplecov', require: false
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'gemaina'
+  gem 'rails-controller-testing'
+  gem 'rubycritic', require: false
+  gem 'ruby-debug-ide'
+  gem 'debase'
+  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
+  gem 'cucumber-rails', require: false
+
+  # database_cleaner is not mandatory, but highly recommended
+  gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.8'
+end
+
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+

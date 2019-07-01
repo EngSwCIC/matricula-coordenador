@@ -1,13 +1,14 @@
 #language: pt
 #encoding: utf-8
 
-@coordinator
 Funcionalidade: filtrar_atendimento
   Como coordenador autenticado
   Quero filtrar um atendimento por prioridade
 
   #casos felizes
   Cenario: Filtrar atendimento por prioridade corretamente
+    Dado que eu seja um coordenador
+    Dado que eu esteja autenticado
     Dado tenha pedidos de alunos
     Dado que eu esteja na pagina para ver atendimentos
     Quando eu clicar em filtrar por "Prioridade" e selecionar "Em condição" do campo de id "priority_filter"
