@@ -3,10 +3,6 @@
 Dado('que eu seja um aluno não autenticado') do
 end
 
-Dado('esteja na página principal') do
-  visit root_path
-end
-
 Quando('eu clicar no botao em {string}') do |botao|
   click_link botao
 end

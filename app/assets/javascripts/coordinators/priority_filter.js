@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function () {
   $('#priority_filter').change(function () {
     let priority = $(this).val();
     $.ajax({
-      url: "/attendances/filter_by_priority",
+      url: "/attendance_requests/filter_by_priority",
       beforeSend: function (xhr) {
         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
       },
@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function () {
       },
       dataType: 'json',
       success: function (data) {
-        $('.attendances-list').html(data.html);
+        $('.attendances-requests-list').html(data.html);
       }
     })
   });

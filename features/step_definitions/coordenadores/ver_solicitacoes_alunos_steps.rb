@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 Dado('tenha pedidos de alunos') do
-    @course = Course.create(name: 'CIC')
-
-
         @stud1 = User.create(name: 'Estudante1', email: 'email1@email.com', password: '123456', course: @course)
         @stud1.add_role(:student)
         @stud2 = User.create(name: 'Estudante2', email: 'email2@email.com', password: '123456', course: @course)

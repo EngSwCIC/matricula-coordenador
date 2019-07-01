@@ -1,0 +1,29 @@
+<%= form_with(model: reminder, local: true) do |f| %>
+  <div class="col-auto">
+    <div class="form-group">
+      <%= f.label "Lembrar:" %>
+      <%= f.text_area :remind, class: "form-control"%>
+    </div>
+  </div>
+
+  <div class="col-auto">  
+    <div class="form-group">
+      <%= f.label "Data do lembrete:" %>
+      <%= f.text_field :remind_date, class:'form-control datepicker', 
+      value:"#{f.object.remind_date.strftime("%d-%m-%Y") unless f.object.new_record? or f.object.remind_date.nil?}" 
+      %>
+    </div>
+  </div>
+
+   <div class="col-auto form-group">
+    <label for="attendance_request" class="col-form-label">Selecione o atendimento referente: </label>
+      <%= f.select(:attendance_request_id, 
+        options_for_select(AttendanceRequest.all.map{|attendance| attendance_user_name attendance},attendance_user_name(f.object.attendance_request)), 
+        { include_blank: true },class: "form-control")
+      %> 
+  </div>
+  <div class="form-group float-right">
+    <%= f.submit "Salvar", class:"btn btn-primary" %>
+    <%= link_to 'Cancelar', reminders_path, class:"btn btn-secondary" %>
+  </div>
+<% end %>

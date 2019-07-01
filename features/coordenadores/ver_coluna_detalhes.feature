@@ -3,12 +3,13 @@
 
 Funcionalidade: ver_coluna_detalhes
   Como coordenador autenticado
-  Quero quero ver a coluna de detalhes
+  Quero quero ver a campo de detalhes
 
   #casos felizes
-  Cenario: Ver coluna de detalhes
+  Cenario: Ver campo de detalhes
     Dado que eu seja um coordenador
-    E esteja autenticado
-    E tenha pedidos de alunos com detalhes
+    Dado que eu esteja autenticado
+    E tenha pedidos de alunos
     E esteja na pagina de informações da fila
-    Então devo ver a coluna de detalhes
+    Quando eu clicar no link "Realizar Atendimento"
+    Então devo ver o campo de detalhes

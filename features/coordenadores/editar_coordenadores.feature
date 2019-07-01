@@ -8,7 +8,7 @@ Funcionalidade: editar_coordenadores
   #casos felizes
   Cenario: Editar coordenadores com sucesso
     Dado que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E exista um coordenador com email "mout@mout.com"
     E tenha o curso "Design"
     E esteja na pagina para criar coordenadores
@@ -27,7 +27,7 @@ Funcionalidade: editar_coordenadores
     Dado exista um coordenador do curso "Estatística" com email "mout@mout.com"
     E exista um coordenador do curso "Design" com email "khaliu@khaliu.com"
     E que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E esteja na pagina para criar coordenadores
     Quando eu clicar no botão "Editar" de um coordenador
     E preencher os dados do formulário:

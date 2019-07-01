@@ -9,5 +9,5 @@ Funcionalidade: visualizar_informacoes_header
   Cenario: Visualizar Tipo usuário e Preferencias no header
     Dado que eu seja um usuario
     Dado que eu esteja na pagina inicial do sistema
-    E esteja autenticado
+    Dado que eu esteja autenticado
     Então devo ver informações tais como "Tipo" e "Preferências" no header

@@ -1,0 +1,8 @@
+<div class="wrapper row-fluid">
+  <% flash.each do |key, value| %>
+    <p class="alert alert-<%= render_alert_message key %>"> <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= value %>
+    </p>
+  <% end  %>
+ 
+</div>

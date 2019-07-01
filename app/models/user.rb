@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :credit_forms
-
+  has_many :reminders
   belongs_to :course, optional: true
 
   validates :email, presence: true
