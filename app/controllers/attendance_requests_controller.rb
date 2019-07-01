@@ -74,7 +74,8 @@ class AttendanceRequestsController < ApplicationController
   def filter_by_priority
     priority_student = filter_params[:priority_student]
     if !priority_student.include?("Todas")
-      @attendance_requests = AttendanceRequest.where(priority_student: filter_params[:priority_student]).all
+      puts "akiii"
+      @attendance_requests = AttendanceRequest.where("Lower(priority_student) = ?", "#{priority_student.downcase}").all
     else
       @attendance_requests = AttendanceRequest.all.order(priority_student: :asc)
     end

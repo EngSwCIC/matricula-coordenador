@@ -28,5 +28,6 @@ Funcionalidade: criar_lembretes
     Então sou redirecionado para página criação de lembretes
     E preencher os dados do formulário:
     	| reminder[remind] |Lembrar de ...  |
+    	| reminder[remind_date] ||
     Quando eu clicar no botão "Salvar"
     Então devo ver a mensagem de sucesso "Remind date can't be blank"
