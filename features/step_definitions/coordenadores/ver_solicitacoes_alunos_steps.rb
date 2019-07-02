@@ -8,9 +8,9 @@ Dado('tenha pedidos de alunos') do
         @stud3 = User.create(name: 'Estudante3', email: 'email3@email.com', password: '123456', course: @course)
         @stud3.add_role(:student)
 
-        @attend1 = AttendanceRequest.create(user: @stud1, description: 'Descrição de atendimento')
-        @attend2 = AttendanceRequest.create(user: @stud2, description: 'Descrição de atendimento')
-        @attend3 = AttendanceRequest.create(user: @stud3, description: 'Descrição de atendimento')
+        @attend1 = AttendanceRequest.create(user: @stud1, description: 'Descrição de atendimento', priority_student: 'normal')
+        @attend2 = AttendanceRequest.create(user: @stud2, description: 'Descrição de atendimento', priority_student: 'em condição')
+        @attend3 = AttendanceRequest.create(user: @stud3, description: 'Descrição de atendimento', priority_student: 'outros')
 
 end
 

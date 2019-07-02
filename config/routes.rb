@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   get 'attendance_requests/:id/perform_attendance', to: 'attendance_requests#edit', as: 'perform_attendance'
 
   resources :reminders
-  resources :attendance_requests
 
   match "attendance_requests/filter_by_priority" => "attendance_requests#filter_by_priority", :via => :post
-  match "attendances/filter_by_priority" => "attendances#filter_by_priority", :via => :post
   
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'welcome#index'
@@ -40,7 +38,6 @@ Rails.application.routes.draw do
   authenticated :user do
     namespace :coordinators do
       resources :infos
-      # put '/attempt', to: 'attendances#attempt'
     end
   end
 

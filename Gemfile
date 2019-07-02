@@ -79,7 +79,6 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'ruby-debug-ide'
   gem 'debase'
-  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
   gem 'cucumber-rails', require: false
 
   # database_cleaner is not mandatory, but highly recommended

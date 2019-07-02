@@ -18,10 +18,6 @@ unless Rails.env.production?
   CreditForm.destroy_all
   puts 'Formularios de concessao de credito apagados'
 
-  # Apaga atendimentos
-  Attendance.destroy_all
-  puts 'Atendimentos apagados'
-
   # Apaga requisicao atendimentos 
   AttendanceRequest.destroy_all
   puts 'Requisicao de atendimento apagados'
@@ -65,12 +61,17 @@ unless Rails.env.production?
   puts 'Usuario email@email.com criado'
 
   # Cria alunos
-  u = User.create(name: 'Estudante1', email: 'teste@teste', password: '123456', course: c_cic)
-  u.add_role(:student)
-  u = User.create(name: 'Estudante2', email: 'teste2@teste', password: '123456', course: c_cic)
-  u.add_role(:student)
+  alu_1 = User.create(name: 'Estudante1', email: 'teste@teste', password: '123456', course: c_cic)
+  alu_1.add_role(:student)
+  alu_2 = User.create(name: 'Estudante2', email: 'teste2@teste', password: '123456', course: c_cic)
+  alu_2.add_role(:student)
   puts 'Estudantes criados'
 
+  #Cria Atendimentos
+  AttendanceRequest.create(user: alu_1, description: 'Requisição de Atendimento 1', priority_student: 'normal')
+  AttendanceRequest.create(user: alu_2, description: 'Requisição de Atendimento 2', priority_student: 'em condição')
+  AttendanceRequest.create(user: alu_1, description: 'Requisição de Atendimento 2', priority_student: 'outros')
+  puts 'Atendimentos requisitados criados'
 
   # Cria coordenadores
   c = Course.find_by(name: 'Ciência da Computação (Bacharel)')
