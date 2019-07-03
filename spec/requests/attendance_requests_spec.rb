@@ -23,4 +23,11 @@ RSpec.describe "AttendanceRequests", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "PUT /attendance_requests/1/edit" do
+    it "edit attendance_requests" do
+      get attendance_request_path(AttendanceRequests.first)
+      expect(response).to have_http_status(200)
+    end
+  end
 end
