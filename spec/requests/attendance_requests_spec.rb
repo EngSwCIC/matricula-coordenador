@@ -7,6 +7,7 @@ RSpec.describe "AttendanceRequests", type: :request do
     @student.add_role(:student)
     @student.save
     sign_in @student
+    @attendance = AttendanceRequest.first
   end
   
   describe "GET /attendance_requests" do
@@ -26,7 +27,7 @@ RSpec.describe "AttendanceRequests", type: :request do
 
   describe "PUT /attendance_requests/1/edit" do
     it "edit attendance_requests" do
-      get attendance_request_path(AttendanceRequests.first)
+      get attendance_requests_path(@attendance)
       expect(response).to have_http_status(200)
     end
   end
