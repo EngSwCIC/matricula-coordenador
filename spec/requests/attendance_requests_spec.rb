@@ -18,10 +18,9 @@ RSpec.describe "AttendanceRequests", type: :request do
   end
 
   describe "NEW /attendance_requests" do
-    it "has the text Requisição de atedimento" do
-      get attendance_requests_path
+    it "new attendance_requests" do
+      get new_attendance_request_path
       expect(response).to have_http_status(200)
-      expect(response.body).to include('Requisição de atedimento');
     end
   end
 end
