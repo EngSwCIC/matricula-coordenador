@@ -24,14 +24,7 @@ class RemindersController < ApplicationController
   # POST /reminders
   # POST /reminders.json
   def create
-    @reminder = Reminder.new(reminder_params)
-    @reminder.remind_date = Time.zone.parse(reminder_params[:remind_date])
-    @reminder.user_id = current_user.id
-
-    if reminder_params[:attendance_request_id].blank?
-      @reminder.attendance_request_id = reminder_params[:attendance_request_id]
-    end
-
+    @reminder = Reminder.new(reminder_params_parsed)
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to reminders_path, notice: 'Lembrete criado com sucesso.' }
@@ -46,17 +39,11 @@ class RemindersController < ApplicationController
   # PATCH/PUT /reminders/1
   # PATCH/PUT /reminders/1.json
   def update
-    @reminder.remind_date = Time.zone.parse(reminder_params[:remind_date])
-    if reminder_params[:attendance_request_id].blank?
-      @reminder.attendance_request_id = reminder_params[:attendance_request_id]
-    end
-    @reminder.update(reminder_params)
     respond_to do |format|
-      if @reminder.save
+      if @reminder.update(reminder_params_parsed)
         format.html { redirect_to reminders_path, notice: 'Lembrete atualizado com sucesso' }
         format.json { render :index, status: :ok, location: @reminder }
       else
-        puts @reminder.errors.empty?
         format.html { render :edit }
         format.json { render json: @reminder.errors, status: :unprocessable_entity }
       end
@@ -82,5 +69,19 @@ class RemindersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
       params.require(:reminder).permit(:remind, :remind_date, :read, :user_id, :attendance_request_id)
+    end
+
+    def reminder_params_parsed
+      params_parsed = Hash.new
+      request_id = reminder_params[:attendance_request_id]
+      params_parsed[:remind_date] = timezoned_date
+      params_parsed[:remind] = reminder_params[:remind]
+      params_parsed[:user_id] = current_user.id
+      params_parsed[:attendance_request_id] = request_id.blank? ? nil : request_id
+      return params_parsed
+    end
+
+    def timezoned_date 
+      Time.zone.parse(reminder_params[:remind_date])
     end
 end

@@ -17,6 +17,13 @@ RSpec.describe ApplicationController, type: :controller do
     sign_in @admin
   end
 
+  before(:each) do
+    @student = User.new(email: 'student@student.com', password: '123456')
+    @student.add_role(:student)
+    @student.save!
+    sign_in @student
+  end
+
   describe "Coordinator" do
     describe "abilities" do
       subject(:ability) { Ability.new(@coordinator) }
@@ -30,8 +37,18 @@ RSpec.describe ApplicationController, type: :controller do
   describe "Admin" do
     describe "abilities" do
       subject(:ability) { Ability.new(@admin) }
-      context "when is an account coordinator" do
+      context "when is an account admin" do
         it { is_expected.to be_able_to(:manage, :all) }
+      end
+    end
+  end
+
+  describe "Student" do
+    describe "abilities" do
+      subject(:ability) { Ability.new(@student) }
+      context "when is an account student" do
+        it { is_expected.to be_able_to(:manage, AttendanceRequest.new(user: @student)) }
+        it { is_expected.to be_able_to(:manage, CreditForm.new(user: @student)) }
       end
     end
   end

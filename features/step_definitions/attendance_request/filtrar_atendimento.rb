@@ -13,3 +13,9 @@ Então('devo ver na tabela de atendimentos em todas as linhas a coluna {string} 
     expect("#{value}").to include value || td.text.has_no_content?
   end
 end
+
+Então('devo ver na tabela de atendimentos em todas as linhas a coluna {string} com o valor diferente de {string}') do |column, value| 
+  all('table tr > td:nth-child(6)').each do |td|
+    expect("#{value}").to_not equal td.text
+  end
+end
