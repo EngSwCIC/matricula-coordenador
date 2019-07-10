@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :attendance_requests, only: [:new, :create, :destroy]
-  resources :attendances
-  match "attendances/filter_by_priority" => "attendances#filter_by_priority", :via => :post
+  resources :attendance_requests, except: :edit
+  get 'attendance_requests/:id/perform_attendance', to: 'attendance_requests#edit', as: 'perform_attendance'
+
+  resources :reminders
+
+  match "attendance_requests/filter_by_priority" => "attendance_requests#filter_by_priority", :via => :post
   
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'welcome#index'
@@ -12,8 +15,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'welcome#contact', as: 'contact'
   get '/coordinator/:id', to: 'welcome#show'
   get '/coordinators', to: 'welcome#coordinators'
-  get '/information', to: 'attendance_requests#index'
-
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   authenticated :user do
@@ -36,7 +38,6 @@ Rails.application.routes.draw do
   authenticated :user do
     namespace :coordinators do
       resources :infos
-      # put '/attempt', to: 'attendances#attempt'
     end
   end
 

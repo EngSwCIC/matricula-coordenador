@@ -29,22 +29,11 @@ RSpec.describe WelcomeController, type: :controller do
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
-
-    it 'should render information page' do
-      @student = User.new(email: 'student@student.com', password: '123456')
-      @student.add_role(:student)
-      @student.save!
-      sign_in @student
-
-      get :information
-      expect(response).to be_successful
-      expect(response).to have_http_status(200)
-    end
   end
 
   # RSpec.describe "HomeFooters", type: :feature do
   #   # it "should list the article titles on the index" do
-  #   #   visit information_path
+  #   #   visit attendance_request_path
   #   # end
   # end
 

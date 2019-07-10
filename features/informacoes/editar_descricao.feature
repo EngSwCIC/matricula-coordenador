@@ -8,7 +8,7 @@ Funcionalidade: editar_descricao
   # caso feliz
   Cenario: Editar descrição com sucesso
     Dado que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E exista uma descrição "Olá mundo"
     E esteja na pagina para editar descrição
     Quando eu clicar para editar descrição em "Editar"
@@ -21,7 +21,7 @@ Funcionalidade: editar_descricao
   # caso triste
   Cenario: Editar descrição com falha
     Dado que eu seja um administrador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E exista uma descrição "Olá mundo"
     E esteja na pagina para editar descrição
     Quando eu clicar para editar descrição em "Editar"

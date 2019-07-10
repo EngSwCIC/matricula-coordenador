@@ -1,19 +1,17 @@
 class AttendanceRequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_attendance_request, only: [:show, :edit, :update, :destroy]
-
-  INFORMATION_PATH = 'welcome/information'
-  INFO_REDIRECT_PATH = '/information';
+  
 
   # GET /attendance_requests
   # GET /attendance_requests.json
   def index
-    if current_user.has_role? :coordinator
-      @attendance_requests = AttendanceRequest.all
+    if current_user.has_role? :coordinator or current_user.has_role? :admin
+      @attendance_requests = AttendanceRequest.joins(:user).where("users.course_id = #{current_user.course_id}").all
     else
       @attendance_requests = AttendanceRequest.where(user_id: current_user.id).all
     end
-    render INFORMATION_PATH
+    render :index
   end
 
   # GET /attendance_requests/1
@@ -39,8 +37,8 @@ class AttendanceRequestsController < ApplicationController
 
     respond_to do |format|
       if @attendance_request.save
-        format.html { redirect_to INFO_REDIRECT_PATH, notice: 'Attendance request was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance_request }
+        format.html { redirect_to attendance_requests_path, notice: 'Attendance request was successfully created.' }
+        format.json { render :index, status: :created, location: @attendance_request }
       else
         format.html { render :new }
         format.json { render json: @attendance_request.errors, status: :unprocessable_entity }
@@ -53,8 +51,8 @@ class AttendanceRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @attendance_request.update(attendance_request_params)
-        format.html { redirect_to INFO_REDIRECT_PATH, notice: 'Attendance request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance_request }
+        format.html { redirect_to attendance_requests_path, notice: 'Attendance request was successfully updated.' }
+        format.json { render :index, status: :ok, location: @attendance_request }
       else
         format.html { render :edit }
         format.json { render json: @attendance_request.errors, status: :unprocessable_entity }
@@ -67,11 +65,22 @@ class AttendanceRequestsController < ApplicationController
   def destroy
     @attendance_request.destroy
     respond_to do |format|
-      format.html { redirect_to INFO_REDIRECT_PATH, notice: 'Attendance request was successfully destroyed.' }
+      format.html { redirect_to attendance_requests_url, notice: 'Attendance request was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  #filtra os atendimento pelo tipo de prioridade
+  def filter_by_priority
+    priority_student = filter_params[:priority_student]
+    if !priority_student.include?("Todas")
+      puts "akiii"
+      @attendance_requests = AttendanceRequest.where("Lower(priority_student) = ?", "#{priority_student.downcase}").all
+    else
+      @attendance_requests = AttendanceRequest.all.order(priority_student: :asc)
+    end
+    render json: { html: render_to_string(partial: 'attendances_requests_list')  }
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attendance_request
@@ -80,6 +89,10 @@ class AttendanceRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_request_params
-      params.require(:attendance_request).permit(:description)
+      params.require(:attendance_request).permit(:description, :details)
+    end
+
+    def filter_params
+      params.permit(:priority_student)
     end
 end

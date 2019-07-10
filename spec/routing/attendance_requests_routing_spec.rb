@@ -15,7 +15,7 @@ RSpec.describe AttendanceRequestsController, type: :routing do
     end
 
     it "routes to #edit" do
-      expect(:get => "/attendance_requests/1/edit").to route_to("attendance_requests#edit", :id => "1")
+      expect(:get => "/attendance_requests/1/perform_attendance").to route_to("attendance_requests#edit", :id => "1")
     end
 
 

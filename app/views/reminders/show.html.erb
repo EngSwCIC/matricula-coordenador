@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title center">Lembrete:</h4>
+        <p class="card-text"><%= @reminder.remind %></p>
+        <% if !@reminder.attendance_request.nil? %>
+          <span>
+            Solicitação referente:
+            <%= link_to (attendance_user_name @reminder.attendance_request), attendance_request_path(@reminder.attendance_request.id), method: :get %>
+          </span>
+        <% end %>
+        <%= link_to 'Voltar', reminders_path, class:"btn btn-secondary float-right" %>
+        <%= link_to (fa_icon "check", class: 'text-success btn float-right', title: "Marcar como lido"), @reminder, method: :delete, data: { confirm: 'Tem certeza?' }%>
+      </div>
+    </div>
+  </div>
+</div>

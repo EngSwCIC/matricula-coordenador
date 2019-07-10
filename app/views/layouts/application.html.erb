@@ -20,13 +20,19 @@
     <section class="py-5">
       <div class="container" style="min-height: 100vh">
         <br>
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
+        <%= render partial: "layouts/errors" %>
         <%= yield %>
       </div>
     </section>
-
+    <% if user_signed_in? %>
+      <% if current_user.has_role?(:coordinator) && !controller_name.include?("reminder") %>
+        <div>
+          <div class="col-4 reminder-buttons">
+              <%= render partial: "layouts/coordinators/action_buttons" %>
+          </div>
+        </div>
+     <% end %>
+    <% end %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

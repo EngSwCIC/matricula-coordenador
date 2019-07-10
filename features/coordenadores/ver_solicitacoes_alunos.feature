@@ -8,7 +8,7 @@ Funcionalidade: ver_lista_attendance
   #casos felizes
   Cenario: Ver Lista de Requisições de Atendimento de Todos os Alunos
     Dado que eu seja um coordenador
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E tenha pedidos de alunos
     E esteja na pagina de informações da fila
     Então devo ver uma lista com os pedidos de todos os alunos

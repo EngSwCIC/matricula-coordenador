@@ -8,7 +8,7 @@ class ChangeAttendanceRequest < ActiveRecord::Migration[5.2]
 
     create_table :attendance_requests do |t|
       t.references :user, foreign_key: true
-      t.string :status, default: 'aguardando' , comment: 'status são : [ aguardando, atendido, faltou ]'
+      t.string :status, default: 'aguardando' , comment: 'status são : [ aguardando, atendido ]'
       t.string :description
 
       t.timestamps

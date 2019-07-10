@@ -1,3 +1,8 @@
+<% 
+  isCoordinator = true if current_user.has_role? :coordinator || false
+  user_form = isCoordinator ? attendance_request.user : current_user
+%>
+
 <%= form_with(model: attendance_request, local: true) do |form| %>
   <% if attendance_request.errors.any? %>
     <div id="error_explanation">
@@ -13,18 +18,26 @@
 
   <div class="form-group">
     <label>Nome</label>
-    <input type="text" class="form-control" value="<%= current_user.name %>" disabled readonly>
+    <input type="text" class="form-control" value="<%= user_form.name %>" disabled readonly>
   </div>
 
   <div class="form-group">
     <label>Curso</label>
-    <input type="text" class="form-control" value="<%= current_user.course.name %>" disabled readonly>
+    <input type="text" class="form-control" value="<%= user_form.course.name %>" disabled readonly>
   </div>
+
 
   <div class="form-group">
     <label>Tipo de pedido</label>
-    <%= form.text_field :description , {class: 'form-control'}%>
+    <%= form.text_field :description , {class: 'form-control', disabled: isCoordinator, readonly: isCoordinator }  %>
   </div>
+
+  <% if  current_user.has_role? :coordinator %>
+  <div class="form-group">
+    <label>Detalhes</label>
+    <%= form.text_area :details , {class: 'form-control'}%>
+  </div>
+  <% end %>
 
   <%= form.submit "Confirmar Requisição", class: 'btn btn-primary mb-2' %>
 <% end %>

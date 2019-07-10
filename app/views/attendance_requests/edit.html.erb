@@ -1,11 +1,11 @@
 <div class='container attendace-request'>
 	<div class='row'>
 		<div class='col-12'>
-            <h1>Editar Requisição de atedimento</h1>
+            <h1>Realizando o atedimento de <%= @attendance_request.user.name %></h1>
 
             <%= render 'form', attendance_request: @attendance_request %>
 
-            <%= link_to 'Back', information_path, class:'btn btn-danger' %>
+            <%= link_to 'Back', attendance_requests_path, class:'btn btn-danger' %>
         </div>
     </div>
 </div>

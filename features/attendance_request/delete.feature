@@ -8,9 +8,9 @@ Funcionalidade: delete_attendance_request
   #casos felize
   Cenário: Deletar uma requisição de atendimento
     Dado que eu seja um estudante
-    E esteja autenticado
+    Dado que eu esteja autenticado
     E possua uma requisição
     E esteja na pagina de informações da fila
-    Quando eu clicar no link "Remover Requisição"
+    Quando eu clicar no link com a classe "lixeira"
     Então devo ver a mensagem de sucesso "Attendance request was successfully destroyed."
     E sou redirecionado para página de informações da fila
