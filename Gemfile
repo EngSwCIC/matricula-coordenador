@@ -84,6 +84,9 @@ group :development, :test do
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.8'
+  gem 'metric_fu'
+  gem 'simplecov'
+  gem 'railroady'
 end
 
 group :development do
