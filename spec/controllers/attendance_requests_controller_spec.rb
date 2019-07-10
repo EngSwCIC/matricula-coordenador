@@ -30,6 +30,17 @@ RSpec.describe AttendanceRequestsController, type: :controller do
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
+
+    it 'should render user attendance request page for logged coordinator' do
+      sign_out @user_student
+      @coordinator = User.new(email: 'coordinator@coordinator.com', password: '123456')
+      @coordinator.add_role(:coordinator)
+      @coordinator.save!
+      sign_in @coordinator
+      get :index
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "GET #show" do
