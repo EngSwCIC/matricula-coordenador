@@ -88,6 +88,13 @@ RSpec.describe AttendanceRequestsController, type: :controller do
     end
   end
 
+  describe "POST #filter_by_priority" do 
+    it "should filter by priority" do
+      post :filter_by_priority, params: {priority_student: "Todas"}
+      expect(response).to be_successful
+    end
+  end
+
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
