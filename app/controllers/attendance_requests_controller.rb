@@ -31,9 +31,7 @@ class AttendanceRequestsController < ApplicationController
   # POST /attendance_requests
   # POST /attendance_requests.json
   def create
-    @attendance_request = AttendanceRequest.new;
-    @attendance_request.user = current_user;
-    @attendance_request.description = attendance_request_params.to_h[:description];
+    @attendance_request = AttendanceRequest.new(user: current_user, description: get_description_param)
 
     respond_to do |format|
       if @attendance_request.save
@@ -84,6 +82,10 @@ class AttendanceRequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_attendance_request
       @attendance_request = AttendanceRequest.find(params[:id])
+    end
+
+    def get_description_param
+      attendance_request_params.to_h[:description]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
