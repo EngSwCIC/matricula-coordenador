@@ -291,7 +291,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    rdoc (6.1.1)
+    rdoc (6.3.1)
     redcard (1.1.0)
     reek (1.6.0)
       parser (~> 2.2.0.pre.7)
